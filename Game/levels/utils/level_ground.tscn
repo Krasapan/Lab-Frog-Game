@@ -39,7 +39,7 @@ texture = SubResource("CanvasTexture_s0bjj")
 color = Color(0.262745, 0.298039, 0.309804, 1)
 
 [node name="Lineart" type="Line2D" parent="."]
-width = 8.0
+width = 5.0
 default_color = Color(0.235294, 0.0823529, 0.0941176, 1)
 begin_cap_mode = 1
 end_cap_mode = 1

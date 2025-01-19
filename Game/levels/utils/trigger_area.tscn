@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://levels/utils/trigger_area.gd" id="1_e58t2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0oyl"]
-size = Vector2(384, 384)
+size = Vector2(128, 512)
 
 [sub_resource type="Gradient" id="Gradient_k5tmn"]
 interpolation_mode = 1

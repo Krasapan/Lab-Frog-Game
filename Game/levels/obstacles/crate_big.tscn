@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr04cekxsr2ng"]
+
+[ext_resource type="Texture2D" uid="uid://dkkmxmoef07kh" path="res://assets/props/CrateBig.png" id="1_i1esk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyo1f"]
+size = Vector2(366, 356)
+
+[node name="CrateBig" type="RigidBody2D"]
+mass = 30.0
+gravity_scale = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oyo1f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.335185, 0.335185)
+texture = ExtResource("1_i1esk")

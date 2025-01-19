@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4evq12ar6c86"]
+
+[ext_resource type="Texture2D" uid="uid://s6qjg3cr4hqa" path="res://assets/props/CrateSmall.png" id="1_agvvm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h88qe"]
+size = Vector2(184, 184)
+
+[node name="CrateSmall" type="RigidBody2D"]
+mass = 8.0
+gravity_scale = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h88qe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_agvvm")

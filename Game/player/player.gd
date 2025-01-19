@@ -3,8 +3,11 @@ extends RigidBody2D
 
 @export var stats_small_frog: PlayerStatsResource
 @export var stats_big_frog: PlayerStatsResource
+var active_stats_resource: PlayerStatsResource
 
 @onready var rig := $Rig as Node2D
+@onready var big_frog := $Rig/HopperTransform as Node2D
+@onready var small_frog := $Rig/LilHopperTransform as Node2D
 @onready var collision_shape := $CollisionShape2D as CollisionShape2D
 @onready var rays := $Rays as Node2D
 @onready var wallSlideRayL_Top := $Rays/WallSlideRayL_Top as RayCast2D
@@ -17,6 +20,7 @@ extends RigidBody2D
 @onready var jump_audio_player := $JumpStreamPlayer as AudioStreamPlayer2D
 @onready var land_audio_player := $LandStreamPlayer as AudioStreamPlayer2D
 @onready var hopper_anim_player := $Rig/HopperTransform/Hopper/AnimationPlayer as AnimationPlayer
+@onready var lil_hopper_anim_sprite := $Rig/LilHopperTransform/LilHopperAnimatedSprite as AnimatedSprite2D
 
 @onready var grappleController := $GrappleController as Node2D
 @onready var shootController := $ShootController as Node2D
@@ -53,6 +57,7 @@ var can_play_land_snd : bool = true
 
 func _ready() -> void:
 	hopper_anim_player.play("idle")
+	lil_hopper_anim_sprite.play("idle")
 	if start_as_big_frog:
 		become_big_frog()
 	else:
@@ -68,6 +73,7 @@ func enable_shoot_ability():
 	shootController.ability_active = true
 
 func _load_stats(active_stats_resouce: PlayerStatsResource):
+	active_stats_resource = active_stats_resouce
 	if is_instance_valid(active_stats_resouce):
 		walk_accel = active_stats_resouce.walk_accel
 		walk_deaccel = active_stats_resouce.walk_deaccel
@@ -85,9 +91,14 @@ func _load_stats(active_stats_resouce: PlayerStatsResource):
 
 func become_small_frog():
 	_load_stats(stats_small_frog)
+	small_frog.show()
+	big_frog.hide()
+	
 
 func become_big_frog():
 	_load_stats(stats_big_frog)
+	small_frog.hide()
+	big_frog.show()
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	stateLabel.text = str(fsm_state)
@@ -165,12 +176,20 @@ func _handle_on_floor(velocity: Vector2, step: float, move_left: bool, move_righ
 		return velocity
 
 	if move_left and not move_right:
+		rig.scale.x = -active_stats_resource.scale.x
+		hopper_anim_player.play("run")
+		lil_hopper_anim_sprite.play("walk")
 		if velocity.x > -walk_max_velocity:
 			velocity.x -= walk_accel * step * (START_BOOST_MULTIPLIER if absf(velocity.x) < 20.0 else 1.0)
 	elif move_right and not move_left:
+		rig.scale.x = active_stats_resource.scale.x
+		hopper_anim_player.play("run")
+		lil_hopper_anim_sprite.play("walk")
 		if velocity.x < walk_max_velocity:
 			velocity.x += walk_accel * step * (START_BOOST_MULTIPLIER if absf(velocity.x) < 20.0 else 1.0)
 	else:
+		hopper_anim_player.play("idle")
+		lil_hopper_anim_sprite.play("idle")
 		var xv := absf(velocity.x)
 		xv -= walk_deaccel * step
 		if xv < 0:
@@ -208,6 +227,13 @@ func _handle_in_air(velocity: Vector2, step: float, move_left: bool, move_right:
 		if xv < 0:
 			xv = 0
 		velocity.x = signf(velocity.x) * xv
+	
+	if velocity.y > 0:
+		hopper_anim_player.play("fall")
+		lil_hopper_anim_sprite.play("fall")
+	elif velocity.y < 0:
+		hopper_anim_player.play("jump")
+		lil_hopper_anim_sprite.play("jump")
 
 	return velocity
 
@@ -262,9 +288,13 @@ func _handle_wall_sliding(velocity: Vector2, step: float, move_left: bool, move_
 
 	if is_near_left_wall:
 		#velocity.x = max(velocity.x, -walk_max_velocity)
+		rig.scale.x = active_stats_resource.scale.x
+		hopper_anim_player.play("wallslide")
 		velocity.y = WALL_SLIDE_SPEED
 	elif is_near_right_wall:
 		#velocity.x = min(velocity.x, walk_max_velocity)
+		rig.scale.x = -active_stats_resource.scale.x
+		hopper_anim_player.play("wallslide")
 		velocity.y = WALL_SLIDE_SPEED
 
 	velocity.y += WALL_SLIDE_GRAVITY * step

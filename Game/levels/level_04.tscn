@@ -1,0 +1,164 @@
+[gd_scene load_steps=15 format=3 uid="uid://bdv7tayb2kh1b"]
+
+[ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_haxr6"]
+[ext_resource type="PackedScene" uid="uid://crrr0vxmhyyqy" path="res://levels/obstacles/vent.tscn" id="2_gfcxl"]
+[ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="3_wivda"]
+[ext_resource type="PackedScene" uid="uid://cr04cekxsr2ng" path="res://levels/obstacles/crate_big.tscn" id="4_v3t1l"]
+[ext_resource type="PackedScene" uid="uid://d4evq12ar6c86" path="res://levels/obstacles/crate_small.tscn" id="5_im6dt"]
+[ext_resource type="PackedScene" uid="uid://52ier4g77btl" path="res://levels/obstacles/spike.tscn" id="6_6m6x4"]
+[ext_resource type="PackedScene" uid="uid://vqoom2xgq3fh" path="res://levels/utils/guide_pop_up.tscn" id="7_j1b6r"]
+[ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="8_vcke5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_472t8"]
+size = Vector2(250.605, 14.308)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qysi5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vjqi"]
+size = Vector2(768, 459.023)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhv8y"]
+size = Vector2(2496, 1024)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vupml"]
+size = Vector2(640, 2176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5a54"]
+size = Vector2(640, 3424)
+
+[node name="level_04" type="Node2D"]
+
+[node name="LevelGround" parent="." instance=ExtResource("1_haxr6")]
+
+[node name="Background" parent="LevelGround" index="0"]
+position = Vector2(1391.75, 816)
+scale = Vector2(2784.5, 3872)
+
+[node name="GroundPolygon" parent="LevelGround" index="1"]
+polygon = PackedVector2Array(0, 0, 0, -1024, 2432, -1024, 2432, 0, 1792, 0, 1792, 256, 2176, 256, 2176, 4480, 4096, 4480, 4096, 4864, 2272, 4864, 2336, 4960, 2336, 5888, 7168, 5888, 7168, -2048, -1280, -2048, -1280, 5888, 1792, 5888, 1792, 512, 1536, 512, 1536, 0)
+
+[node name="Lineart" parent="LevelGround" index="2"]
+points = PackedVector2Array(0, 0, 0, -1024, 2432, -1024, 2432, 0, 1792, 0, 1792, 256, 2176, 256, 2176, 4480, 4096, 4480, 4096, 4864, 2272, 4864, 2336, 4960, 2336, 5888, 7168, 5888, 7168, -2048, -1280, -2048, -1280, 5888, 1792, 5888, 1792, 512, 1536, 512, 1536, 0, 0, 0)
+
+[node name="EntryDoorGradient" parent="LevelGround" index="3"]
+visible = false
+
+[node name="EntryDoorOver" parent="LevelGround" index="4"]
+visible = false
+
+[node name="ExitDoorGradient" parent="LevelGround" index="5"]
+visible = false
+
+[node name="ExitDoorOver" parent="LevelGround" index="6"]
+visible = false
+
+[node name="Vent" parent="." instance=ExtResource("2_gfcxl")]
+position = Vector2(1664, 7.50113)
+rotation = -3.14159
+sleeping = true
+
+[node name="CollisionShape2D" parent="Vent" index="0"]
+position = Vector2(-0.0418701, -2.846)
+shape = SubResource("RectangleShape2D_472t8")
+
+[node name="Sprite2D" parent="Vent" index="1"]
+scale = Vector2(3.91888, 0.3125)
+
+[node name="Player" parent="." instance=ExtResource("3_wivda")]
+position = Vector2(134.848, -140.841)
+wallslide_ability_active = true
+start_as_big_frog = true
+
+[node name="VentObstacle2" type="StaticBody2D" parent="."]
+position = Vector2(1547.24, 28.3577)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VentObstacle2"]
+shape = SubResource("RectangleShape2D_qysi5")
+
+[node name="CrateBig" parent="." instance=ExtResource("4_v3t1l")]
+position = Vector2(1653.91, -194.846)
+
+[node name="CrateSmall" parent="." instance=ExtResource("5_im6dt")]
+position = Vector2(1952, -96)
+
+[node name="CrateSmall2" parent="." instance=ExtResource("5_im6dt")]
+position = Vector2(2336, -480)
+
+[node name="CrateBig2" parent="." instance=ExtResource("4_v3t1l")]
+position = Vector2(2240, -192)
+
+[node name="Spike2" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(2236.96, 1251.22)
+rotation = -0.523598
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike3" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(2208, 1970.36)
+rotation = -0.523599
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike4" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(1747.99, 1600.22)
+rotation = 0.523599
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike5" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(1744.9, 800)
+rotation = 0.523599
+scale = Vector2(1.4, 1.4)
+
+[node name="GuidePop-Up" parent="." instance=ExtResource("7_j1b6r")]
+position = Vector2(1024, 4128)
+scale = Vector2(2.99, 2.99)
+
+[node name="CollisionShape2D" parent="GuidePop-Up" index="0"]
+position = Vector2(0, -122.488)
+shape = SubResource("RectangleShape2D_1vjqi")
+
+[node name="Label" parent="GuidePop-Up/CenterContainer" index="0"]
+text = "       [S]
+
+Slide faster"
+
+[node name="Anchor2D_00" parent="." instance=ExtResource("8_vcke5")]
+position = Vector2(1184, -512)
+entered_zoom = 0.7
+exited_zoom = 0.5
+entered_max_speed = 5000.0
+exited_max_speed = 5000.0
+entered_mass = 1.0
+exited_mass = 1.0
+
+[node name="CollisionShape2D" parent="Anchor2D_00" index="0"]
+shape = SubResource("RectangleShape2D_jhv8y")
+
+[node name="Anchor2D_01" parent="." instance=ExtResource("8_vcke5")]
+position = Vector2(1984, 1280)
+entered_zoom = 0.5
+exited_zoom = 0.8
+entered_max_speed = 4000.0
+exited_max_speed = 4000.0
+
+[node name="CollisionShape2D" parent="Anchor2D_01" index="0"]
+position = Vector2(-128, -64)
+shape = SubResource("RectangleShape2D_vupml")
+
+[node name="Anchor2D_02" parent="." instance=ExtResource("8_vcke5")]
+position = Vector2(1984, 3904)
+entered_zoom = 0.3
+exited_zoom = 0.8
+entered_max_speed = 4000.0
+exited_max_speed = 4000.0
+
+[node name="CollisionShape2D" parent="Anchor2D_02" index="0"]
+position = Vector2(128, 240)
+shape = SubResource("RectangleShape2D_x5a54")
+
+[editable path="LevelGround"]
+[editable path="Vent"]
+[editable path="Player"]
+[editable path="Player/Rig/HopperTransform/Hopper"]
+[editable path="GuidePop-Up"]
+[editable path="Anchor2D_00"]
+[editable path="Anchor2D_01"]
+[editable path="Anchor2D_02"]

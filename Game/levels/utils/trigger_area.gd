@@ -10,7 +10,10 @@ enum functions {
 	GO_TO_NEXT_LEVEL,
 	RESTART_LEVEL,
 	MUTATE_SMALL_FROG,
-	MUTATE_BIG_FROG
+	MUTATE_BIG_FROG,
+	MUTATE_ABILITY1,
+	MUTATE_ABILITY2,
+	MUTATE_ABILITY3
 }
 
 func _ready() -> void:
@@ -35,3 +38,9 @@ func _on_body_entered(body: Node2D) -> void:
 				body.become_small_frog()
 			4:
 				body.become_big_frog()
+			5:
+				body.enable_wallslide_ability()
+			6:
+				body.enable_grapple_ability()
+			7:
+				body.enable_shoot_ability()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bn0sx0i60j63e"]
+[gd_scene load_steps=83 format=3 uid="uid://bn0sx0i60j63e"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_e8ijr"]
 [ext_resource type="Resource" uid="uid://ga571q85g5p6" path="res://player/stats_small_frog.tres" id="2_kcubn"]
@@ -7,33 +7,72 @@
 [ext_resource type="Script" path="res://player/shoot_controller.gd" id="4_4ta5d"]
 [ext_resource type="PackedScene" uid="uid://c8xbtbfu356pu" path="res://tbg/Hopper.tscn" id="6_1h30g"]
 [ext_resource type="Script" path="res://player/AnchorDetector2D.gd" id="7_7mc6b"]
+[ext_resource type="Texture2D" uid="uid://31vi4rowquxt" path="res://tbg/lil_hoppy/down/LilHopperDown-36.png" id="7_u5uxr"]
+[ext_resource type="Texture2D" uid="uid://ck7fdbreggy1v" path="res://tbg/lil_hoppy/idle/LilHopperIdle-1.png" id="8_kqbq5"]
 [ext_resource type="Script" path="res://levels/utils/AnchorCamera2D.gd" id="8_rvjbs"]
 [ext_resource type="Script" path="res://player/damage_controller.gd" id="9_c1k7w"]
+[ext_resource type="Texture2D" uid="uid://ckkacwiu1mc51" path="res://tbg/lil_hoppy/idle/LilHopperIdle-2.png" id="9_kil85"]
 [ext_resource type="FontFile" uid="uid://ctmtaoy4888cp" path="res://assets/fonts/toxigenesis.otf" id="9_nk0xv"]
+[ext_resource type="Texture2D" uid="uid://cu3xayh78l6x0" path="res://tbg/lil_hoppy/idle/LilHopperIdle-3.png" id="10_hosba"]
+[ext_resource type="Texture2D" uid="uid://csnruluo60kvm" path="res://tbg/lil_hoppy/idle/LilHopperIdle-4.png" id="11_hpxix"]
 [ext_resource type="AudioStream" uid="uid://d0uv0ws5so5m" path="res://assets/audio/player/jump/player_jump_001.wav" id="11_wyo6t"]
 [ext_resource type="AudioStream" uid="uid://jkyt3s4kmavr" path="res://assets/audio/player/jump/player_jump_002.wav" id="12_2knj1"]
+[ext_resource type="Texture2D" uid="uid://bvk6a4bcvara3" path="res://tbg/lil_hoppy/idle/LilHopperIdle-5.png" id="12_t60o4"]
 [ext_resource type="AudioStream" uid="uid://dqku4ciwn8wcq" path="res://assets/audio/player/jump/player_jump_003.wav" id="13_1w13g"]
+[ext_resource type="Texture2D" uid="uid://cthx88ecpb3sr" path="res://tbg/lil_hoppy/idle/LilHopperIdle-6.png" id="13_bw0va"]
 [ext_resource type="AudioStream" uid="uid://cy5jqgocwae3h" path="res://assets/audio/player/jump/player_jump_004.wav" id="14_banci"]
+[ext_resource type="Texture2D" uid="uid://doxwyx48l4bhu" path="res://tbg/lil_hoppy/idle/LilHopperIdle-7.png" id="14_td5ky"]
+[ext_resource type="Texture2D" uid="uid://x03e3aue4gck" path="res://tbg/lil_hoppy/idle/LilHopperIdle-8.png" id="15_8iqcy"]
 [ext_resource type="AudioStream" uid="uid://cf3hwn887so4m" path="res://assets/audio/player/jump/player_jump_005.wav" id="15_hdeco"]
+[ext_resource type="Texture2D" uid="uid://cd6c267th0tgh" path="res://tbg/lil_hoppy/idle/LilHopperIdle-9.png" id="16_03w1n"]
 [ext_resource type="AudioStream" uid="uid://6tdmgvs7jnxx" path="res://assets/audio/player/jump/player_jump_006.wav" id="16_miwjt"]
 [ext_resource type="AudioStream" uid="uid://bvhv3sl8qwui6" path="res://assets/audio/player/jump/player_jump_007.wav" id="17_6q1ty"]
+[ext_resource type="Texture2D" uid="uid://bswrwurhmcusg" path="res://tbg/lil_hoppy/idle/LilHopperIdle-10.png" id="17_rnffn"]
 [ext_resource type="AudioStream" uid="uid://bwf1mlwhx6fup" path="res://assets/audio/player/jump/player_jump_008.wav" id="18_778ue"]
+[ext_resource type="Texture2D" uid="uid://bmwd5qgr2lgb" path="res://tbg/lil_hoppy/idle/LilHopperIdle-11.png" id="18_jqwkd"]
 [ext_resource type="AudioStream" uid="uid://fvrndf25c6oq" path="res://assets/audio/player/land/player_land_001.wav" id="19_c84mt"]
+[ext_resource type="Texture2D" uid="uid://wnu8h527jbmw" path="res://tbg/lil_hoppy/idle/LilHopperIdle-12.png" id="19_oyvyp"]
+[ext_resource type="Texture2D" uid="uid://du1v37pt3msxj" path="res://tbg/lil_hoppy/idle/LilHopperIdle-13.png" id="20_0r5tr"]
 [ext_resource type="AudioStream" uid="uid://lmb7rmjyiefv" path="res://assets/audio/player/land/player_land_002.wav" id="20_05n6k"]
 [ext_resource type="AudioStream" uid="uid://cxi3wh7wuah4d" path="res://assets/audio/player/land/player_land_003.wav" id="21_87wag"]
+[ext_resource type="Texture2D" uid="uid://d1jmavmbolujr" path="res://tbg/lil_hoppy/idle/LilHopperIdle-14.png" id="21_yw523"]
 [ext_resource type="AudioStream" uid="uid://cvd5dyv17vekr" path="res://assets/audio/player/land/player_land_004.wav" id="22_7k67m"]
+[ext_resource type="Texture2D" uid="uid://cuorex30l7jsm" path="res://tbg/lil_hoppy/idle/LilHopperIdle-15.png" id="22_ia1yj"]
 [ext_resource type="AudioStream" uid="uid://cjv20qu50wdgl" path="res://assets/audio/player/land/player_land_005.wav" id="23_as4sf"]
+[ext_resource type="Texture2D" uid="uid://qybhj48j4k3q" path="res://tbg/lil_hoppy/idle/LilHopperIdle-16.png" id="23_u70vh"]
+[ext_resource type="Texture2D" uid="uid://cuk4o2jab4juq" path="res://tbg/lil_hoppy/idle/LilHopperIdle-17.png" id="24_4niyf"]
 [ext_resource type="AudioStream" uid="uid://dxlhb7lpl8b3x" path="res://assets/audio/player/land/player_land_006.wav" id="24_aol4m"]
+[ext_resource type="Texture2D" uid="uid://badjo7mhhtpf1" path="res://tbg/lil_hoppy/idle/LilHopperIdle-18.png" id="25_4jm32"]
 [ext_resource type="AudioStream" uid="uid://sdbuv0x4gfsk" path="res://assets/audio/player/land/player_land_007.wav" id="25_23h4x"]
 [ext_resource type="AudioStream" uid="uid://crtlnfavclcb8" path="res://assets/audio/player/land/player_land_008.wav" id="26_4j55m"]
+[ext_resource type="Texture2D" uid="uid://dtm3rdohtdert" path="res://tbg/lil_hoppy/idle/LilHopperIdle-19.png" id="26_wxogp"]
 [ext_resource type="AudioStream" uid="uid://cs75mp4bj7uyq" path="res://assets/audio/player/shoot/projectile_shoot_001.wav" id="27_ada1s"]
+[ext_resource type="Texture2D" uid="uid://bnmj02atxoah8" path="res://tbg/lil_hoppy/idle/LilHopperIdle-20.png" id="27_bt80k"]
+[ext_resource type="Texture2D" uid="uid://jwj1l5d7fdd1" path="res://tbg/lil_hoppy/idle/LilHopperIdle-21.png" id="28_4u200"]
 [ext_resource type="AudioStream" uid="uid://uq7yro835lnd" path="res://assets/audio/player/shoot/projectile_shoot_002.wav" id="28_ypvqo"]
 [ext_resource type="AudioStream" uid="uid://usugl2yfi85y" path="res://assets/audio/player/shoot/projectile_shoot_003.wav" id="29_bnesu"]
+[ext_resource type="Texture2D" uid="uid://bbsrjfn01jxhm" path="res://tbg/lil_hoppy/idle/LilHopperIdle-22.png" id="29_stmg6"]
+[ext_resource type="Texture2D" uid="uid://bt7ynwypg0xre" path="res://tbg/lil_hoppy/idle/LilHopperIdle-23.png" id="30_s8a3f"]
 [ext_resource type="AudioStream" uid="uid://5jp6jl4oo1yp" path="res://assets/audio/player/shoot/projectile_shoot_004.wav" id="30_vxpdt"]
 [ext_resource type="AudioStream" uid="uid://b7w4y272tsced" path="res://assets/audio/player/shoot/projectile_shoot_005.wav" id="31_7enkc"]
+[ext_resource type="Texture2D" uid="uid://dvbf108vw2b3u" path="res://tbg/lil_hoppy/idle/LilHopperIdle-24.png" id="31_plfgg"]
 [ext_resource type="AudioStream" uid="uid://l2spvqxs3x1u" path="res://assets/audio/player/shoot/projectile_shoot_006.wav" id="32_3lj78"]
+[ext_resource type="Texture2D" uid="uid://cpw4kuwugeum5" path="res://tbg/lil_hoppy/idle/LilHopperIdle-25.png" id="32_lfs1y"]
 [ext_resource type="AudioStream" uid="uid://bsuwtoo7t83g" path="res://assets/audio/player/shoot/projectile_shoot_007.wav" id="33_4yk1i"]
+[ext_resource type="Texture2D" uid="uid://cnhk61bangnrl" path="res://tbg/lil_hoppy/idle/LilHopperIdle-26.png" id="33_of2kb"]
 [ext_resource type="AudioStream" uid="uid://cq6pdepam2xit" path="res://assets/audio/player/shoot/projectile_shoot_008.wav" id="34_246nr"]
+[ext_resource type="Texture2D" uid="uid://cwl05ydnne6l2" path="res://tbg/lil_hoppy/idle/LilHopperIdle-27.png" id="34_njbd6"]
+[ext_resource type="Texture2D" uid="uid://cxaist1ft5itd" path="res://tbg/lil_hoppy/idle/LilHopperIdle-28.png" id="35_st0ms"]
+[ext_resource type="Texture2D" uid="uid://eh8yexojejfn" path="res://tbg/lil_hoppy/idle/LilHopperIdle-29.png" id="36_t2pfa"]
+[ext_resource type="Texture2D" uid="uid://ck8qqfcc2s6qr" path="res://tbg/lil_hoppy/idle/LilHopperIdle-30.png" id="37_wm74s"]
+[ext_resource type="Texture2D" uid="uid://5nv4kq2rdktu" path="res://tbg/lil_hoppy/up/LilHopperUp-35.png" id="38_wwde0"]
+[ext_resource type="Texture2D" uid="uid://caapi7swpt0ax" path="res://tbg/lil_hoppy/walk/LilHopperWalk-43.png" id="41_3i8la"]
+[ext_resource type="Texture2D" uid="uid://5lslsb8ram4u" path="res://tbg/lil_hoppy/walk/LilHopperWalk-44.png" id="42_ynm37"]
+[ext_resource type="Texture2D" uid="uid://c1gb4s7pw3a0g" path="res://tbg/lil_hoppy/walk/LilHopperWalk-45.png" id="43_tfndd"]
+[ext_resource type="Texture2D" uid="uid://bsh62fh76p44e" path="res://tbg/lil_hoppy/walk/LilHopperWalk-46.png" id="44_cdnrd"]
+[ext_resource type="Texture2D" uid="uid://b4no81dvic7kb" path="res://tbg/lil_hoppy/walk/LilHopperWalk-47.png" id="45_tiwbi"]
+[ext_resource type="Texture2D" uid="uid://ctaww8bkq48kb" path="res://tbg/lil_hoppy/walk/LilHopperWalk-48.png" id="46_leklw"]
+[ext_resource type="Texture2D" uid="uid://4otmcs2svkkn" path="res://tbg/lil_hoppy/walk/LilHopperWalk-49.png" id="47_22jps"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kymfc"]
 friction = 0.0
@@ -45,6 +84,146 @@ size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fe6s"]
 size = Vector2(128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kamjv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_u5uxr")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_kqbq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kil85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hosba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hpxix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t60o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bw0va")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_td5ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8iqcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_03w1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rnffn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_jqwkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_oyvyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_0r5tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_yw523")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ia1yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_u70vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4niyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_4jm32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_wxogp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_bt80k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_4u200")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_stmg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_s8a3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_plfgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_lfs1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_of2kb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_njbd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_st0ms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_t2pfa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_wm74s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_wwde0")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_3i8la")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_ynm37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_tfndd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_cdnrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_tiwbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_leklw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_22jps")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 24.0
+}]
 
 [sub_resource type="Curve" id="Curve_0fe4q"]
 _data = [Vector2(0, 0.208791), 0.0, 0.0, 0, 0, Vector2(0.5, 0.703297), 0.0, 0.0, 0, 0]
@@ -120,6 +299,7 @@ shape = SubResource("RectangleShape2D_0fe6s")
 [node name="Rig" type="Node2D" parent="."]
 
 [node name="HopperTransform" type="Node2D" parent="Rig"]
+visible = false
 position = Vector2(0, -9)
 scale = Vector2(15, 9)
 
@@ -179,6 +359,16 @@ texture = null
 polygon = PackedVector2Array()
 uv = PackedVector2Array()
 bones = []
+
+[node name="LilHopperTransform" type="Node2D" parent="Rig"]
+position = Vector2(0, -66)
+scale = Vector2(1.22727, 1.22727)
+
+[node name="LilHopperAnimatedSprite" type="AnimatedSprite2D" parent="Rig/LilHopperTransform"]
+sprite_frames = SubResource("SpriteFrames_kamjv")
+animation = &"walk"
+frame = 6
+frame_progress = 0.480464
 
 [node name="Rays" type="Node2D" parent="."]
 

@@ -12,4 +12,9 @@ func _on_player_body_entered(body: Node) -> void:
 		death_restart_delay_timer.start()
 
 func _on_death_restart_delay_timeout() -> void:
-	scene_manager.transition_to_restart_current_level()
+	if is_instance_valid(scene_manager):
+		scene_manager.transition_to_restart_current_level()
+	else:
+		get_tree().reload_current_scene()
+	
+	

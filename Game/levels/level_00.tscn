@@ -1,11 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://bud7mic2py67r"]
+[gd_scene load_steps=25 format=3 uid="uid://bud7mic2py67r"]
 
 [ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_um5l3"]
 [ext_resource type="Script" path="res://levels/scripted_sequence_level00.gd" id="1_xbrn4"]
 [ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="2_620cf"]
 [ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="3_m3xfy"]
 [ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="5_ka8f1"]
+[ext_resource type="Texture2D" uid="uid://d4lqpnop3jilb" path="res://assets/props/Pf_ControlUnit_On.png" id="7_083tm"]
+[ext_resource type="PackedScene" uid="uid://crrr0vxmhyyqy" path="res://levels/obstacles/vent.tscn" id="7_2601t"]
 [ext_resource type="PackedScene" uid="uid://vqoom2xgq3fh" path="res://levels/utils/guide_pop_up.tscn" id="7_xuhh1"]
+[ext_resource type="Texture2D" uid="uid://bx3btcggsfj56" path="res://assets/props/Pf_ControlUnit_Off.png" id="8_m3m8j"]
+[ext_resource type="Texture2D" uid="uid://dy81cnpba4gd4" path="res://assets/props/Pf_ElecUnit_On.png" id="9_fwucw"]
+[ext_resource type="Texture2D" uid="uid://bk34fqfo11o7a" path="res://assets/props/Pf_ElecUnit_Off.png" id="10_pjq3j"]
+[ext_resource type="Texture2D" uid="uid://cku8sewgge4c1" path="res://assets/props/Pf_ScreenUnit_On.png" id="11_rndoj"]
+[ext_resource type="Texture2D" uid="uid://i8txkjw7j0ty" path="res://assets/props/Pf_ScreenUnit_Off.png" id="12_pqfab"]
+[ext_resource type="Texture2D" uid="uid://b7w4nmy1jrikd" path="res://assets/props/Pf_Wire_centre.png" id="13_6cfrr"]
+[ext_resource type="Texture2D" uid="uid://sc6c6c8gsi5n" path="res://assets/props/Pf_Wire_End_Down_Lt.png" id="14_oja5h"]
+[ext_resource type="Texture2D" uid="uid://cfqcnw3s1jw6b" path="res://assets/props/Pf_Wire_End_Down_Rt.png" id="15_dh1yb"]
+[ext_resource type="Texture2D" uid="uid://bg6olbbae488p" path="res://assets/props/Pf_Wire_End_Top_Lt.png" id="16_o82wv"]
+[ext_resource type="Texture2D" uid="uid://dfw1e45vffjhn" path="res://assets/props/Pf_Wire_End_Top_Rt.png" id="17_jicrg"]
 
 [sub_resource type="Gradient" id="Gradient_bp6i7"]
 interpolation_mode = 1
@@ -23,11 +35,6 @@ size = Vector2(512, 524)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lp08k"]
 size = Vector2(2304, 704)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gw64"]
-size = Vector2(238, 20)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_25q6y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yjjv"]
 
@@ -71,11 +78,12 @@ scale = Vector2(18.25, 13)
 
 [node name="RoofOver" type="Sprite2D" parent="LevelGround"]
 z_index = 1
-position = Vector2(384, -1408)
-scale = Vector2(4.15625, 4.15625)
+position = Vector2(384, -1412)
+scale = Vector2(4.09448, 4.04661)
 texture = SubResource("GradientTexture2D_1uaky")
 
 [node name="Anchor2D" parent="." instance=ExtResource("3_m3xfy")]
+visible = false
 position = Vector2(1344, -640)
 
 [node name="CollisionShape2D" parent="Anchor2D" index="0"]
@@ -106,27 +114,61 @@ position = Vector2(1344, -640)
 [node name="AnchorCamera2D" parent="Player" index="0"]
 zoom = Vector2(0.6, 0.6)
 
-[node name="Vent" type="RigidBody2D" parent="."]
-z_index = 1
-position = Vector2(384, -1280)
-collision_mask = 7
-mass = 10.0
-gravity_scale = 6.0
+[node name="Vent" parent="." instance=ExtResource("7_2601t")]
+position = Vector2(384, -1287.5)
 freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent"]
-shape = SubResource("RectangleShape2D_8gw64")
-
-[node name="Sprite2D" type="Sprite2D" parent="Vent"]
-position = Vector2(0, -6.1035e-05)
-scale = Vector2(265.825, 20.0002)
-texture = SubResource("CanvasTexture_25q6y")
 
 [node name="VentObstacle" type="StaticBody2D" parent="."]
 position = Vector2(257, -1258)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VentObstacle"]
 shape = SubResource("RectangleShape2D_0yjjv")
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="ControlUnit_On" type="Sprite2D" parent="Decorations"]
+position = Vector2(651, -77)
+texture = ExtResource("7_083tm")
+
+[node name="ControlUnit_Off" type="Sprite2D" parent="Decorations"]
+position = Vector2(1176, -77)
+texture = ExtResource("8_m3m8j")
+
+[node name="ElecUnit_On" type="Sprite2D" parent="Decorations"]
+position = Vector2(1621, -301)
+texture = ExtResource("9_fwucw")
+
+[node name="ElecUnit_Off" type="Sprite2D" parent="Decorations"]
+position = Vector2(1854, -305)
+texture = ExtResource("10_pjq3j")
+
+[node name="ScreenUnit_On" type="Sprite2D" parent="Decorations"]
+position = Vector2(648, -345)
+texture = ExtResource("11_rndoj")
+
+[node name="ScreenUnit_Off" type="Sprite2D" parent="Decorations"]
+position = Vector2(1172, -341)
+texture = ExtResource("12_pqfab")
+
+[node name="Wire_Centre" type="Sprite2D" parent="Decorations"]
+position = Vector2(531, -902)
+texture = ExtResource("13_6cfrr")
+
+[node name="Wire_End_Down_Lt" type="Sprite2D" parent="Decorations"]
+position = Vector2(269, -883)
+texture = ExtResource("14_oja5h")
+
+[node name="Wire_End_Down_Rt" type="Sprite2D" parent="Decorations"]
+position = Vector2(794, -883)
+texture = ExtResource("15_dh1yb")
+
+[node name="Wire_End_Top_Lt" type="Sprite2D" parent="Decorations"]
+position = Vector2(846, -824)
+texture = ExtResource("16_o82wv")
+
+[node name="Wire_End_Top_Rt" type="Sprite2D" parent="Decorations"]
+position = Vector2(216, -818)
+texture = ExtResource("17_jicrg")
 
 [connection signal="timeout" from="ScriptedSequence/StartDelayTimer" to="ScriptedSequence" method="_on_start_delay_timer_timeout"]
 
@@ -136,3 +178,4 @@ shape = SubResource("RectangleShape2D_0yjjv")
 [editable path="GuidePop-Up"]
 [editable path="Player"]
 [editable path="Player/Rig/HopperTransform/Hopper"]
+[editable path="Vent"]

@@ -24,7 +24,7 @@ var levels = [
 	preload("res://levels/level_01.tscn"),
 	preload("res://levels/level_02.tscn"),
 	preload("res://levels/level_03.tscn"),
-	#preload("res://levels/level_04.tscn"),
+	preload("res://levels/level_04.tscn"),
 	#preload("res://levels/level_05.tscn"),
 	#preload("res://levels/level_06.tscn"),
 	#preload("res://levels/level_07.tscn"),
