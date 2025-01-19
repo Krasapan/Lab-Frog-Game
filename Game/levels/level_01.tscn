@@ -1,0 +1,202 @@
+[gd_scene load_steps=16 format=3 uid="uid://tgnui7dhcsyi"]
+
+[ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_uuu7d"]
+[ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="2_qpyew"]
+[ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="3_4tvkv"]
+[ext_resource type="Script" path="res://levels/utils/level_music_starter.gd" id="4_nb5fr"]
+[ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="5_33bqr"]
+[ext_resource type="PackedScene" uid="uid://vqoom2xgq3fh" path="res://levels/utils/guide_pop_up.tscn" id="6_gb4gh"]
+
+[sub_resource type="Gradient" id="Gradient_6l55f"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.262745, 0.298039, 0.309804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e2k6q"]
+gradient = SubResource("Gradient_6l55f")
+
+[sub_resource type="Gradient" id="Gradient_je3e1"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.262745, 0.298039, 0.309804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1uaky"]
+gradient = SubResource("Gradient_je3e1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsmg3"]
+size = Vector2(512, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qler"]
+size = Vector2(2688, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kabf"]
+size = Vector2(3072, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8s5ns"]
+size = Vector2(448, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5y5c"]
+size = Vector2(320, 704)
+
+[node name="Level01" type="Node2D"]
+
+[node name="LevelMusicStarter" type="Node" parent="."]
+script = ExtResource("4_nb5fr")
+level_track_index = 1
+
+[node name="LevelGround_02" parent="." instance=ExtResource("1_uuu7d")]
+
+[node name="Background" parent="LevelGround_02" index="0"]
+visible = false
+
+[node name="GroundPolygon" parent="LevelGround_02" index="1"]
+polygon = PackedVector2Array(3712, -256, 3712, -704, 3808, -704, 3808, -512, 3904, -512, 3904, -416, 3936, -416, 3936, -288, 4160, -288, 4160, -384, 4256, -384, 4256, -544, 4192, -544, 4192, -576, 4288, -576, 4544, -768, 4640, -768, 4640, -928, 4864, -928, 4864, -608, 4960, -608, 4960, -576, 4864, -576, 4864, -448, 5024, -448, 5024, -416, 4864, -416, 4864, -256)
+
+[node name="Lineart" parent="LevelGround_02" index="2"]
+points = PackedVector2Array(3712, -256, 3712, -704, 3808, -704, 3808, -512, 3904, -512, 3904, -416, 3936, -416, 3936, -288, 4160, -288, 4160, -384, 4256, -384, 4256, -544, 4192, -544, 4192, -576, 4288, -576, 4544, -768, 4640, -768, 4640, -928, 4864, -928, 4864, -608, 4960, -608, 4960, -576, 4864, -576, 4864, -448, 5024, -448, 5024, -416, 4864, -416, 4864, -256, 3712, -256)
+
+[node name="EntryDoorGradient" parent="LevelGround_02" index="3"]
+visible = false
+
+[node name="EntryDoorOver" parent="LevelGround_02" index="4"]
+visible = false
+
+[node name="ExitDoorGradient" parent="LevelGround_02" index="5"]
+visible = false
+
+[node name="ExitDoorOver" parent="LevelGround_02" index="6"]
+visible = false
+
+[node name="LevelGround_01" parent="." instance=ExtResource("1_uuu7d")]
+
+[node name="Background" parent="LevelGround_01" index="0"]
+visible = false
+
+[node name="GroundPolygon" parent="LevelGround_01" index="1"]
+polygon = PackedVector2Array(2720, -416, 3328, -672, 3424, -672, 3424, -640, 3328, -640, 2720, -384)
+
+[node name="Lineart" parent="LevelGround_01" index="2"]
+points = PackedVector2Array(2720, -416, 3328, -672, 3424, -672, 3424, -640, 3328, -640, 2720, -384, 2720, -416)
+
+[node name="EntryDoorGradient" parent="LevelGround_01" index="3"]
+visible = false
+
+[node name="EntryDoorOver" parent="LevelGround_01" index="4"]
+modulate = Color(1, 1, 1, 0.588235)
+z_index = 0
+position = Vector2(3296, -464)
+scale = Vector2(0.5, 5.5)
+
+[node name="ExitDoorGradient" parent="LevelGround_01" index="5"]
+visible = false
+
+[node name="ExitDoorOver" parent="LevelGround_01" index="6"]
+visible = false
+
+[node name="EntryDoorOver2" type="Sprite2D" parent="LevelGround_01"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(2736, -352)
+scale = Vector2(0.500001, 2)
+texture = SubResource("GradientTexture2D_e2k6q")
+
+[node name="LevelGround_00" parent="." instance=ExtResource("1_uuu7d")]
+
+[node name="Background" parent="LevelGround_00" index="0"]
+z_index = -1
+position = Vector2(2752, -640)
+scale = Vector2(6784, 1792)
+
+[node name="GroundPolygon" parent="LevelGround_00" index="1"]
+polygon = PackedVector2Array(-512, 0, -512, -512, 0, -512, 0, -1280, 4288, -1280, 4288, -908, 4224, -935, 4224, -896, 4381, -832, 4381, -867, 4320, -894, 4320, -1280, 5376, -1280, 5376, -512, 5888, -512, 5888, 0, 6400, 0, 6400, -2304, -1792, -2304, -1792, 1024, 6400, 1024, 6400, 0, 1312, 0, 1312, -64, 4864, -64, 4864, 0, 4896, 0, 4896, -64, 5120, -64, 5120, -288, 2464, -288, 2464, -352, 2304, -352, 2304, -512, 2208, -512, 2208, -288, 1920, -288, 1920, -384, 1888, -384, 1888, -480, 1792, -480, 1792, -384, 1760, -384, 1760, -288, 1184, -288, 1184, -64, 1280, -64, 1280, 0, 1120, 0, 1120, -32, 1056, -32, 1056, -160, 1120, -160, 1120, -192, 960, -192, 960, -160, 1024, -160, 1024, -32, 960, -32, 960, 0, 864, 0, 864, -96, 768, -96, 768, 0)
+
+[node name="Lineart" parent="LevelGround_00" index="2"]
+points = PackedVector2Array(-512, 0, -512, -512, 0, -512, 0, -1280, 4288, -1280, 4288, -908, 4224, -935, 4224, -896, 4381, -832, 4381, -867, 4320, -894, 4320, -1280, 5376, -1280, 5376, -512, 5888, -512, 5888, 0, 6400, 0, 6400, -2304, -1792, -2304, -1792, 1024, 6400, 1024, 6400, 0, 1312, 0, 1312, -64, 4864, -64, 4864, 0, 4896, 0, 4896, -64, 5120, -64, 5120, -288, 2464, -288, 2464, -352, 2304, -352, 2304, -512, 2208, -512, 2208, -288, 1920, -288, 1920, -384, 1888, -384, 1888, -480, 1792, -480, 1792, -384, 1760, -384, 1760, -288, 1184, -288, 1184, -64, 1280, -64, 1280, 0, 1120, 0, 1120, -32, 1056, -32, 1056, -160, 1120, -160, 1120, -192, 960, -192, 960, -160, 1024, -160, 1024, -32, 960, -32, 960, 0, 864, 0, 864, -96, 768, -96, 768, 0, -512, 0)
+
+[node name="EntryDoorGradient" parent="LevelGround_00" index="3"]
+position = Vector2(-192, -256)
+scale = Vector2(6, 9)
+
+[node name="EntryDoorOver" parent="LevelGround_00" index="4"]
+position = Vector2(-576, -256)
+scale = Vector2(6, 9)
+
+[node name="ExitDoorGradient" parent="LevelGround_00" index="5"]
+position = Vector2(5584, -256)
+scale = Vector2(6.5, 13)
+
+[node name="ExitDoorOver" parent="LevelGround_00" index="6"]
+position = Vector2(6096, -256)
+scale = Vector2(9.5, 13)
+
+[node name="RoofOver" type="Sprite2D" parent="LevelGround_00"]
+visible = false
+z_index = 1
+position = Vector2(384, -1408)
+scale = Vector2(4.15625, 4.15625)
+texture = SubResource("GradientTexture2D_1uaky")
+
+[node name="Player" parent="." instance=ExtResource("2_qpyew")]
+position = Vector2(-416, -64)
+
+[node name="AnchorCamera2D" parent="Player" index="0"]
+zoom = Vector2(0.6, 0.6)
+
+[node name="ShootController" parent="Player" index="6"]
+ability_active = true
+
+[node name="Anchor2D_00" parent="." instance=ExtResource("3_4tvkv")]
+position = Vector2(-256, -256)
+entered_zoom = 1.0
+
+[node name="CollisionShape2D" parent="Anchor2D_00" index="0"]
+shape = SubResource("RectangleShape2D_rsmg3")
+metadata/_edit_lock_ = true
+
+[node name="Anchor2D_01" parent="." instance=ExtResource("3_4tvkv")]
+position = Vector2(1408, -640)
+
+[node name="CollisionShape2D" parent="Anchor2D_01" index="0"]
+shape = SubResource("RectangleShape2D_7qler")
+metadata/_edit_lock_ = true
+
+[node name="Anchor2D_02" parent="." instance=ExtResource("3_4tvkv")]
+position = Vector2(4224, -640)
+exited_zoom = 0.8
+
+[node name="CollisionShape2D" parent="Anchor2D_02" index="0"]
+position = Vector2(128, 0)
+shape = SubResource("RectangleShape2D_1kabf")
+metadata/_edit_lock_ = true
+
+[node name="TriggerArea" parent="." instance=ExtResource("5_33bqr")]
+position = Vector2(5920, -256)
+trigger_function = 1
+
+[node name="CollisionShape2D" parent="TriggerArea" index="0"]
+shape = SubResource("RectangleShape2D_8s5ns")
+
+[node name="Label" parent="TriggerArea/CenterContainer" index="0"]
+text = "Go to next level
+"
+
+[node name="GuidePop-Up2" parent="." instance=ExtResource("6_gb4gh")]
+position = Vector2(672, -352)
+
+[node name="CollisionShape2D" parent="GuidePop-Up2" index="0"]
+shape = SubResource("RectangleShape2D_e5y5c")
+
+[node name="Label" parent="GuidePop-Up2/CenterContainer" index="0"]
+text = "  ^
+
+[W]"
+
+[editable path="LevelGround_02"]
+[editable path="LevelGround_01"]
+[editable path="LevelGround_00"]
+[editable path="Player"]
+[editable path="Player/Rig/HopperTransform/Hopper"]
+[editable path="Anchor2D_00"]
+[editable path="Anchor2D_01"]
+[editable path="Anchor2D_02"]
+[editable path="TriggerArea"]
+[editable path="GuidePop-Up2"]

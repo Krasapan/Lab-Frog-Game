@@ -1,0 +1,161 @@
+[gd_scene load_steps=14 format=3 uid="uid://bn0sx0i60j63e"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_e8ijr"]
+[ext_resource type="Texture2D" uid="uid://bfwd65wrrfmlm" path="res://assets/frog.png" id="2_3xxno"]
+[ext_resource type="Resource" uid="uid://ga571q85g5p6" path="res://player/stats_small_frog.tres" id="2_kcubn"]
+[ext_resource type="Resource" uid="uid://ce23lslh2lnxo" path="res://player/stats_big_frog.tres" id="3_71s85"]
+[ext_resource type="Script" path="res://player/grapple_controller.gd" id="3_btfmq"]
+[ext_resource type="Script" path="res://player/shoot_controller.gd" id="4_4ta5d"]
+[ext_resource type="Script" path="res://player/AnchorDetector2D.gd" id="7_7mc6b"]
+[ext_resource type="Script" path="res://levels/utils/AnchorCamera2D.gd" id="8_rvjbs"]
+[ext_resource type="FontFile" uid="uid://ctmtaoy4888cp" path="res://assets/fonts/toxigenesis.otf" id="9_nk0xv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kymfc"]
+friction = 0.0
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fe6s"]
+size = Vector2(128, 128)
+
+[sub_resource type="Curve" id="Curve_0fe4q"]
+_data = [Vector2(0, 0.208791), 0.0, 0.0, 0, 0, Vector2(0.5, 0.703297), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_t63c0"]
+_data = [Vector2(0, 0.208791), 0.0, 0.0, 0, 0, Vector2(0.5, 0.703297), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Player" type="RigidBody2D"]
+collision_layer = 2
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_kymfc")
+gravity_scale = 4.0
+lock_rotation = true
+custom_integrator = true
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_e8ijr")
+stats_small_frog = ExtResource("2_kcubn")
+stats_big_frog = ExtResource("3_71s85")
+
+[node name="AnchorCamera2D" type="Camera2D" parent="."]
+script = ExtResource("8_rvjbs")
+max_speed = 3000.0
+mass = 1.0
+
+[node name="AnchorDetector2D" type="Area2D" parent="."]
+script = ExtResource("7_7mc6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorDetector2D"]
+shape = SubResource("RectangleShape2D_0fe6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0fe6s")
+
+[node name="Rig" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Rig"]
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("2_3xxno")
+
+[node name="Rays" type="Node2D" parent="."]
+
+[node name="WallSlideRayL_Top" type="RayCast2D" parent="Rays"]
+position = Vector2(-49, -60)
+target_position = Vector2(-30, 0)
+
+[node name="WallSlideRayL_Down" type="RayCast2D" parent="Rays"]
+position = Vector2(-49, 60)
+target_position = Vector2(-30, 0)
+
+[node name="WallSlideRayR_Top" type="RayCast2D" parent="Rays"]
+position = Vector2(49, -60)
+target_position = Vector2(30, 0)
+
+[node name="WallSlideRayR_Down" type="RayCast2D" parent="Rays"]
+position = Vector2(49, 60)
+target_position = Vector2(30, 0)
+
+[node name="FloorRayL" type="RayCast2D" parent="Rays"]
+visible = false
+position = Vector2(-49, 60)
+enabled = false
+target_position = Vector2(0, 30)
+
+[node name="FloorRayR" type="RayCast2D" parent="Rays"]
+visible = false
+position = Vector2(49, 60)
+enabled = false
+target_position = Vector2(0, 30)
+
+[node name="GrappleController" type="Node2D" parent="."]
+script = ExtResource("3_btfmq")
+
+[node name="GrappleRay" type="RayCast2D" parent="GrappleController"]
+target_position = Vector2(1000, 0)
+
+[node name="RopeScanLine" type="Line2D" parent="GrappleController/GrappleRay"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 20.0
+width_curve = SubResource("Curve_0fe4q")
+
+[node name="Rope" type="Line2D" parent="GrappleController"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 20.0
+width_curve = SubResource("Curve_t63c0")
+
+[node name="AbilityCooldown" type="Timer" parent="GrappleController"]
+wait_time = 0.3
+one_shot = true
+
+[node name="ShootController" type="Node2D" parent="."]
+script = ExtResource("4_4ta5d")
+
+[node name="AbilityCooldown" type="Timer" parent="ShootController"]
+wait_time = 0.5
+one_shot = true
+
+[node name="DebugLabels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LinearVelocity" type="Label" parent="DebugLabels"]
+visible = false
+layout_mode = 0
+offset_top = -159.0
+offset_right = 40.0
+offset_bottom = -136.0
+text = "TEXT
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TargetVelocity" type="Label" parent="DebugLabels"]
+layout_mode = 0
+offset_top = -250.0
+offset_right = 40.0
+offset_bottom = -227.0
+theme_override_fonts/font = ExtResource("9_nk0xv")
+theme_override_font_sizes/font_size = 41
+text = "TEXT
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="State" type="Label" parent="DebugLabels"]
+layout_mode = 0
+offset_top = -119.0
+offset_right = 40.0
+offset_bottom = -96.0
+theme_override_fonts/font = ExtResource("9_nk0xv")
+theme_override_font_sizes/font_size = 41
+
+[connection signal="anchor_detached" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_anchor_detector_2d_anchor_detached"]
+[connection signal="anchor_detected" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_anchor_detector_2d_anchor_detected"]
+[connection signal="area_entered" from="AnchorDetector2D" to="AnchorDetector2D" method="_on_area_entered"]
+[connection signal="area_exited" from="AnchorDetector2D" to="AnchorDetector2D" method="_on_area_exited"]

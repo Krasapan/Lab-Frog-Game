@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cr6vy3buybag8"]
+
+[ext_resource type="FontFile" uid="uid://ctmtaoy4888cp" path="res://assets/fonts/toxigenesis.otf" id="1_q5yda"]
+
+[resource]
+default_font = ExtResource("1_q5yda")
+default_font_size = 70

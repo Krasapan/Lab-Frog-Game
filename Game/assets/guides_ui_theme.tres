@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://8h8c135yb33a"]
+
+[ext_resource type="FontFile" uid="uid://cjs3t7wxkl807" path="res://assets/fonts/tipografia.otf" id="1_ymqs6"]
+
+[resource]
+default_font = ExtResource("1_ymqs6")
+default_font_size = 70

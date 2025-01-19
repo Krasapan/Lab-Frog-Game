@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwccpor1dg3r8"]
+
+[ext_resource type="Script" path="res://levels/utils/trigger_area.gd" id="1_e58t2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0oyl"]
+size = Vector2(384, 384)
+
+[sub_resource type="Gradient" id="Gradient_k5tmn"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.97541)
+colors = PackedColorArray(1, 0.72549, 0, 0.196078, 1, 1, 0.517647, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6lci6"]
+gradient = SubResource("Gradient_k5tmn")
+width = 128
+height = 128
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8glj8"]
+font_size = 42
+
+[node name="TriggerArea" type="Area2D"]
+z_index = 2
+collision_layer = 8
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_e58t2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q0oyl")
+debug_color = Color(0.686414, 0.500166, 0, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+visible = false
+scale = Vector2(3, 3)
+texture = SubResource("GradientTexture2D_6lci6")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -63.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "trigger_name
+"
+label_settings = SubResource("LabelSettings_8glj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

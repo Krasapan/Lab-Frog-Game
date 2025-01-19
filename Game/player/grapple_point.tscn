@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6fbtnsyi7bwe"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rxatv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_27tmc"]
+radius = 64.0
+
+[node name="GrapplePoint" type="RigidBody2D"]
+can_sleep = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.785398
+scale = Vector2(170, 15)
+texture = SubResource("CanvasTexture_rxatv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+rotation = -0.785398
+scale = Vector2(170, 15)
+texture = SubResource("CanvasTexture_rxatv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_27tmc")
+disabled = true

@@ -1,0 +1,206 @@
+[gd_scene load_steps=12 format=3 uid="uid://0c8gsixwdh1m"]
+
+[ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_cghkc"]
+[ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="2_us8ni"]
+[ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="3_amf1y"]
+[ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="3_u3cmq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uop18"]
+size = Vector2(2112, 1664)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_650cu"]
+size = Vector2(1280, 1536)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fn3o"]
+size = Vector2(2880, 1664)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukg6f"]
+size = Vector2(2880, 1664)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f37l"]
+size = Vector2(17728, 384)
+
+[sub_resource type="Gradient" id="Gradient_1ecko"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_140v0"]
+gradient = SubResource("Gradient_1ecko")
+fill_from = Vector2(1, 1)
+
+[node name="level_03" type="Node2D"]
+
+[node name="LevelGround_00" parent="." instance=ExtResource("1_cghkc")]
+
+[node name="Background" parent="LevelGround_00" index="0"]
+position = Vector2(7424, 3008)
+scale = Vector2(18944, 12160)
+
+[node name="GroundPolygon" parent="LevelGround_00" index="1"]
+polygon = PackedVector2Array(0, -2560, 0, -2048, -768, -2048, -768, -1536, 1024, -1536, 704, -1408, 0, -1280, -1536, -1280, -1536, 9152, -7232, 9152, -7232, -8192, 18432, -8192, 18432, 9088, 16384, 9088, 16384, -2560)
+
+[node name="Lineart" parent="LevelGround_00" index="2"]
+points = PackedVector2Array(0, -2560, 0, -2048, -768, -2048, -768, -1536, 1024, -1536, 704, -1408, 0, -1280, -1536, -1280, -1536, 9152, -7232, 9152, -7232, -8192, 18432, -8192, 18432, 9088, 16384, 9088, 16384, -2560, 0, -2560)
+
+[node name="EntryDoorGradient" parent="LevelGround_00" index="3"]
+position = Vector2(-384, -1792)
+scale = Vector2(6, 10)
+
+[node name="EntryDoorOver" parent="LevelGround_00" index="4"]
+position = Vector2(-768, -1792)
+scale = Vector2(6, 10)
+
+[node name="ExitDoorGradient" parent="LevelGround_00" index="5"]
+visible = false
+
+[node name="ExitDoorOver" parent="LevelGround_00" index="6"]
+visible = false
+
+[node name="Platform_01" parent="." instance=ExtResource("1_cghkc")]
+position = Vector2(1536, 704)
+
+[node name="Background" parent="Platform_01" index="0"]
+visible = false
+
+[node name="GroundPolygon" parent="Platform_01" index="1"]
+polygon = PackedVector2Array(-512, -192, -256, -192, -256, -128, 256, -128, 256, -192, 512, -192, 512, 192, 256, 192, 256, 128, -256, 128, -256, 192, -512, 192)
+
+[node name="Lineart" parent="Platform_01" index="2"]
+points = PackedVector2Array(-512, -192, -256, -192, -256, -128, 256, -128, 256, -192, 512, -192, 512, 192, 256, 192, 256, 128, -256, 128, -256, 192, -512, 192, -512, -192)
+
+[node name="EntryDoorGradient" parent="Platform_01" index="3"]
+visible = false
+
+[node name="EntryDoorOver" parent="Platform_01" index="4"]
+visible = false
+
+[node name="ExitDoorGradient" parent="Platform_01" index="5"]
+visible = false
+
+[node name="ExitDoorOver" parent="Platform_01" index="6"]
+visible = false
+
+[node name="Platform_02" parent="." instance=ExtResource("1_cghkc")]
+position = Vector2(3328, 704)
+
+[node name="Background" parent="Platform_02" index="0"]
+visible = false
+
+[node name="GroundPolygon" parent="Platform_02" index="1"]
+polygon = PackedVector2Array(-576, -192, -256, -192, -256, -448, -448, -448, -448, -512, -256, -576, 0, -576, 896, -64, -256, -64, -576, -64)
+
+[node name="Lineart" parent="Platform_02" index="2"]
+points = PackedVector2Array(-576, -192, -256, -192, -256, -448, -448, -448, -448, -512, -256, -576, 0, -576, 896, -64, -256, -64, -576, -64, -576, -192)
+
+[node name="EntryDoorGradient" parent="Platform_02" index="3"]
+visible = false
+
+[node name="EntryDoorOver" parent="Platform_02" index="4"]
+visible = false
+
+[node name="ExitDoorGradient" parent="Platform_02" index="5"]
+visible = false
+
+[node name="ExitDoorOver" parent="Platform_02" index="6"]
+visible = false
+
+[node name="Platform_03" parent="." instance=ExtResource("1_cghkc")]
+position = Vector2(6080, 704)
+
+[node name="Background" parent="Platform_03" index="0"]
+visible = false
+
+[node name="GroundPolygon" parent="Platform_03" index="1"]
+polygon = PackedVector2Array(-512, -192, -256, -192, -256, -128, 256, -128, 256, -192, 512, -192, 512, 192, 256, 192, 256, 128, -256, 128, -256, 192, -512, 192)
+
+[node name="Lineart" parent="Platform_03" index="2"]
+points = PackedVector2Array(-512, -192, -256, -192, -256, -128, 256, -128, 256, -192, 512, -192, 512, 192, 256, 192, 256, 128, -256, 128, -256, 192, -512, 192, -512, -192)
+
+[node name="EntryDoorGradient" parent="Platform_03" index="3"]
+visible = false
+
+[node name="EntryDoorOver" parent="Platform_03" index="4"]
+visible = false
+
+[node name="ExitDoorGradient" parent="Platform_03" index="5"]
+visible = false
+
+[node name="ExitDoorOver" parent="Platform_03" index="6"]
+visible = false
+
+[node name="Anchor2D_00" parent="." instance=ExtResource("2_us8ni")]
+position = Vector2(192, -1856)
+entered_zoom = 0.8
+exited_zoom = 0.6
+entered_mass = 1.0
+exited_mass = 1.0
+
+[node name="CollisionShape2D" parent="Anchor2D_00" index="0"]
+position = Vector2(-608, 0)
+shape = SubResource("RectangleShape2D_uop18")
+
+[node name="Anchor2D_01" parent="." instance=ExtResource("2_us8ni")]
+position = Vector2(3072, 0)
+entered_zoom = 0.3
+exited_zoom = 0.6
+entered_max_speed = 6000.0
+exited_max_speed = 15000.0
+entered_mass = 1.0
+exited_mass = 1.0
+
+[node name="CollisionShape2D" parent="Anchor2D_01" index="0"]
+position = Vector2(-1664, -1280)
+shape = SubResource("RectangleShape2D_650cu")
+
+[node name="Anchor2D_02" parent="." instance=ExtResource("2_us8ni")]
+position = Vector2(4800, -128)
+entered_zoom = 0.5
+exited_zoom = 0.6
+entered_max_speed = 8000.0
+exited_max_speed = 1500.0
+entered_mass = 1.0
+exited_mass = 1.0
+
+[node name="CollisionShape2D" parent="Anchor2D_02" index="0"]
+position = Vector2(-224, 192)
+shape = SubResource("RectangleShape2D_2fn3o")
+
+[node name="Anchor2D_03" parent="." instance=ExtResource("2_us8ni")]
+position = Vector2(7808, -128)
+entered_zoom = 0.5
+exited_zoom = 0.6
+entered_max_speed = 8000.0
+exited_max_speed = 1500.0
+entered_mass = 1.0
+exited_mass = 1.0
+
+[node name="CollisionShape2D" parent="Anchor2D_03" index="0"]
+position = Vector2(-224, 192)
+shape = SubResource("RectangleShape2D_ukg6f")
+
+[node name="TriggerArea4" parent="." instance=ExtResource("3_u3cmq")]
+position = Vector2(7424, 3328)
+trigger_function = 2
+
+[node name="CollisionShape2D" parent="TriggerArea4" index="0"]
+position = Vector2(-96, 0)
+shape = SubResource("RectangleShape2D_2f37l")
+
+[node name="Player" parent="." instance=ExtResource("3_amf1y")]
+position = Vector2(-576, -1664)
+start_as_big_frog = true
+
+[node name="Pit2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(7424, 4544)
+scale = Vector2(280, 142)
+texture = SubResource("GradientTexture2D_140v0")
+
+[editable path="LevelGround_00"]
+[editable path="Platform_01"]
+[editable path="Platform_02"]
+[editable path="Platform_03"]
+[editable path="Anchor2D_00"]
+[editable path="Anchor2D_01"]
+[editable path="Anchor2D_02"]
+[editable path="Anchor2D_03"]
+[editable path="TriggerArea4"]

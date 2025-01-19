@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://bud7mic2py67r"]
+
+[ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_um5l3"]
+[ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="2_620cf"]
+[ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="3_m3xfy"]
+[ext_resource type="AudioStream" uid="uid://b1jqe6jnld0fl" path="res://assets/audio/Main menu track loop.mp3" id="3_x3mni"]
+[ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="5_ka8f1"]
+
+[sub_resource type="Gradient" id="Gradient_hqsf4"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.262745, 0.298039, 0.309804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1uaky"]
+gradient = SubResource("Gradient_hqsf4")
+
+[node name="Level00" type="Node2D"]
+
+[node name="LevelGround" parent="." instance=ExtResource("1_um5l3")]
+
+[node name="Background" parent="LevelGround" index="0"]
+position = Vector2(1520, -640)
+scale = Vector2(3552, 1792)
+
+[node name="GroundPolygon" parent="LevelGround" index="1"]
+polygon = PackedVector2Array(0, 0, 0, -1280, 256, -1280, 256, -1536, 512, -1536, 512, -1280, 2688, -1280, 2688, -512, 4096, -512, 4096, 0, 4352, 0, 4352, -800, 4352, -2304, -1280, -2304, -1280, 1024, 4352, 1024, 4352, 0)
+
+[node name="Lineart" parent="LevelGround" index="2"]
+points = PackedVector2Array(0, 0, 0, -1280, 256, -1280, 256, -1536, 512, -1536, 512, -1280, 2688, -1280, 2688, -512, 4096, -512, 4096, 0, 4352, 0, 4352, -800, 4352, -2304, -1280, -2304, -1280, 1024, 4352, 1024, 4352, 0, 0, 0)
+
+[node name="EntryDoorGradient" parent="LevelGround" index="3"]
+visible = false
+
+[node name="EntryDoorOver" parent="LevelGround" index="4"]
+visible = false
+
+[node name="ExitDoorGradient" parent="LevelGround" index="5"]
+position = Vector2(2896, -256)
+scale = Vector2(6.5, 13)
+
+[node name="ExitDoorOver" parent="LevelGround" index="6"]
+position = Vector2(3688, -256)
+scale = Vector2(18.25, 13)
+
+[node name="RoofOver" type="Sprite2D" parent="LevelGround"]
+z_index = 1
+position = Vector2(384, -1408)
+scale = Vector2(4.15625, 4.15625)
+texture = SubResource("GradientTexture2D_1uaky")
+
+[node name="Player" parent="." instance=ExtResource("2_620cf")]
+position = Vector2(1344, -640)
+
+[node name="AnchorCamera2D" parent="Player" index="0"]
+zoom = Vector2(0.6, 0.6)
+
+[node name="GrappleController" parent="Player" index="5"]
+ability_active = true
+
+[node name="ShootController" parent="Player" index="6"]
+ability_active = true
+
+[node name="Anchor2D" parent="." instance=ExtResource("3_m3xfy")]
+position = Vector2(1344, -640)
+scale = Vector2(9.24, 4.68)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_x3mni")
+parameters/looping = true
+
+[node name="TriggerArea" parent="." instance=ExtResource("5_ka8f1")]
+position = Vector2(3327, -250)
+scale = Vector2(1, 1.4)
+trigger_function = 1
+
+[node name="Label" parent="TriggerArea/CenterContainer" index="0"]
+text = "Next Level"
+autowrap_mode = 0
+
+[node name="ScriptedSequence" type="Node" parent="."]
+
+[node name="StartDelayTimer" type="Timer" parent="ScriptedSequence"]
+
+[editable path="LevelGround"]
+[editable path="Player"]
+[editable path="Anchor2D"]
+[editable path="TriggerArea"]

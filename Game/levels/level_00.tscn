@@ -1,0 +1,138 @@
+[gd_scene load_steps=15 format=3 uid="uid://bud7mic2py67r"]
+
+[ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_um5l3"]
+[ext_resource type="Script" path="res://levels/scripted_sequence_level00.gd" id="1_xbrn4"]
+[ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="2_620cf"]
+[ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="3_m3xfy"]
+[ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="5_ka8f1"]
+[ext_resource type="PackedScene" uid="uid://vqoom2xgq3fh" path="res://levels/utils/guide_pop_up.tscn" id="7_xuhh1"]
+
+[sub_resource type="Gradient" id="Gradient_bp6i7"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.262745, 0.298039, 0.309804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1uaky"]
+gradient = SubResource("Gradient_bp6i7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyhg6"]
+size = Vector2(3584, 1792)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tea8y"]
+size = Vector2(512, 524)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp08k"]
+size = Vector2(2304, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gw64"]
+size = Vector2(238, 20)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_25q6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yjjv"]
+
+[node name="Level00" type="Node2D"]
+
+[node name="ScriptedSequence" type="Node" parent="."]
+script = ExtResource("1_xbrn4")
+
+[node name="StartDelayTimer" type="Timer" parent="ScriptedSequence"]
+wait_time = 4.0
+one_shot = true
+
+[node name="PlayerSpawnPoint" type="Node2D" parent="ScriptedSequence"]
+position = Vector2(384, -1440)
+
+[node name="LevelGround" parent="." instance=ExtResource("1_um5l3")]
+
+[node name="Background" parent="LevelGround" index="0"]
+position = Vector2(1520, -640)
+scale = Vector2(3552, 1792)
+
+[node name="GroundPolygon" parent="LevelGround" index="1"]
+polygon = PackedVector2Array(0, 0, 0, -1280, 256, -1280, 256, -1536, 512, -1536, 512, -1280, 2688, -1280, 2688, -512, 4096, -512, 4096, 0, 4352, 0, 4352, -800, 4352, -2304, -1280, -2304, -1280, 1024, 4352, 1024, 4352, 0)
+
+[node name="Lineart" parent="LevelGround" index="2"]
+points = PackedVector2Array(0, 0, 0, -1280, 256, -1280, 256, -1536, 512, -1536, 512, -1280, 2688, -1280, 2688, -512, 4096, -512, 4096, 0, 4352, 0, 4352, -800, 4352, -2304, -1280, -2304, -1280, 1024, 4352, 1024, 4352, 0, 0, 0)
+
+[node name="EntryDoorGradient" parent="LevelGround" index="3"]
+visible = false
+
+[node name="EntryDoorOver" parent="LevelGround" index="4"]
+visible = false
+
+[node name="ExitDoorGradient" parent="LevelGround" index="5"]
+position = Vector2(2896, -256)
+scale = Vector2(6.5, 13)
+
+[node name="ExitDoorOver" parent="LevelGround" index="6"]
+position = Vector2(3688, -256)
+scale = Vector2(18.25, 13)
+
+[node name="RoofOver" type="Sprite2D" parent="LevelGround"]
+z_index = 1
+position = Vector2(384, -1408)
+scale = Vector2(4.15625, 4.15625)
+texture = SubResource("GradientTexture2D_1uaky")
+
+[node name="Anchor2D" parent="." instance=ExtResource("3_m3xfy")]
+position = Vector2(1344, -640)
+
+[node name="CollisionShape2D" parent="Anchor2D" index="0"]
+shape = SubResource("RectangleShape2D_kyhg6")
+
+[node name="TriggerArea" parent="." instance=ExtResource("5_ka8f1")]
+position = Vector2(3200, -250)
+trigger_function = 1
+
+[node name="CollisionShape2D" parent="TriggerArea" index="0"]
+shape = SubResource("RectangleShape2D_tea8y")
+
+[node name="Label" parent="TriggerArea/CenterContainer" index="0"]
+text = "Next Level"
+
+[node name="GuidePop-Up" parent="." instance=ExtResource("7_xuhh1")]
+position = Vector2(384, -352)
+
+[node name="CollisionShape2D" parent="GuidePop-Up" index="0"]
+shape = SubResource("RectangleShape2D_lp08k")
+
+[node name="Label" parent="GuidePop-Up/CenterContainer" index="0"]
+text = "<- [A]             [D] ->"
+
+[node name="Player" parent="." instance=ExtResource("2_620cf")]
+position = Vector2(1344, -640)
+
+[node name="AnchorCamera2D" parent="Player" index="0"]
+zoom = Vector2(0.6, 0.6)
+
+[node name="Vent" type="RigidBody2D" parent="."]
+z_index = 1
+position = Vector2(384, -1280)
+collision_mask = 7
+mass = 10.0
+gravity_scale = 6.0
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent"]
+shape = SubResource("RectangleShape2D_8gw64")
+
+[node name="Sprite2D" type="Sprite2D" parent="Vent"]
+position = Vector2(0, -6.1035e-05)
+scale = Vector2(265.825, 20.0002)
+texture = SubResource("CanvasTexture_25q6y")
+
+[node name="VentObstacle" type="StaticBody2D" parent="."]
+position = Vector2(257, -1258)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VentObstacle"]
+shape = SubResource("RectangleShape2D_0yjjv")
+
+[connection signal="timeout" from="ScriptedSequence/StartDelayTimer" to="ScriptedSequence" method="_on_start_delay_timer_timeout"]
+
+[editable path="LevelGround"]
+[editable path="Anchor2D"]
+[editable path="TriggerArea"]
+[editable path="GuidePop-Up"]
+[editable path="Player"]
+[editable path="Player/Rig/HopperTransform/Hopper"]

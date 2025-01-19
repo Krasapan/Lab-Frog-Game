@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://hh81v3apqc6p"]
+
+[ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="1_6cxxl"]
+[ext_resource type="Texture2D" uid="uid://dnsxiehqtitlv" path="res://icon.svg" id="2_rlqun"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7jiou"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ja80"]
+size = Vector2(128, 128)
+
+[node name="TestingGrounds" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6cxxl")]
+position = Vector2(943, 541)
+mass = 50.0
+physics_material_override = SubResource("PhysicsMaterial_7jiou")
+lock_rotation = true
+custom_integrator = true
+contact_monitor = true
+max_contacts_reported = 4
+
+[node name="wall1" type="StaticBody2D" parent="."]
+position = Vector2(959, 1019)
+scale = Vector2(15.16, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall1"]
+shape = SubResource("RectangleShape2D_2ja80")
+
+[node name="Sprite2D" type="Sprite2D" parent="wall1/CollisionShape2D"]
+texture = ExtResource("2_rlqun")
+
+[node name="wall2" type="StaticBody2D" parent="."]
+scale = Vector2(1, 14.96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
+shape = SubResource("RectangleShape2D_2ja80")
+
+[node name="Sprite2D" type="Sprite2D" parent="wall2/CollisionShape2D"]
+texture = ExtResource("2_rlqun")
+
+[node name="wall3" type="StaticBody2D" parent="."]
+position = Vector2(1946, 0)
+scale = Vector2(1, 14.96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall3"]
+shape = SubResource("RectangleShape2D_2ja80")
+
+[node name="Sprite2D" type="Sprite2D" parent="wall3/CollisionShape2D"]
+texture = ExtResource("2_rlqun")

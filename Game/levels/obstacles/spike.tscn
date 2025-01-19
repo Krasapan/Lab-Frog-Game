@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://52ier4g77btl"]
+
+[node name="Spike" type="StaticBody2D" groups=["Deadly"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, 0, 0, -128, 64, 0)
+
+[node name="UnderPolygon" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-80, 8, 0, -152, 80, 8)
+
+[node name="InnerPolygon" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-63, -3, 0, -128, 64, -3)
