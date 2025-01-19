@@ -27,7 +27,7 @@ offset_top = -183.0
 offset_right = 829.0
 offset_bottom = 183.0
 grow_vertical = 2
-theme_override_constants/margin_left = 150
+theme_override_constants/margin_left = 200
 
 [node name="ButtonsVBoxContainer" type="VBoxContainer" parent="ButtonsMarginContainer"]
 layout_mode = 2

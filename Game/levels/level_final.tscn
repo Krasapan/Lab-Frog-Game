@@ -1,0 +1,321 @@
+[gd_scene load_steps=45 format=3 uid="uid://eybqxp4ue6xq"]
+
+[ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_bqj32"]
+[ext_resource type="Script" path="res://levels/level_final.gd" id="1_tjlvf"]
+[ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="2_wqeci"]
+[ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="3_eio2y"]
+[ext_resource type="Texture2D" uid="uid://digi1t3ba45fe" path="res://assets/props/CageDoor.png" id="4_475gc"]
+[ext_resource type="Texture2D" uid="uid://b8x03k53b4v5p" path="res://assets/props/Cage.png" id="5_36yer"]
+[ext_resource type="Texture2D" uid="uid://c7lyxo6852x15" path="res://assets/backgrounds/BackgroundLight.png" id="6_dsf4y"]
+[ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="7_yh75b"]
+[ext_resource type="Texture2D" uid="uid://ciupr2u5dbht0" path="res://tbg/small_frog/idle/SmallFrogIdle-1.png" id="9_lusg2"]
+[ext_resource type="Texture2D" uid="uid://qs0wfd7mgeqy" path="res://tbg/small_frog/idle/SmallFrogIdle-2.png" id="10_6on8l"]
+[ext_resource type="Texture2D" uid="uid://bpgpa4au17n5l" path="res://tbg/small_frog/idle/SmallFrogIdle-3.png" id="11_ia6l3"]
+[ext_resource type="Texture2D" uid="uid://cpaiqftf337p6" path="res://tbg/small_frog/idle/SmallFrogIdle-4.png" id="12_4eslg"]
+[ext_resource type="Texture2D" uid="uid://bpp47x3gfnppr" path="res://tbg/small_frog/idle/SmallFrogIdle-5.png" id="13_j5txp"]
+[ext_resource type="Texture2D" uid="uid://b6mp42uyncviy" path="res://tbg/small_frog/idle/SmallFrogIdle-6.png" id="14_jfpy2"]
+[ext_resource type="Texture2D" uid="uid://cllpjqfem7a21" path="res://tbg/small_frog/idle/SmallFrogIdle-7.png" id="15_84ln2"]
+[ext_resource type="Texture2D" uid="uid://nb6bufh2qobe" path="res://tbg/small_frog/idle/SmallFrogIdle-8.png" id="16_qriom"]
+[ext_resource type="Texture2D" uid="uid://dncfdeyx5r48e" path="res://tbg/small_frog/idle/SmallFrogIdle-9.png" id="17_pt6kq"]
+[ext_resource type="Texture2D" uid="uid://ckv25wkjsmxqf" path="res://tbg/small_frog/idle/SmallFrogIdle-10.png" id="18_m2dve"]
+[ext_resource type="Texture2D" uid="uid://cd7j8a37jfwyt" path="res://tbg/small_frog/idle/SmallFrogIdle-11.png" id="19_wpesj"]
+[ext_resource type="Texture2D" uid="uid://cqw5o8gw7lqsh" path="res://tbg/small_frog/idle/SmallFrogIdle-12.png" id="20_l4iyi"]
+[ext_resource type="Texture2D" uid="uid://j8guwl2rkpo5" path="res://tbg/small_frog/idle/SmallFrogIdle-13.png" id="21_qq6pb"]
+[ext_resource type="Texture2D" uid="uid://ceq6l6ek7px2d" path="res://tbg/small_frog/idle/SmallFrogIdle-14.png" id="22_7pres"]
+[ext_resource type="Texture2D" uid="uid://c6200yrg5n2gj" path="res://tbg/small_frog/idle/SmallFrogIdle-15.png" id="23_3ledr"]
+[ext_resource type="Texture2D" uid="uid://xmpe6vcy65pd" path="res://tbg/small_frog/idle/SmallFrogIdle-16.png" id="24_ot3xw"]
+[ext_resource type="Texture2D" uid="uid://h1ru6e1nxq3d" path="res://tbg/small_frog/idle/SmallFrogIdle-17.png" id="25_pdgah"]
+[ext_resource type="Texture2D" uid="uid://dl8clhx86u2vm" path="res://tbg/small_frog/idle/SmallFrogIdle-18.png" id="26_r8lxv"]
+[ext_resource type="Texture2D" uid="uid://cw7w8vbmhguvy" path="res://tbg/small_frog/idle/SmallFrogIdle-19.png" id="27_bc1ge"]
+[ext_resource type="Texture2D" uid="uid://dvxi85glebhbw" path="res://tbg/small_frog/idle/SmallFrogIdle-20.png" id="28_dq8ap"]
+[ext_resource type="Texture2D" uid="uid://dhnogmsta2s4f" path="res://tbg/small_frog/idle/SmallFrogIdle-21.png" id="29_ba4d0"]
+[ext_resource type="Texture2D" uid="uid://y70ih6auu8h2" path="res://tbg/small_frog/idle/SmallFrogIdle-22.png" id="30_vno2l"]
+[ext_resource type="Texture2D" uid="uid://du37tq2xrxlc5" path="res://tbg/small_frog/idle/SmallFrogIdle-23.png" id="31_uibx0"]
+[ext_resource type="Texture2D" uid="uid://11tapgi14ufn" path="res://tbg/small_frog/idle/SmallFrogIdle-24.png" id="32_4oea0"]
+[ext_resource type="Texture2D" uid="uid://4s5yjgdx45vv" path="res://tbg/small_frog/idle/SmallFrogIdle-25.png" id="33_dujcb"]
+[ext_resource type="Texture2D" uid="uid://jy4e6420xx7l" path="res://tbg/small_frog/idle/SmallFrogIdle-26.png" id="34_32t30"]
+[ext_resource type="Texture2D" uid="uid://ddrnln3gq67y0" path="res://tbg/small_frog/idle/SmallFrogIdle-27.png" id="35_asnhk"]
+[ext_resource type="Texture2D" uid="uid://b5mfnr1bkro13" path="res://tbg/small_frog/idle/SmallFrogIdle-28.png" id="36_sx5j0"]
+[ext_resource type="Texture2D" uid="uid://dp67t8ak6l02u" path="res://tbg/small_frog/idle/SmallFrogIdle-29.png" id="37_ak4te"]
+[ext_resource type="Texture2D" uid="uid://deurjv1f6nr0b" path="res://tbg/small_frog/idle/SmallFrogIdle-30.png" id="38_jsam2"]
+[ext_resource type="PackedScene" uid="uid://vqoom2xgq3fh" path="res://levels/utils/guide_pop_up.tscn" id="39_e8etk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgj4m"]
+size = Vector2(1677.34, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch7xk"]
+size = Vector2(3200, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60p5b"]
+size = Vector2(448, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lstta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_lusg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6on8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ia6l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4eslg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j5txp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jfpy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_84ln2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qriom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pt6kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_m2dve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wpesj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_l4iyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qq6pb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_7pres")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_3ledr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ot3xw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_pdgah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_r8lxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_bc1ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_dq8ap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ba4d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_vno2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_uibx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_4oea0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_dujcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_32t30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_asnhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_sx5j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ak4te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_jsam2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frsvi"]
+size = Vector2(1980.63, 1272.69)
+
+[node name="level_final" type="Node2D"]
+script = ExtResource("1_tjlvf")
+
+[node name="LevelGround" parent="." instance=ExtResource("1_bqj32")]
+
+[node name="Background" parent="LevelGround" index="0"]
+visible = false
+
+[node name="GroundPolygon" parent="LevelGround" index="1"]
+polygon = PackedVector2Array(-2048, 0, -2048, -512, 0, -512, 0, -1280, 2560, -1280, 2560, -512, 6400, -512, 6400, -3072, -2560, -3072, -2560, 1792, 6400, 1792, 6400, 0, 6400, -512, 3840, -512, 3520, -512, 3520, 0, 2560, 0)
+
+[node name="Lineart" parent="LevelGround" index="2"]
+points = PackedVector2Array(-2048, 0, -2048, -512, 0, -512, 0, -1280, 2560, -1280, 2560, -512, 6400, -512, 6400, -3072, -2560, -3072, -2560, 1792, 6400, 1792, 6400, 0, 6400, -512, 3840, -512, 3520, -512, 3520, 0, 2560, 0, -2048, 0)
+
+[node name="EntryDoorGradient" parent="LevelGround" index="3"]
+position = Vector2(-192, -256)
+scale = Vector2(6, 9)
+
+[node name="EntryDoorOver" parent="LevelGround" index="4"]
+position = Vector2(-1232, -256)
+scale = Vector2(26.5, 9)
+
+[node name="ExitDoorGradient" parent="LevelGround" index="5"]
+position = Vector2(2752, -256)
+scale = Vector2(6, 9)
+
+[node name="ExitDoorOver" parent="LevelGround" index="6"]
+position = Vector2(4400, -256)
+scale = Vector2(45.5, 9)
+
+[node name="LevelGround2" parent="." instance=ExtResource("1_bqj32")]
+position = Vector2(1376, -128)
+
+[node name="Background" parent="LevelGround2" index="0"]
+visible = false
+
+[node name="GroundPolygon" parent="LevelGround2" index="1"]
+polygon = PackedVector2Array(-256, 64, -256, -64, 256, -64, 256, 64, 192, 64, 192, 128, -192, 128, -192, 64)
+
+[node name="Lineart" parent="LevelGround2" index="2"]
+points = PackedVector2Array(-256, 64, -256, -64, 256, -64, 256, 64, 192, 64, 192, 128, -192, 128, -192, 64, -256, 64)
+
+[node name="EntryDoorGradient" parent="LevelGround2" index="3"]
+visible = false
+
+[node name="EntryDoorOver" parent="LevelGround2" index="4"]
+visible = false
+
+[node name="ExitDoorGradient" parent="LevelGround2" index="5"]
+visible = false
+
+[node name="ExitDoorOver" parent="LevelGround2" index="6"]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("2_wqeci")]
+position = Vector2(-872.593, -192)
+wallslide_ability_active = true
+start_as_big_frog = true
+
+[node name="Rig" parent="Player" index="3"]
+modulate = Color(1, 0, 0.392157, 1)
+
+[node name="GrappleController" parent="Player" index="5"]
+ability_active = true
+
+[node name="RopeScanLine" parent="Player/GrappleController/GrappleRay" index="0"]
+default_color = Color(1, 0, 0.592157, 1)
+
+[node name="Rope" parent="Player/GrappleController" index="1"]
+default_color = Color(1, 0, 0.592157, 1)
+
+[node name="ShootController" parent="Player" index="6"]
+ability_active = true
+
+[node name="AcidBoil" parent="Player/Particles" index="0"]
+modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
+
+[node name="AcidExplosion" parent="Player/Particles" index="1"]
+modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
+
+[node name="Anchor2D" parent="." instance=ExtResource("3_eio2y")]
+z_index = 1
+position = Vector2(-1024, -256)
+entered_zoom = 0.7
+exited_zoom = 0.5
+
+[node name="CollisionShape2D" parent="Anchor2D" index="0"]
+position = Vector2(83.4642, 0)
+shape = SubResource("RectangleShape2D_wgj4m")
+
+[node name="Anchor2D2" parent="." instance=ExtResource("3_eio2y")]
+position = Vector2(1312, -544)
+exited_max_speed = 4000.0
+
+[node name="CollisionShape2D" parent="Anchor2D2" index="0"]
+position = Vector2(256, -96)
+shape = SubResource("RectangleShape2D_ch7xk")
+
+[node name="TriggerArea" parent="." instance=ExtResource("7_yh75b")]
+position = Vector2(3328, -256)
+trigger_function = 1
+
+[node name="Label" parent="TriggerArea/CenterContainer" index="0"]
+text = "Victory screen
+"
+
+[node name="OpenCageArea" type="Area2D" parent="."]
+position = Vector2(1376, -320)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenCageArea"]
+shape = SubResource("RectangleShape2D_60p5b")
+
+[node name="Decorations" type="Node2D" parent="."]
+z_index = -1
+
+[node name="BackgroundDarker" type="Sprite2D" parent="Decorations"]
+position = Vector2(1089.94, -631.021)
+scale = Vector2(2.55063, 2.55063)
+texture = ExtResource("6_dsf4y")
+
+[node name="SmallFrog_01" type="AnimatedSprite2D" parent="Decorations"]
+position = Vector2(1448.24, -308.763)
+rotation = 3.14159
+scale = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_lstta")
+animation = &"idle"
+
+[node name="Cage" type="StaticBody2D" parent="Decorations"]
+position = Vector2(1376, -308.703)
+scale = Vector2(0.229645, 0.229645)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decorations/Cage"]
+
+[node name="CageDoor" type="Sprite2D" parent="Decorations/Cage"]
+position = Vector2(0, -283.493)
+scale = Vector2(1.575, 1.575)
+texture = ExtResource("4_475gc")
+
+[node name="Cage" type="Sprite2D" parent="Decorations/Cage"]
+position = Vector2(0, -283.493)
+scale = Vector2(1.575, 1.575)
+texture = ExtResource("5_36yer")
+
+[node name="GuidePop-Up" parent="." instance=ExtResource("39_e8etk")]
+position = Vector2(1452.08, -890.302)
+
+[node name="CollisionShape2D" parent="GuidePop-Up" index="0"]
+position = Vector2(689.153, 252.195)
+shape = SubResource("RectangleShape2D_frsvi")
+
+[node name="Label" parent="GuidePop-Up/CenterContainer" index="0"]
+text = "Thanks you for saving me!
+However, they took our sisters
+and brothers from this cage into
+a different wing of the lab for...
+Experiments...
+I don't know how much time is
+left... You gotta hurry!"
+
+[connection signal="body_entered" from="OpenCageArea" to="." method="_on_open_cage_area_body_entered"]
+
+[editable path="LevelGround"]
+[editable path="LevelGround2"]
+[editable path="Player"]
+[editable path="Player/Rig/HopperTransform/Hopper"]
+[editable path="Anchor2D"]
+[editable path="Anchor2D2"]
+[editable path="TriggerArea"]
+[editable path="GuidePop-Up"]

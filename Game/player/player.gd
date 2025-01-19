@@ -8,6 +8,10 @@ var active_stats_resource: PlayerStatsResource
 @onready var rig := $Rig as Node2D
 @onready var big_frog := $Rig/HopperTransform as Node2D
 @onready var small_frog := $Rig/LilHopperTransform as Node2D
+@onready var metamorph_timer := $MetamorphTimer as Timer
+@onready var acid_boil := $Particles/AcidBoil as GPUParticles2D
+@onready var acid_explosion := $Particles/AcidExplosion as GPUParticles2D
+
 @onready var collision_shape := $CollisionShape2D as CollisionShape2D
 @onready var rays := $Rays as Node2D
 @onready var wallSlideRayL_Top := $Rays/WallSlideRayL_Top as RayCast2D
@@ -54,6 +58,11 @@ var can_play_land_snd : bool = true
 
 @export var wallslide_ability_active: bool = false
 @export var start_as_big_frog: bool = false
+var future_metamoprph_form: int = 0
+var metamorph_in_progress: bool = false
+@export var ability1_color: Color = Color8(255, 140, 80, 255)
+@export var ability2_color: Color = Color8(0, 200, 125, 255)
+@export var ability3_color: Color = Color8(255, 0, 100, 255)
 
 func _ready() -> void:
 	hopper_anim_player.play("idle")
@@ -63,14 +72,25 @@ func _ready() -> void:
 	else:
 		become_small_frog()
 
+
+
+
+
 func enable_wallslide_ability():
 	wallslide_ability_active = true
+	rig.modulate = ability1_color
 
 func enable_grapple_ability():
 	grappleController.ability_active = true
+	rig.modulate = ability2_color
 
 func enable_shoot_ability():
 	shootController.ability_active = true
+	rig.modulate = ability3_color
+
+
+
+
 
 func _load_stats(active_stats_resouce: PlayerStatsResource):
 	active_stats_resource = active_stats_resouce
@@ -89,16 +109,57 @@ func _load_stats(active_stats_resouce: PlayerStatsResource):
 	else:
 		printerr("\"active_stats_resouce\" is empty. Keeping default stats values.")
 
+func metamorph_start(form: int):
+	await get_tree().process_frame
+	metamorph_in_progress = true
+	hopper_anim_player.stop()
+	hopper_anim_player.play("metamorph")
+	var tween = get_tree().create_tween()
+	tween.tween_property(rig, "modulate", Color8(0, 0, 0, 255), 2)
+	metamorph_timer.start()
+	#acid_boil.emitting = true
+	match form:
+		0:
+			future_metamoprph_form = 0
+		1:
+			future_metamoprph_form = 1
+		2:
+			future_metamoprph_form = 2
+		3:
+			future_metamoprph_form = 3
+
+func _on_metamorph_timer_timeout() -> void:
+	metamorph_in_progress = false
+	#acid_boil.emitting = false
+	acid_explosion.emitting = true
+	match future_metamoprph_form:
+		0:
+			become_big_frog()
+		1:
+			enable_wallslide_ability()
+		2:
+			enable_grapple_ability()
+		3:
+			enable_shoot_ability()
+	
+
 func become_small_frog():
 	_load_stats(stats_small_frog)
 	small_frog.show()
 	big_frog.hide()
-	
+	var tween = get_tree().create_tween()
+	#tween.tween_property(rig, "modulate", Color.WHITE, 2)
 
 func become_big_frog():
+	global_position.y -= 100
 	_load_stats(stats_big_frog)
 	small_frog.hide()
 	big_frog.show()
+	var tween = get_tree().create_tween()
+	#tween.tween_property(rig, "modulate", Color.WHITE, 2)
+
+
+
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	stateLabel.text = str(fsm_state)
@@ -110,6 +171,15 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var move_right := Input.is_action_pressed("move_right")
 	var jump := Input.is_action_just_pressed("jump")
 	var move_down := Input.is_action_pressed("move_down")
+	
+	if metamorph_in_progress:
+		velocity = Vector2.ZERO
+		state.set_linear_velocity(Vector2.ZERO)
+		move_left = false
+		move_right = false
+		jump = false
+		move_down = false
+		
 	
 	if jump:
 		jump_buffer_time = INPUT_BUFFER_TIME
@@ -149,7 +219,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 				can_play_land_snd = false
 		else:
 			fsm_state = FSM_State.IN_AIR
-
 	match fsm_state:
 		FSM_State.ON_FLOOR:
 			velocity = _handle_on_floor(velocity, step, move_left, move_right, jump, on_floor)
@@ -166,7 +235,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if found_floor:
 		floor_h_velocity = state.get_contact_collider_velocity_at_position(floor_index).x
 		velocity.x += floor_h_velocity
-
+	
 	velocity += state.get_total_gravity() * step
 	state.set_linear_velocity(velocity)
 
@@ -188,8 +257,9 @@ func _handle_on_floor(velocity: Vector2, step: float, move_left: bool, move_righ
 		if velocity.x < walk_max_velocity:
 			velocity.x += walk_accel * step * (START_BOOST_MULTIPLIER if absf(velocity.x) < 20.0 else 1.0)
 	else:
-		hopper_anim_player.play("idle")
-		lil_hopper_anim_sprite.play("idle")
+		if !metamorph_in_progress:
+			hopper_anim_player.play("idle")
+			lil_hopper_anim_sprite.play("idle")
 		var xv := absf(velocity.x)
 		xv -= walk_deaccel * step
 		if xv < 0:

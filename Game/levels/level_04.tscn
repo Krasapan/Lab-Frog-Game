@@ -1,13 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdv7tayb2kh1b"]
+[gd_scene load_steps=19 format=3 uid="uid://bdv7tayb2kh1b"]
 
 [ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_haxr6"]
 [ext_resource type="PackedScene" uid="uid://crrr0vxmhyyqy" path="res://levels/obstacles/vent.tscn" id="2_gfcxl"]
 [ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="3_wivda"]
 [ext_resource type="PackedScene" uid="uid://cr04cekxsr2ng" path="res://levels/obstacles/crate_big.tscn" id="4_v3t1l"]
 [ext_resource type="PackedScene" uid="uid://d4evq12ar6c86" path="res://levels/obstacles/crate_small.tscn" id="5_im6dt"]
-[ext_resource type="PackedScene" uid="uid://52ier4g77btl" path="res://levels/obstacles/spike.tscn" id="6_6m6x4"]
+[ext_resource type="PackedScene" uid="uid://52ier4g77btl" path="res://levels/obstacles/spike_small.tscn" id="6_6m6x4"]
 [ext_resource type="PackedScene" uid="uid://vqoom2xgq3fh" path="res://levels/utils/guide_pop_up.tscn" id="7_j1b6r"]
 [ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="8_vcke5"]
+[ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="9_djl3b"]
+[ext_resource type="Texture2D" uid="uid://c7lyxo6852x15" path="res://assets/backgrounds/BackgroundLight.png" id="10_cq57w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_472t8"]
 size = Vector2(250.605, 14.308)
@@ -24,68 +26,15 @@ size = Vector2(2496, 1024)
 size = Vector2(640, 2176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5a54"]
-size = Vector2(640, 3424)
+size = Vector2(640, 3488)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgywf"]
+size = Vector2(1024, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e84yn"]
+size = Vector2(128, 512)
 
 [node name="level_04" type="Node2D"]
-
-[node name="LevelGround" parent="." instance=ExtResource("1_haxr6")]
-
-[node name="Background" parent="LevelGround" index="0"]
-position = Vector2(1391.75, 816)
-scale = Vector2(2784.5, 3872)
-
-[node name="GroundPolygon" parent="LevelGround" index="1"]
-polygon = PackedVector2Array(0, 0, 0, -1024, 2432, -1024, 2432, 0, 1792, 0, 1792, 256, 2176, 256, 2176, 4480, 4096, 4480, 4096, 4864, 2272, 4864, 2336, 4960, 2336, 5888, 7168, 5888, 7168, -2048, -1280, -2048, -1280, 5888, 1792, 5888, 1792, 512, 1536, 512, 1536, 0)
-
-[node name="Lineart" parent="LevelGround" index="2"]
-points = PackedVector2Array(0, 0, 0, -1024, 2432, -1024, 2432, 0, 1792, 0, 1792, 256, 2176, 256, 2176, 4480, 4096, 4480, 4096, 4864, 2272, 4864, 2336, 4960, 2336, 5888, 7168, 5888, 7168, -2048, -1280, -2048, -1280, 5888, 1792, 5888, 1792, 512, 1536, 512, 1536, 0, 0, 0)
-
-[node name="EntryDoorGradient" parent="LevelGround" index="3"]
-visible = false
-
-[node name="EntryDoorOver" parent="LevelGround" index="4"]
-visible = false
-
-[node name="ExitDoorGradient" parent="LevelGround" index="5"]
-visible = false
-
-[node name="ExitDoorOver" parent="LevelGround" index="6"]
-visible = false
-
-[node name="Vent" parent="." instance=ExtResource("2_gfcxl")]
-position = Vector2(1664, 7.50113)
-rotation = -3.14159
-sleeping = true
-
-[node name="CollisionShape2D" parent="Vent" index="0"]
-position = Vector2(-0.0418701, -2.846)
-shape = SubResource("RectangleShape2D_472t8")
-
-[node name="Sprite2D" parent="Vent" index="1"]
-scale = Vector2(3.91888, 0.3125)
-
-[node name="Player" parent="." instance=ExtResource("3_wivda")]
-position = Vector2(134.848, -140.841)
-wallslide_ability_active = true
-start_as_big_frog = true
-
-[node name="VentObstacle2" type="StaticBody2D" parent="."]
-position = Vector2(1547.24, 28.3577)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VentObstacle2"]
-shape = SubResource("RectangleShape2D_qysi5")
-
-[node name="CrateBig" parent="." instance=ExtResource("4_v3t1l")]
-position = Vector2(1653.91, -194.846)
-
-[node name="CrateSmall" parent="." instance=ExtResource("5_im6dt")]
-position = Vector2(1952, -96)
-
-[node name="CrateSmall2" parent="." instance=ExtResource("5_im6dt")]
-position = Vector2(2336, -480)
-
-[node name="CrateBig2" parent="." instance=ExtResource("4_v3t1l")]
-position = Vector2(2240, -192)
 
 [node name="Spike2" parent="." instance=ExtResource("6_6m6x4")]
 position = Vector2(2236.96, 1251.22)
@@ -106,6 +55,182 @@ scale = Vector2(1.4, 1.4)
 position = Vector2(1744.9, 800)
 rotation = 0.523599
 scale = Vector2(1.4, 1.4)
+
+[node name="Spike6" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(2848, 5216)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike7" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(2912, 5216)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike8" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(2976, 5216)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike9" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(3040, 5216)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike10" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(3360, 5216)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike11" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(3424, 5216)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike12" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(3488, 5216)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike13" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(3552, 5216)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike14" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(4672, 5632)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike15" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(4736, 5632)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike16" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(4800, 5632)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike17" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(4864, 5632)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike18" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(5632, 3808)
+rotation = -1.57079
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike19" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(5632, 3872)
+rotation = -1.57079
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike20" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(5632, 3936)
+rotation = -1.57079
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike21" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(5632, 4000)
+rotation = -1.57079
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike22" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(4128, 4704)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike23" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(5120, 5632)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike24" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(5216, 5632)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike25" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(5344, 5632)
+scale = Vector2(1.4, 1.4)
+
+[node name="Spike26" parent="." instance=ExtResource("6_6m6x4")]
+position = Vector2(5440, 5632)
+scale = Vector2(1.4, 1.4)
+
+[node name="LevelGround" parent="." instance=ExtResource("1_haxr6")]
+
+[node name="Background" parent="LevelGround" index="0"]
+modulate = Color(0.162065, 0.162066, 0.162066, 1)
+z_index = -1
+position = Vector2(2944, 2384)
+scale = Vector2(6912, 7008)
+
+[node name="GroundPolygon" parent="LevelGround" index="1"]
+polygon = PackedVector2Array(0, 0, -512, 0, -512, -512, 0, -512, 0, -1024, 2432, -1024, 2432, 0, 1792, 0, 1792, 256, 2176, 256, 2176, 4480, 2816, 4480, 2816, 4608, 3072, 4608, 3072, 4480, 3584, 4096, 4352, 4096, 4480, 4352, 4480, 4448, 4608, 4448, 4608, 3712, 5632, 3712, 5632, 4096, 5376, 4096, 5376, 4544, 5632, 4608, 6272, 4608, 6272, 4928, 5376, 4928, 5376, 4992, 5504, 5056, 5504, 5632, 5056, 5632, 5056, 4096, 4928, 4096, 4928, 5632, 4608, 5632, 4607.37, 4704, 4096, 4704, 4064, 4768, 3968, 4768, 3968, 4864, 3584, 4864, 3584, 5120, 3328, 5120, 3328, 4864, 3072, 4864, 3072, 5120, 2816, 5120, 2816, 4864, 2272, 4864, 2336, 4960, 2336, 5888, 7168, 5888, 7168, -2048, -1280, -2048, -1280, 5888, 1792, 5888, 1792, 512, 1536, 512, 1536, 0)
+
+[node name="Lineart" parent="LevelGround" index="2"]
+points = PackedVector2Array(0, 0, -512, 0, -512, -512, 0, -512, 0, -1024, 2432, -1024, 2432, 0, 1792, 0, 1792, 256, 2176, 256, 2176, 4480, 2816, 4480, 2816, 4608, 3072, 4608, 3072, 4480, 3584, 4096, 4352, 4096, 4480, 4352, 4480, 4448, 4608, 4448, 4608, 3712, 5632, 3712, 5632, 4096, 5376, 4096, 5376, 4544, 5632, 4608, 6272, 4608, 6272, 4928, 5376, 4928, 5376, 4992, 5504, 5056, 5504, 5632, 5056, 5632, 5056, 4096, 4928, 4096, 4928, 5632, 4608, 5632, 4607.37, 4704, 4096, 4704, 4064, 4768, 3968, 4768, 3968, 4864, 3584, 4864, 3584, 5120, 3328, 5120, 3328, 4864, 3072, 4864, 3072, 5120, 2816, 5120, 2816, 4864, 2272, 4864, 2336, 4960, 2336, 5888, 7168, 5888, 7168, -2048, -1280, -2048, -1280, 5888, 1792, 5888, 1792, 512, 1536, 512, 1536, 0, 0, 0)
+
+[node name="EntryDoorGradient" parent="LevelGround" index="3"]
+position = Vector2(-192, -256)
+scale = Vector2(6, 9)
+
+[node name="EntryDoorOver" parent="LevelGround" index="4"]
+position = Vector2(-576, -256)
+scale = Vector2(6, 9)
+
+[node name="ExitDoorGradient" parent="LevelGround" index="5"]
+position = Vector2(5952, 4768)
+scale = Vector2(6, 7)
+
+[node name="ExitDoorOver" parent="LevelGround" index="6"]
+position = Vector2(6336, 4768)
+scale = Vector2(6, 7)
+
+[node name="Vent" parent="." instance=ExtResource("2_gfcxl")]
+position = Vector2(1664, 7.50113)
+rotation = -3.14159
+sleeping = true
+
+[node name="CollisionShape2D" parent="Vent" index="0"]
+position = Vector2(-0.0418701, -2.846)
+shape = SubResource("RectangleShape2D_472t8")
+
+[node name="Sprite2D" parent="Vent" index="1"]
+scale = Vector2(3.91888, 0.3125)
+
+[node name="Player" parent="." instance=ExtResource("3_wivda")]
+position = Vector2(-32, -128)
+wallslide_ability_active = true
+start_as_big_frog = true
+
+[node name="Rig" parent="Player" index="3"]
+modulate = Color(1, 0.54902, 0.313726, 1)
+
+[node name="RopeScanLine" parent="Player/GrappleController/GrappleRay" index="0"]
+default_color = Color(1, 0, 0.592157, 1)
+
+[node name="Rope" parent="Player/GrappleController" index="1"]
+default_color = Color(1, 0, 0.592157, 1)
+
+[node name="AcidBoil" parent="Player/Particles" index="0"]
+modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
+
+[node name="AcidExplosion" parent="Player/Particles" index="1"]
+modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
+
+[node name="VentObstacle2" type="StaticBody2D" parent="."]
+position = Vector2(1547.24, 28.3577)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VentObstacle2"]
+shape = SubResource("RectangleShape2D_qysi5")
+
+[node name="CrateBig" parent="." instance=ExtResource("4_v3t1l")]
+position = Vector2(1653.91, -194.846)
+
+[node name="CrateSmall" parent="." instance=ExtResource("5_im6dt")]
+position = Vector2(1952, -96)
+
+[node name="CrateSmall2" parent="." instance=ExtResource("5_im6dt")]
+position = Vector2(2336, -480)
+
+[node name="CrateBig2" parent="." instance=ExtResource("4_v3t1l")]
+position = Vector2(2240, -192)
+
+[node name="CrateSmall3" parent="." instance=ExtResource("5_im6dt")]
+position = Vector2(2688, 4736)
+
+[node name="CrateSmall4" parent="." instance=ExtResource("5_im6dt")]
+position = Vector2(3200, 4736)
+
+[node name="Spikes" type="Node2D" parent="."]
 
 [node name="GuidePop-Up" parent="." instance=ExtResource("7_j1b6r")]
 position = Vector2(1024, 4128)
@@ -146,13 +271,41 @@ shape = SubResource("RectangleShape2D_vupml")
 [node name="Anchor2D_02" parent="." instance=ExtResource("8_vcke5")]
 position = Vector2(1984, 3904)
 entered_zoom = 0.3
-exited_zoom = 0.8
+exited_zoom = 0.5
 entered_max_speed = 4000.0
 exited_max_speed = 4000.0
 
 [node name="CollisionShape2D" parent="Anchor2D_02" index="0"]
-position = Vector2(128, 240)
+position = Vector2(128, 208)
 shape = SubResource("RectangleShape2D_x5a54")
+
+[node name="TriggerArea_00" parent="." instance=ExtResource("9_djl3b")]
+position = Vector2(2048, 6144)
+trigger_function = 2
+
+[node name="CollisionShape2D" parent="TriggerArea_00" index="0"]
+shape = SubResource("RectangleShape2D_rgywf")
+
+[node name="Label" parent="TriggerArea_00/CenterContainer" index="0"]
+text = "Restart level"
+
+[node name="TriggerArea_01" parent="." instance=ExtResource("9_djl3b")]
+position = Vector2(6208, 4768)
+trigger_function = 1
+
+[node name="CollisionShape2D" parent="TriggerArea_01" index="0"]
+shape = SubResource("RectangleShape2D_e84yn")
+
+[node name="Label" parent="TriggerArea_01/CenterContainer" index="0"]
+text = "Next level"
+
+[node name="Decorations" type="Node2D" parent="."]
+z_index = -1
+
+[node name="BackgroundLight" type="Sprite2D" parent="Decorations"]
+position = Vector2(1305.76, -510.961)
+scale = Vector2(1.89214, 1.89214)
+texture = ExtResource("10_cq57w")
 
 [editable path="LevelGround"]
 [editable path="Vent"]
@@ -162,3 +315,5 @@ shape = SubResource("RectangleShape2D_x5a54")
 [editable path="Anchor2D_00"]
 [editable path="Anchor2D_01"]
 [editable path="Anchor2D_02"]
+[editable path="TriggerArea_00"]
+[editable path="TriggerArea_01"]

@@ -19,18 +19,15 @@ var main_menu_scene = preload("res://menus/main_menu.tscn")
 var pause_menu_scene = preload("res://menus/pause_menu.tscn")
 
 var levels = [
-	#preload("res://levels/testing_grounds.tscn"),
 	preload("res://levels/level_00.tscn"),
 	preload("res://levels/level_01.tscn"),
 	preload("res://levels/level_02.tscn"),
 	preload("res://levels/level_03.tscn"),
 	preload("res://levels/level_04.tscn"),
-	#preload("res://levels/level_05.tscn"),
+	preload("res://levels/level_05.tscn"),
 	#preload("res://levels/level_06.tscn"),
 	#preload("res://levels/level_07.tscn"),
-	#preload("res://levels/level_08.tscn"),
-	#preload("res://levels/level_09.tscn"),
-	#preload("res://levels/level_10.tscn"),
+	#preload("res://levels/level_final.tscn")
 ]
 
 func _ready() -> void:

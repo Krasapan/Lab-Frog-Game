@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ceqd5kt7p6t34"]
+[gd_scene load_steps=14 format=3 uid="uid://ceqd5kt7p6t34"]
 
 [ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_svdp5"]
 [ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="2_6a0qm"]
 [ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="3_3qn8m"]
 [ext_resource type="PackedScene" uid="uid://cr04cekxsr2ng" path="res://levels/obstacles/crate_big.tscn" id="3_rstkw"]
 [ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="4_kbj0t"]
+[ext_resource type="Texture2D" uid="uid://co73e0j0vmw30" path="res://assets/backgrounds/BackgroundDarkest.png" id="6_4h0cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mluki"]
 size = Vector2(3264, 1408)
@@ -33,6 +34,7 @@ fill_from = Vector2(1, 1)
 [node name="LevelGround_00" parent="." instance=ExtResource("1_svdp5")]
 
 [node name="Background" parent="LevelGround_00" index="0"]
+visible = false
 position = Vector2(7392, 192)
 scale = Vector2(15936, 5632)
 
@@ -221,6 +223,45 @@ shape = SubResource("RectangleShape2D_yjhlo")
 position = Vector2(12288, 1472)
 scale = Vector2(96, 46)
 texture = SubResource("GradientTexture2D_bkeh7")
+
+[node name="Decorations" type="Node2D" parent="."]
+modulate = Color(0.678944, 0.678944, 0.678944, 1)
+z_index = -1
+
+[node name="BackgroundDarkest" type="Sprite2D" parent="Decorations"]
+position = Vector2(1728, -640)
+scale = Vector2(2.4212, 2.4212)
+texture = ExtResource("6_4h0cc")
+
+[node name="BackgroundDarkest2" type="Sprite2D" parent="Decorations"]
+position = Vector2(6272, -640)
+scale = Vector2(2.4212, 2.4212)
+texture = ExtResource("6_4h0cc")
+
+[node name="BackgroundDarkest3" type="Sprite2D" parent="Decorations"]
+position = Vector2(6272, -1856)
+scale = Vector2(2.4212, 2.4212)
+texture = ExtResource("6_4h0cc")
+
+[node name="BackgroundDarkest4" type="Sprite2D" parent="Decorations"]
+position = Vector2(10816, -640)
+scale = Vector2(2.4212, 2.4212)
+texture = ExtResource("6_4h0cc")
+
+[node name="BackgroundDarkest5" type="Sprite2D" parent="Decorations"]
+position = Vector2(10816, -1920)
+scale = Vector2(2.4212, 2.4212)
+texture = ExtResource("6_4h0cc")
+
+[node name="BackgroundDarkest6" type="Sprite2D" parent="Decorations"]
+position = Vector2(10816, 576)
+scale = Vector2(2.4212, 2.4212)
+texture = ExtResource("6_4h0cc")
+
+[node name="BackgroundDarkest7" type="Sprite2D" parent="Decorations"]
+position = Vector2(10816, 1536)
+scale = Vector2(2.4212, 2.4212)
+texture = ExtResource("6_4h0cc")
 
 [editable path="LevelGround_00"]
 [editable path="LevelGround_01"]

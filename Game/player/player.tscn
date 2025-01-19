@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bn0sx0i60j63e"]
+[gd_scene load_steps=89 format=3 uid="uid://bn0sx0i60j63e"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_e8ijr"]
 [ext_resource type="Resource" uid="uid://ga571q85g5p6" path="res://player/stats_small_frog.tres" id="2_kcubn"]
@@ -73,6 +73,8 @@
 [ext_resource type="Texture2D" uid="uid://b4no81dvic7kb" path="res://tbg/lil_hoppy/walk/LilHopperWalk-47.png" id="45_tiwbi"]
 [ext_resource type="Texture2D" uid="uid://ctaww8bkq48kb" path="res://tbg/lil_hoppy/walk/LilHopperWalk-48.png" id="46_leklw"]
 [ext_resource type="Texture2D" uid="uid://4otmcs2svkkn" path="res://tbg/lil_hoppy/walk/LilHopperWalk-49.png" id="47_22jps"]
+[ext_resource type="AudioStream" uid="uid://b5lhu574a014n" path="res://assets/audio/player/player_grapple_hit_001.wav" id="47_l0abc"]
+[ext_resource type="AudioStream" uid="uid://befk5enj6syfl" path="res://assets/audio/player/player_grapple_launch_001.wav" id="48_ddlb0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kymfc"]
 friction = 0.0
@@ -233,6 +235,30 @@ point_count = 2
 _data = [Vector2(0, 0.208791), 0.0, 0.0, 0, 0, Vector2(0.5, 0.703297), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4qape"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 5, 0)
+
+[sub_resource type="Gradient" id="Gradient_q30uo"]
+offsets = PackedFloat32Array(0, 0.622857, 0.668571)
+colors = PackedColorArray(1, 1, 1, 0.192308, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xjws6"]
+gradient = SubResource("Gradient_q30uo")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bgetu"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 200, 0)
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4pt2q"]
 streams_count = 8
 stream_0/stream = ExtResource("11_wyo6t")
@@ -299,66 +325,11 @@ shape = SubResource("RectangleShape2D_0fe6s")
 [node name="Rig" type="Node2D" parent="."]
 
 [node name="HopperTransform" type="Node2D" parent="Rig"]
-visible = false
 position = Vector2(0, -9)
 scale = Vector2(15, 9)
 
 [node name="Hopper" parent="Rig/HopperTransform" instance=ExtResource("6_1h30g")]
 metadata/instanceSkins = {}
-
-[node name="b_upperarm" parent="Rig/HopperTransform/Hopper/Composite" index="0"]
-texture = null
-polygon = PackedVector2Array()
-uv = PackedVector2Array()
-bones = []
-
-[node name="b_lowerarm" parent="Rig/HopperTransform/Hopper/Composite" index="1"]
-texture = null
-polygon = PackedVector2Array()
-uv = PackedVector2Array()
-bones = []
-
-[node name="b_leg" parent="Rig/HopperTransform/Hopper/Composite" index="3"]
-texture = null
-polygon = PackedVector2Array()
-uv = PackedVector2Array()
-bones = []
-
-[node name="b_lowerleg" parent="Rig/HopperTransform/Hopper/Composite" index="4"]
-texture = null
-polygon = PackedVector2Array()
-uv = PackedVector2Array()
-bones = []
-
-[node name="f_leg" parent="Rig/HopperTransform/Hopper/Composite" index="7"]
-texture = null
-polygon = PackedVector2Array()
-uv = PackedVector2Array()
-bones = []
-
-[node name="f_lowerleg" parent="Rig/HopperTransform/Hopper/Composite" index="10"]
-texture = null
-polygon = PackedVector2Array()
-uv = PackedVector2Array()
-bones = []
-
-[node name="eyebrows" parent="Rig/HopperTransform/Hopper/Composite" index="30"]
-texture = null
-polygon = PackedVector2Array()
-uv = PackedVector2Array()
-bones = []
-
-[node name="f_upperarm" parent="Rig/HopperTransform/Hopper/Composite" index="32"]
-texture = null
-polygon = PackedVector2Array()
-uv = PackedVector2Array()
-bones = []
-
-[node name="f_lowerarm" parent="Rig/HopperTransform/Hopper/Composite" index="33"]
-texture = null
-polygon = PackedVector2Array()
-uv = PackedVector2Array()
-bones = []
 
 [node name="LilHopperTransform" type="Node2D" parent="Rig"]
 position = Vector2(0, -66)
@@ -397,6 +368,7 @@ position = Vector2(49, 60)
 target_position = Vector2(0, 15)
 
 [node name="GrappleController" type="Node2D" parent="."]
+position = Vector2(0, -49)
 script = ExtResource("3_btfmq")
 
 [node name="GrappleRay" type="RayCast2D" parent="GrappleController"]
@@ -406,15 +378,23 @@ target_position = Vector2(1000, 0)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 20.0
 width_curve = SubResource("Curve_0fe4q")
+default_color = Color(1, 0, 0.592157, 1)
 
 [node name="Rope" type="Line2D" parent="GrappleController"]
 points = PackedVector2Array(0, 0, 0, 0)
-width = 20.0
+width = 30.0
 width_curve = SubResource("Curve_t63c0")
+default_color = Color(1, 0, 0.592157, 1)
 
 [node name="AbilityCooldown" type="Timer" parent="GrappleController"]
 wait_time = 0.3
 one_shot = true
+
+[node name="GrappleHitAudio" type="AudioStreamPlayer2D" parent="GrappleController"]
+stream = ExtResource("47_l0abc")
+
+[node name="GrappleLaunchAudio" type="AudioStreamPlayer2D" parent="GrappleController"]
+stream = ExtResource("48_ddlb0")
 
 [node name="ShootController" type="Node2D" parent="."]
 script = ExtResource("4_4ta5d")
@@ -422,6 +402,29 @@ script = ExtResource("4_4ta5d")
 [node name="AbilityCooldown" type="Timer" parent="ShootController"]
 wait_time = 0.5
 one_shot = true
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="AcidBoil" type="GPUParticles2D" parent="Particles"]
+modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
+position = Vector2(0, -64)
+emitting = false
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_4qape")
+texture = SubResource("GradientTexture2D_xjws6")
+lifetime = 10.0
+speed_scale = 4.25
+
+[node name="AcidExplosion" type="GPUParticles2D" parent="Particles"]
+modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
+position = Vector2(0, -32)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_bgetu")
+texture = SubResource("GradientTexture2D_xjws6")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
 
 [node name="DamageController" type="Node" parent="."]
 script = ExtResource("9_c1k7w")
@@ -477,11 +480,16 @@ stream = SubResource("AudioStreamRandomizer_v4n8a")
 [node name="ShootStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_ch2or")
 
+[node name="MetamorphTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="DamageController" method="_on_player_body_entered"]
 [connection signal="anchor_detached" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_anchor_detector_2d_anchor_detached"]
 [connection signal="anchor_detected" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_anchor_detector_2d_anchor_detected"]
 [connection signal="area_entered" from="AnchorDetector2D" to="AnchorDetector2D" method="_on_area_entered"]
 [connection signal="area_exited" from="AnchorDetector2D" to="AnchorDetector2D" method="_on_area_exited"]
 [connection signal="timeout" from="DamageController/DeathRestartDelay" to="DamageController" method="_on_death_restart_delay_timeout"]
+[connection signal="timeout" from="MetamorphTimer" to="." method="_on_metamorph_timer_timeout"]
 
 [editable path="Rig/HopperTransform/Hopper"]

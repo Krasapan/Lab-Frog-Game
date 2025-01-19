@@ -36,11 +36,16 @@ func _on_body_entered(body: Node2D) -> void:
 				scene_manager.transition_to_restart_current_level()
 			3:
 				body.become_small_frog()
+				queue_free()
 			4:
-				body.become_big_frog()
+				body.metamorph_start(0)
+				queue_free()
 			5:
-				body.enable_wallslide_ability()
+				body.metamorph_start(1)
+				queue_free()
 			6:
-				body.enable_grapple_ability()
+				body.metamorph_start(2)
+				queue_free()
 			7:
-				body.enable_shoot_ability()
+				body.metamorph_start(3)
+				queue_free()

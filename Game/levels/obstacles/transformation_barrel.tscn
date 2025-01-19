@@ -3,16 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://61nuvymlyn7q" path="res://assets/props/Barrel.png" id="1_1mtex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3umkq"]
-size = Vector2(576, 792)
+size = Vector2(232.455, 310.571)
 
 [node name="TransformationBarrel" type="StaticBody2D"]
-position = Vector2(8576, 4211)
-scale = Vector2(0.4, 0.4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-141, -60)
+position = Vector2(-55.6266, -24.831)
 shape = SubResource("RectangleShape2D_3umkq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(-1, 1)
+scale = Vector2(-0.4, 0.4)
 texture = ExtResource("1_1mtex")

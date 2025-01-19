@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bud7mic2py67r"]
+[gd_scene load_steps=21 format=3 uid="uid://bud7mic2py67r"]
 
 [ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_um5l3"]
 [ext_resource type="Script" path="res://levels/scripted_sequence_level00.gd" id="1_xbrn4"]
@@ -13,11 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bk34fqfo11o7a" path="res://assets/props/Pf_ElecUnit_Off.png" id="10_pjq3j"]
 [ext_resource type="Texture2D" uid="uid://cku8sewgge4c1" path="res://assets/props/Pf_ScreenUnit_On.png" id="11_rndoj"]
 [ext_resource type="Texture2D" uid="uid://i8txkjw7j0ty" path="res://assets/props/Pf_ScreenUnit_Off.png" id="12_pqfab"]
-[ext_resource type="Texture2D" uid="uid://b7w4nmy1jrikd" path="res://assets/props/Pf_Wire_centre.png" id="13_6cfrr"]
-[ext_resource type="Texture2D" uid="uid://sc6c6c8gsi5n" path="res://assets/props/Pf_Wire_End_Down_Lt.png" id="14_oja5h"]
-[ext_resource type="Texture2D" uid="uid://cfqcnw3s1jw6b" path="res://assets/props/Pf_Wire_End_Down_Rt.png" id="15_dh1yb"]
-[ext_resource type="Texture2D" uid="uid://bg6olbbae488p" path="res://assets/props/Pf_Wire_End_Top_Lt.png" id="16_o82wv"]
-[ext_resource type="Texture2D" uid="uid://dfw1e45vffjhn" path="res://assets/props/Pf_Wire_End_Top_Rt.png" id="17_jicrg"]
+[ext_resource type="Texture2D" uid="uid://c7lyxo6852x15" path="res://assets/backgrounds/BackgroundLight.png" id="13_cjgw8"]
 
 [sub_resource type="Gradient" id="Gradient_bp6i7"]
 interpolation_mode = 1
@@ -53,6 +49,7 @@ position = Vector2(384, -1440)
 [node name="LevelGround" parent="." instance=ExtResource("1_um5l3")]
 
 [node name="Background" parent="LevelGround" index="0"]
+visible = false
 position = Vector2(1520, -640)
 scale = Vector2(3552, 1792)
 
@@ -83,7 +80,6 @@ scale = Vector2(4.09448, 4.04661)
 texture = SubResource("GradientTexture2D_1uaky")
 
 [node name="Anchor2D" parent="." instance=ExtResource("3_m3xfy")]
-visible = false
 position = Vector2(1344, -640)
 
 [node name="CollisionShape2D" parent="Anchor2D" index="0"]
@@ -100,6 +96,7 @@ shape = SubResource("RectangleShape2D_tea8y")
 text = "Next Level"
 
 [node name="GuidePop-Up" parent="." instance=ExtResource("7_xuhh1")]
+z_index = 1
 position = Vector2(384, -352)
 
 [node name="CollisionShape2D" parent="GuidePop-Up" index="0"]
@@ -114,6 +111,18 @@ position = Vector2(1344, -640)
 [node name="AnchorCamera2D" parent="Player" index="0"]
 zoom = Vector2(0.6, 0.6)
 
+[node name="RopeScanLine" parent="Player/GrappleController/GrappleRay" index="0"]
+default_color = Color(1, 0, 0.592157, 1)
+
+[node name="Rope" parent="Player/GrappleController" index="1"]
+default_color = Color(1, 0, 0.592157, 1)
+
+[node name="AcidBoil" parent="Player/Particles" index="0"]
+modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
+
+[node name="AcidExplosion" parent="Player/Particles" index="1"]
+modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
+
 [node name="Vent" parent="." instance=ExtResource("7_2601t")]
 position = Vector2(384, -1287.5)
 freeze = true
@@ -125,9 +134,16 @@ position = Vector2(257, -1258)
 shape = SubResource("RectangleShape2D_0yjjv")
 
 [node name="Decorations" type="Node2D" parent="."]
+z_index = -1
+
+[node name="BackgroundLight" type="Sprite2D" parent="Decorations"]
+modulate = Color(0.556953, 0.556953, 0.556953, 1)
+position = Vector2(1728, -640)
+scale = Vector2(2.34004, 2.34004)
+texture = ExtResource("13_cjgw8")
 
 [node name="ControlUnit_On" type="Sprite2D" parent="Decorations"]
-position = Vector2(651, -77)
+position = Vector2(2336, -77)
 texture = ExtResource("7_083tm")
 
 [node name="ControlUnit_Off" type="Sprite2D" parent="Decorations"]
@@ -135,7 +151,7 @@ position = Vector2(1176, -77)
 texture = ExtResource("8_m3m8j")
 
 [node name="ElecUnit_On" type="Sprite2D" parent="Decorations"]
-position = Vector2(1621, -301)
+position = Vector2(128, -320)
 texture = ExtResource("9_fwucw")
 
 [node name="ElecUnit_Off" type="Sprite2D" parent="Decorations"]
@@ -143,32 +159,12 @@ position = Vector2(1854, -305)
 texture = ExtResource("10_pjq3j")
 
 [node name="ScreenUnit_On" type="Sprite2D" parent="Decorations"]
-position = Vector2(648, -345)
+position = Vector2(2336, -345)
 texture = ExtResource("11_rndoj")
 
 [node name="ScreenUnit_Off" type="Sprite2D" parent="Decorations"]
 position = Vector2(1172, -341)
 texture = ExtResource("12_pqfab")
-
-[node name="Wire_Centre" type="Sprite2D" parent="Decorations"]
-position = Vector2(531, -902)
-texture = ExtResource("13_6cfrr")
-
-[node name="Wire_End_Down_Lt" type="Sprite2D" parent="Decorations"]
-position = Vector2(269, -883)
-texture = ExtResource("14_oja5h")
-
-[node name="Wire_End_Down_Rt" type="Sprite2D" parent="Decorations"]
-position = Vector2(794, -883)
-texture = ExtResource("15_dh1yb")
-
-[node name="Wire_End_Top_Lt" type="Sprite2D" parent="Decorations"]
-position = Vector2(846, -824)
-texture = ExtResource("16_o82wv")
-
-[node name="Wire_End_Top_Rt" type="Sprite2D" parent="Decorations"]
-position = Vector2(216, -818)
-texture = ExtResource("17_jicrg")
 
 [connection signal="timeout" from="ScriptedSequence/StartDelayTimer" to="ScriptedSequence" method="_on_start_delay_timer_timeout"]
 

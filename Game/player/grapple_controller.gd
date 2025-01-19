@@ -4,6 +4,8 @@ extends Node2D
 @onready var grapple_ray := $GrappleRay as RayCast2D
 @onready var rope := $Rope as Line2D
 @onready var rope_scan_line := $GrappleRay/RopeScanLine as Line2D
+@onready var grapple_hit_audio := $GrappleHitAudio as AudioStreamPlayer2D
+@onready var grapple_launch_audio := $GrappleLaunchAudio as AudioStreamPlayer2D
 #@onready var ability_cooldown := $AbilityCooldown as Timer
 
 var grappled = false
@@ -28,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("grapple") and !Input.is_action_pressed("bile_bomb"):
 		grapple_ray.look_at(get_global_mouse_position())
 		flies = true
+		grapple_launch_audio.play()
 		grapple_ray.target_position.x = 0
 	if flies:
 		_handle_launch(delta)
@@ -57,6 +60,7 @@ func _handle_launch(delta):
 			grapple_point = grapple_ray.get_collision_point()
 		grappled = true
 		flies = false
+		grapple_hit_audio.play()
 		rope_length = 0
 		rope_scan_line.set_point_position(1, Vector2.ZERO)
 		grapple_ray.target_position.x = 0
