@@ -123,26 +123,26 @@ points = PackedVector2Array(-512, 0, -512, -512, 0, -512, 0, -1280, 4288, -1280,
 [node name="EntryDoorGradient" parent="LevelGround_00" index="3"]
 position = Vector2(-192, -128)
 
+[node name="EntryDoorOver" parent="LevelGround_00" index="4"]
+position = Vector2(-1056, -256)
+
+[node name="ExitDoorGradient" parent="LevelGround_00" index="5"]
+position = Vector2(5568, -128)
+
+[node name="ExitDoorOver" parent="LevelGround_00" index="6"]
+position = Vector2(6432, -256)
+
 [node name="EntryDoorGradient2" type="Sprite2D" parent="LevelGround_00"]
 z_index = 1
 position = Vector2(-192, -416)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_yvfvx")
 
-[node name="EntryDoorOver" parent="LevelGround_00" index="5"]
-position = Vector2(-1056, -256)
-
-[node name="ExitDoorGradient" parent="LevelGround_00" index="6"]
-position = Vector2(5568, -128)
-
 [node name="ExitDoorGradient2" type="Sprite2D" parent="LevelGround_00"]
 z_index = 1
 position = Vector2(5568, -416)
 scale = Vector2(-0.5, 0.5)
 texture = ExtResource("3_yvfvx")
-
-[node name="ExitDoorOver" parent="LevelGround_00" index="8"]
-position = Vector2(6432, -256)
 
 [node name="RoofOver" type="Sprite2D" parent="LevelGround_00"]
 visible = false

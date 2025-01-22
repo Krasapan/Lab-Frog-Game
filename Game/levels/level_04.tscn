@@ -202,9 +202,6 @@ sleeping = true
 position = Vector2(-0.0418701, -2.846)
 shape = SubResource("RectangleShape2D_472t8")
 
-[node name="Front" parent="Vent" index="2"]
-scale = Vector2(0.643835, 1.14023)
-
 [node name="Player" parent="." instance=ExtResource("3_wivda")]
 position = Vector2(-32, -128)
 wallslide_ability_active = true

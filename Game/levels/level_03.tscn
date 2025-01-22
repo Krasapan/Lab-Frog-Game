@@ -71,7 +71,7 @@ fill_from = Vector2(1, 1)
 
 [node name="LevelMusicStarter" type="Node" parent="."]
 script = ExtResource("12_ta6wo")
-level_track_index = 1
+level_track_index = 2
 
 [node name="LevelGround_00" parent="." instance=ExtResource("1_cghkc")]
 

@@ -65,14 +65,14 @@ visible = false
 [node name="ExitDoorGradient" parent="LevelGround" index="5"]
 position = Vector2(2880, -192)
 
+[node name="ExitDoorOver" parent="LevelGround" index="6"]
+position = Vector2(3744, -256)
+
 [node name="ExitDoorGradient2" type="Sprite2D" parent="LevelGround"]
 z_index = 1
 position = Vector2(2880, -480)
 scale = Vector2(-0.5, 0.5)
 texture = ExtResource("3_q2gsg")
-
-[node name="ExitDoorOver" parent="LevelGround" index="7"]
-position = Vector2(3744, -256)
 
 [node name="RoofOver" type="Sprite2D" parent="LevelGround"]
 z_index = 1
@@ -116,9 +116,6 @@ zoom = Vector2(0.6, 0.6)
 [node name="Vent" parent="." instance=ExtResource("7_2601t")]
 position = Vector2(384, -1287.5)
 freeze = true
-
-[node name="Front" parent="Vent" index="2"]
-scale = Vector2(0.643835, 1.14023)
 
 [node name="VentObstacle" type="StaticBody2D" parent="."]
 position = Vector2(257, -1258)

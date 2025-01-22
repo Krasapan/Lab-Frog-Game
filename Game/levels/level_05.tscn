@@ -44,7 +44,7 @@ size = Vector2(256, 576)
 size = Vector2(3488, 2560)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhrvp"]
-size = Vector2(2843.09, 1344)
+size = Vector2(3323.09, 1344)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_763e7"]
 size = Vector2(512, 512)
@@ -98,9 +98,6 @@ sleeping = true
 [node name="CollisionShape2D" parent="Vent" index="0"]
 shape = SubResource("RectangleShape2D_6lf65")
 
-[node name="Front" parent="Vent" index="2"]
-scale = Vector2(0.643835, 1.14023)
-
 [node name="Vent2" parent="." instance=ExtResource("2_lwqt0")]
 position = Vector2(-4103.68, -1137.05)
 rotation = -1.57081
@@ -108,9 +105,6 @@ sleeping = true
 
 [node name="CollisionShape2D" parent="Vent2" index="0"]
 shape = SubResource("RectangleShape2D_oeji4")
-
-[node name="Front" parent="Vent2" index="2"]
-scale = Vector2(0.643835, 1.14023)
 
 [node name="TransformationBarrel" parent="." instance=ExtResource("4_y7s4b")]
 position = Vector2(-2941, -136.829)
@@ -204,7 +198,7 @@ entered_mass = 1.0
 exited_mass = 1.0
 
 [node name="CollisionShape2D" parent="Anchor2D4" index="0"]
-position = Vector2(-397.546, 0)
+position = Vector2(-157.546, 0)
 shape = SubResource("RectangleShape2D_yhrvp")
 
 [node name="TriggerArea2" parent="." instance=ExtResource("6_ncm4a")]

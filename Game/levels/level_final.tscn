@@ -176,7 +176,7 @@ script = ExtResource("1_tjlvf")
 
 [node name="LevelMusicStarter" type="Node" parent="."]
 script = ExtResource("41_srclj")
-level_track_index = 1
+level_track_index = 6
 
 [node name="LevelGround" parent="." instance=ExtResource("1_bqj32")]
 

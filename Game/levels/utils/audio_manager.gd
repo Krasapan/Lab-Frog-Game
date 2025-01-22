@@ -33,7 +33,8 @@ func play_music_track(track_index: int):
 		4:
 			_crossfade_to_next_track(null, level03_drums01)
 		5:
-			_crossfade_to_next_track(level03_drums01, level03_drums02)
+			level03_drums01.stop()
+			_crossfade_to_next_track(null, level03_drums02)
 		6:
 			level03_drums01.stop()
 			level03_drums02.stop()

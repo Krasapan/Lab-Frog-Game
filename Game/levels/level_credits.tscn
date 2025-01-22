@@ -9,7 +9,7 @@
 [ext_resource type="Theme" uid="uid://8h8c135yb33a" path="res://assets/guides_ui_theme.tres" id="7_ssheo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ukao"]
-size = Vector2(4096, 1664)
+size = Vector2(3584, 1664)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r51v4"]
 size = Vector2(3200, 576)
@@ -68,6 +68,7 @@ entered_max_speed = 3000.0
 exited_max_speed = 3000.0
 
 [node name="CollisionShape2D" parent="Anchor2D" index="0"]
+position = Vector2(-256, 0)
 shape = SubResource("RectangleShape2D_8ukao")
 
 [node name="Anchor2D2" parent="." instance=ExtResource("2_7j1bh")]
