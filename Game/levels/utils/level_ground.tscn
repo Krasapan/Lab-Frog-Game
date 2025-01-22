@@ -1,31 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c76wih3clv6t6"]
+[gd_scene load_steps=5 format=3 uid="uid://c76wih3clv6t6"]
 
 [ext_resource type="Script" path="res://levels/utils/level_ground.gd" id="1_uxf7b"]
+[ext_resource type="Texture2D" uid="uid://cw0npvphatpce" path="res://assets/ground/texture_ground_fill.png" id="2_vop48"]
+[ext_resource type="Texture2D" uid="uid://bdruhetj4tywd" path="res://assets/ground/texture_ground_fill_fade.png" id="3_8mqyo"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_s0bjj"]
-
-[sub_resource type="Gradient" id="Gradient_l17c0"]
-colors = PackedColorArray(0.262745, 0.298039, 0.309804, 1, 0.262745, 0.298039, 0.309804, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_b6ln1"]
-gradient = SubResource("Gradient_l17c0")
-
-[sub_resource type="Gradient" id="Gradient_hqsf4"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.262745, 0.298039, 0.309804, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_e2k6q"]
-gradient = SubResource("Gradient_hqsf4")
-
-[sub_resource type="Gradient" id="Gradient_ede0v"]
-colors = PackedColorArray(0.262745, 0.298039, 0.309804, 0, 0.262745, 0.298039, 0.309804, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lvcot"]
-gradient = SubResource("Gradient_ede0v")
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1uaky"]
-gradient = SubResource("Gradient_hqsf4")
 
 [node name="LevelGround" type="StaticBody2D"]
 collision_mask = 6
@@ -36,7 +15,9 @@ modulate = Color(0.372549, 0.372549, 0.372549, 1)
 texture = SubResource("CanvasTexture_s0bjj")
 
 [node name="GroundPolygon" type="Polygon2D" parent="."]
-color = Color(0.262745, 0.298039, 0.309804, 1)
+texture_repeat = 2
+texture = ExtResource("2_vop48")
+texture_scale = Vector2(1.5, 1.5)
 
 [node name="Lineart" type="Line2D" parent="."]
 width = 5.0
@@ -47,20 +28,26 @@ metadata/_edit_lock_ = true
 
 [node name="EntryDoorGradient" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(6, 6)
-texture = SubResource("GradientTexture2D_b6ln1")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_8mqyo")
 
 [node name="EntryDoorOver" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(6, 6)
-texture = SubResource("GradientTexture2D_e2k6q")
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vop48")
+region_enabled = true
+region_rect = Rect2(0, 0, 2900, 1740)
 
 [node name="ExitDoorGradient" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(6, 6)
-texture = SubResource("GradientTexture2D_lvcot")
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("3_8mqyo")
 
 [node name="ExitDoorOver" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(6, 6)
-texture = SubResource("GradientTexture2D_1uaky")
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vop48")
+region_enabled = true
+region_rect = Rect2(0, 0, 2900, 1740)

@@ -1,12 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://tgnui7dhcsyi"]
+[gd_scene load_steps=20 format=3 uid="uid://tgnui7dhcsyi"]
 
 [ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_uuu7d"]
 [ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="2_qpyew"]
 [ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="3_4tvkv"]
+[ext_resource type="Texture2D" uid="uid://bdruhetj4tywd" path="res://assets/ground/texture_ground_fill_fade.png" id="3_yvfvx"]
 [ext_resource type="Script" path="res://levels/utils/level_music_starter.gd" id="4_nb5fr"]
 [ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="5_33bqr"]
 [ext_resource type="PackedScene" uid="uid://vqoom2xgq3fh" path="res://levels/utils/guide_pop_up.tscn" id="6_gb4gh"]
 [ext_resource type="Texture2D" uid="uid://c7lyxo6852x15" path="res://assets/backgrounds/BackgroundLight.png" id="7_mn048"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4fxkv"]
 
 [sub_resource type="Gradient" id="Gradient_6l55f"]
 interpolation_mode = 1
@@ -38,6 +41,9 @@ size = Vector2(448, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5y5c"]
 size = Vector2(320, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbbm5"]
+size = Vector2(416, 896)
 
 [node name="Level01" type="Node2D"]
 
@@ -83,10 +89,11 @@ points = PackedVector2Array(2720, -416, 3328, -672, 3424, -672, 3424, -640, 3328
 visible = false
 
 [node name="EntryDoorOver" parent="LevelGround_01" index="4"]
-modulate = Color(1, 1, 1, 0.588235)
+modulate = Color(0.258824, 0.294118, 0.309804, 1)
 z_index = 0
-position = Vector2(3296, -464)
-scale = Vector2(0.5, 5.5)
+position = Vector2(3312, -448)
+scale = Vector2(0.0110345, 0.22069)
+texture = SubResource("CanvasTexture_4fxkv")
 
 [node name="ExitDoorGradient" parent="LevelGround_01" index="5"]
 visible = false
@@ -108,26 +115,34 @@ position = Vector2(2752, -640)
 scale = Vector2(6784, 1792)
 
 [node name="GroundPolygon" parent="LevelGround_00" index="1"]
-polygon = PackedVector2Array(-512, 0, -512, -512, 0, -512, 0, -1280, 4288, -1280, 4288, -908, 4224, -935, 4224, -896, 4381, -832, 4381, -867, 4320, -894, 4320, -1280, 5376, -1280, 5376, -512, 5888, -512, 5888, 0, 6400, 0, 6400, -2304, -1792, -2304, -1792, 1024, 6400, 1024, 6400, 0, 1312, 0, 1312, -64, 4864, -64, 4864, 0, 4896, 0, 4896, -64, 5120, -64, 5120, -288, 2464, -288, 2464, -352, 2304, -352, 2304, -512, 2208, -512, 2208, -288, 1920, -288, 1920, -384, 1888, -384, 1888, -480, 1792, -480, 1792, -384, 1760, -384, 1760, -288, 1184, -288, 1184, -64, 1280, -64, 1280, 0, 1120, 0, 1120, -32, 1056, -32, 1056, -160, 1120, -160, 1120, -192, 960, -192, 960, -160, 1024, -160, 1024, -32, 960, -32, 960, 0, 864, 0, 864, -96, 768, -96, 768, 0)
+polygon = PackedVector2Array(-512, 0, -512, -512, 0, -512, 0, -1280, 4288, -1280, 4288, -908, 4224, -935, 4224, -896, 4381, -832, 4381, -867, 4320, -894, 4320, -1280, 5376, -1280, 5376, -512, 5888, -512, 5888, 0, 6400, 0, 6400, -2304, -1792, -2304, -1792, 1024, 6400, 1024, 6400, 0, 1312, 0, 1312, -64, 4864, -64, 4864, 0, 4896, 0, 4896, -64, 5120, -64, 5120, -288, 2496, -288, 2496, -352, 2336, -352, 2336, -512, 2208, -512, 2208, -288, 1984, -288, 1984, -384, 1952, -384, 1952, -480, 1792, -480, 1792, -384, 1760, -384, 1760, -288, 1184, -288, 1184, -64, 1280, -64, 1280, 0, 1120, 0, 1120, -32, 1056, -32, 1056, -160, 1120, -160, 1120, -192, 960, -192, 960, -160, 1024, -160, 1024, -32, 960, -32, 960, 0, 864, 0, 864, -96, 768, -96, 768, 0)
 
 [node name="Lineart" parent="LevelGround_00" index="2"]
-points = PackedVector2Array(-512, 0, -512, -512, 0, -512, 0, -1280, 4288, -1280, 4288, -908, 4224, -935, 4224, -896, 4381, -832, 4381, -867, 4320, -894, 4320, -1280, 5376, -1280, 5376, -512, 5888, -512, 5888, 0, 6400, 0, 6400, -2304, -1792, -2304, -1792, 1024, 6400, 1024, 6400, 0, 1312, 0, 1312, -64, 4864, -64, 4864, 0, 4896, 0, 4896, -64, 5120, -64, 5120, -288, 2464, -288, 2464, -352, 2304, -352, 2304, -512, 2208, -512, 2208, -288, 1920, -288, 1920, -384, 1888, -384, 1888, -480, 1792, -480, 1792, -384, 1760, -384, 1760, -288, 1184, -288, 1184, -64, 1280, -64, 1280, 0, 1120, 0, 1120, -32, 1056, -32, 1056, -160, 1120, -160, 1120, -192, 960, -192, 960, -160, 1024, -160, 1024, -32, 960, -32, 960, 0, 864, 0, 864, -96, 768, -96, 768, 0, -512, 0)
+points = PackedVector2Array(-512, 0, -512, -512, 0, -512, 0, -1280, 4288, -1280, 4288, -908, 4224, -935, 4224, -896, 4381, -832, 4381, -867, 4320, -894, 4320, -1280, 5376, -1280, 5376, -512, 5888, -512, 5888, 0, 6400, 0, 6400, -2304, -1792, -2304, -1792, 1024, 6400, 1024, 6400, 0, 1312, 0, 1312, -64, 4864, -64, 4864, 0, 4896, 0, 4896, -64, 5120, -64, 5120, -288, 2496, -288, 2496, -352, 2336, -352, 2336, -512, 2208, -512, 2208, -288, 1984, -288, 1984, -384, 1952, -384, 1952, -480, 1792, -480, 1792, -384, 1760, -384, 1760, -288, 1184, -288, 1184, -64, 1280, -64, 1280, 0, 1120, 0, 1120, -32, 1056, -32, 1056, -160, 1120, -160, 1120, -192, 960, -192, 960, -160, 1024, -160, 1024, -32, 960, -32, 960, 0, 864, 0, 864, -96, 768, -96, 768, 0, -512, 0)
 
 [node name="EntryDoorGradient" parent="LevelGround_00" index="3"]
-position = Vector2(-192, -256)
-scale = Vector2(6, 9)
+position = Vector2(-192, -128)
 
-[node name="EntryDoorOver" parent="LevelGround_00" index="4"]
-position = Vector2(-576, -256)
-scale = Vector2(6, 9)
+[node name="EntryDoorGradient2" type="Sprite2D" parent="LevelGround_00"]
+z_index = 1
+position = Vector2(-192, -416)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yvfvx")
 
-[node name="ExitDoorGradient" parent="LevelGround_00" index="5"]
-position = Vector2(5584, -256)
-scale = Vector2(6.5, 13)
+[node name="EntryDoorOver" parent="LevelGround_00" index="5"]
+position = Vector2(-1056, -256)
 
-[node name="ExitDoorOver" parent="LevelGround_00" index="6"]
-position = Vector2(6096, -256)
-scale = Vector2(9.5, 13)
+[node name="ExitDoorGradient" parent="LevelGround_00" index="6"]
+position = Vector2(5568, -128)
+
+[node name="ExitDoorGradient2" type="Sprite2D" parent="LevelGround_00"]
+z_index = 1
+position = Vector2(5568, -416)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("3_yvfvx")
+
+[node name="ExitDoorOver" parent="LevelGround_00" index="8"]
+position = Vector2(6432, -256)
 
 [node name="RoofOver" type="Sprite2D" parent="LevelGround_00"]
 visible = false
@@ -142,20 +157,8 @@ position = Vector2(-416, -64)
 [node name="AnchorCamera2D" parent="Player" index="0"]
 zoom = Vector2(0.6, 0.6)
 
-[node name="RopeScanLine" parent="Player/GrappleController/GrappleRay" index="0"]
-default_color = Color(1, 0, 0.592157, 1)
-
-[node name="Rope" parent="Player/GrappleController" index="1"]
-default_color = Color(1, 0, 0.592157, 1)
-
 [node name="ShootController" parent="Player" index="6"]
 ability_active = true
-
-[node name="AcidBoil" parent="Player/Particles" index="0"]
-modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
-
-[node name="AcidExplosion" parent="Player/Particles" index="1"]
-modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
 
 [node name="Anchor2D_00" parent="." instance=ExtResource("3_4tvkv")]
 position = Vector2(-256, -256)
@@ -203,6 +206,19 @@ text = "  ^
 
 [W]"
 
+[node name="GuidePop-Up3" parent="." instance=ExtResource("6_gb4gh")]
+position = Vector2(1984, -832)
+
+[node name="CollisionShape2D" parent="GuidePop-Up3" index="0"]
+position = Vector2(48, 96)
+shape = SubResource("RectangleShape2D_cbbm5")
+
+[node name="Label" parent="GuidePop-Up3/CenterContainer" index="0"]
+text = "  
+[W]
+
+  +     [D]"
+
 [node name="Decorations" type="Node2D" parent="."]
 z_index = -1
 
@@ -221,8 +237,10 @@ texture = ExtResource("7_mn048")
 [editable path="LevelGround_00"]
 [editable path="Player"]
 [editable path="Player/Rig/HopperTransform/Hopper"]
+[editable path="Player/Particles/VfxBile"]
 [editable path="Anchor2D_00"]
 [editable path="Anchor2D_01"]
 [editable path="Anchor2D_02"]
 [editable path="TriggerArea"]
 [editable path="GuidePop-Up2"]
+[editable path="GuidePop-Up3"]

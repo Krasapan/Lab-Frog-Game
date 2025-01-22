@@ -41,13 +41,13 @@ script = ExtResource("2_x0pkv")
 mode = &"None"
 animation_name = &"wallslide"
 
-[sub_resource type="Resource" id="Resource_vhjnq"]
+[sub_resource type="Resource" id="Resource_rq8mn"]
 script = ExtResource("3_5i2wr")
 motions = [SubResource("Resource_c8af5"), SubResource("Resource_gjkg6"), SubResource("Resource_wi4q7"), SubResource("Resource_0vchu"), SubResource("Resource_p1mhl"), SubResource("Resource_o286g"), SubResource("Resource_djijc")]
 modes = Array[StringName]([&"None"])
 
 [node name="Hopper" instance=ExtResource("1_obks8")]
-config = SubResource("Resource_vhjnq")
+config = SubResource("Resource_rq8mn")
 
 [node name="b_upperarm" parent="Composite" index="0"]
 texture = null
@@ -85,19 +85,19 @@ polygon = PackedVector2Array()
 uv = PackedVector2Array()
 bones = []
 
-[node name="eyebrows" parent="Composite" index="29"]
+[node name="f_upperarm" parent="Composite" index="28"]
 texture = null
 polygon = PackedVector2Array()
 uv = PackedVector2Array()
 bones = []
 
-[node name="f_upperarm" parent="Composite" index="31"]
+[node name="f_lowerarm" parent="Composite" index="29"]
 texture = null
 polygon = PackedVector2Array()
 uv = PackedVector2Array()
 bones = []
 
-[node name="f_lowerarm" parent="Composite" index="32"]
+[node name="eyebrows" parent="Composite" index="34"]
 texture = null
 polygon = PackedVector2Array()
 uv = PackedVector2Array()

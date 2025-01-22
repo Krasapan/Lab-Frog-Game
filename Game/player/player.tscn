@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://bn0sx0i60j63e"]
+[gd_scene load_steps=120 format=3 uid="uid://bn0sx0i60j63e"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_e8ijr"]
 [ext_resource type="Resource" uid="uid://ga571q85g5p6" path="res://player/stats_small_frog.tres" id="2_kcubn"]
@@ -73,8 +73,35 @@
 [ext_resource type="Texture2D" uid="uid://b4no81dvic7kb" path="res://tbg/lil_hoppy/walk/LilHopperWalk-47.png" id="45_tiwbi"]
 [ext_resource type="Texture2D" uid="uid://ctaww8bkq48kb" path="res://tbg/lil_hoppy/walk/LilHopperWalk-48.png" id="46_leklw"]
 [ext_resource type="Texture2D" uid="uid://4otmcs2svkkn" path="res://tbg/lil_hoppy/walk/LilHopperWalk-49.png" id="47_22jps"]
-[ext_resource type="AudioStream" uid="uid://b5lhu574a014n" path="res://assets/audio/player/player_grapple_hit_001.wav" id="47_l0abc"]
-[ext_resource type="AudioStream" uid="uid://befk5enj6syfl" path="res://assets/audio/player/player_grapple_launch_001.wav" id="48_ddlb0"]
+[ext_resource type="AudioStream" uid="uid://c8iwai6j5kuok" path="res://assets/audio/player/grapple_hit/player_grapple_hit_001.wav" id="47_t8s7s"]
+[ext_resource type="AudioStream" uid="uid://cy6ceaxji50q7" path="res://assets/audio/player/grapple_hit/player_grapple_hit_002.wav" id="48_s8n5k"]
+[ext_resource type="AudioStream" uid="uid://b6chm6aaf8hco" path="res://assets/audio/player/grapple_hit/player_grapple_hit_003.wav" id="49_oea4r"]
+[ext_resource type="AudioStream" uid="uid://bbj1x5mnqngoa" path="res://assets/audio/player/grapple_hit/player_grapple_hit_004.wav" id="50_wpggg"]
+[ext_resource type="AudioStream" uid="uid://gtiy632ifcw6" path="res://assets/audio/player/grapple_hit/player_grapple_hit_005.wav" id="51_lw8ov"]
+[ext_resource type="AudioStream" uid="uid://beostlxcpmn1o" path="res://assets/audio/player/grapple_hit/player_grapple_hit_006.wav" id="52_5tt5l"]
+[ext_resource type="AudioStream" uid="uid://cqe3hb6mhrls0" path="res://assets/audio/player/grapple_hit/player_grapple_hit_007.wav" id="53_plbaa"]
+[ext_resource type="AudioStream" uid="uid://dxg6whbtwryly" path="res://assets/audio/player/grapple_hit/player_grapple_hit_008.wav" id="54_i2wl3"]
+[ext_resource type="AudioStream" uid="uid://b603xuitlh0ub" path="res://assets/audio/player/grapple_launch/player_grapple_launch_001.wav" id="55_vbpit"]
+[ext_resource type="AudioStream" uid="uid://bcjg1kxcakgj6" path="res://assets/audio/player/grapple_launch/player_grapple_launch_002.wav" id="56_335u5"]
+[ext_resource type="AudioStream" uid="uid://rdlslyeb7lwe" path="res://assets/audio/player/grapple_launch/player_grapple_launch_003.wav" id="57_ie84p"]
+[ext_resource type="AudioStream" uid="uid://bc4v256blu2gj" path="res://assets/audio/player/grapple_launch/player_grapple_launch_004.wav" id="58_j7j6p"]
+[ext_resource type="AudioStream" uid="uid://blpb2enmxe85k" path="res://assets/audio/player/grapple_launch/player_grapple_launch_005.wav" id="59_571fu"]
+[ext_resource type="AudioStream" uid="uid://coye20mltlak" path="res://assets/audio/player/grapple_launch/player_grapple_launch_006.wav" id="60_swbs5"]
+[ext_resource type="AudioStream" uid="uid://boltgv2mpk00e" path="res://assets/audio/player/grapple_launch/player_grapple_launch_007.wav" id="61_8x184"]
+[ext_resource type="AudioStream" uid="uid://dn10rsdyurl61" path="res://assets/audio/player/grapple_launch/player_grapple_launch_008.wav" id="62_y6mk6"]
+[ext_resource type="PackedScene" uid="uid://cl6wac7s1bwor" path="res://player/Vfx_Explosion.tscn" id="73_nu26b"]
+[ext_resource type="AudioStream" uid="uid://kdeqptgha2at" path="res://assets/audio/player/player_mutate_start.wav" id="89_0ot8b"]
+[ext_resource type="AudioStream" uid="uid://bsjcn1lik57t7" path="res://assets/audio/player/player_mutate_process_loop.wav" id="90_sn6wv"]
+[ext_resource type="AudioStream" uid="uid://bpxyugmvxst2e" path="res://assets/audio/player/player_mutate_end.wav" id="91_ht06a"]
+[ext_resource type="AudioStream" uid="uid://dndspk4ywbtb2" path="res://assets/audio/player/player_wall_wlide_loop.wav" id="92_dcv20"]
+[ext_resource type="AudioStream" uid="uid://cnbfq23652dxv" path="res://assets/audio/player/projectile_explode/projectile_explode_001.wav" id="94_a6607"]
+[ext_resource type="AudioStream" uid="uid://e58bawtgmxgs" path="res://assets/audio/player/projectile_explode/projectile_explode_002.wav" id="95_0htm2"]
+[ext_resource type="AudioStream" uid="uid://d1yuf6nrgsjb3" path="res://assets/audio/player/projectile_explode/projectile_explode_003.wav" id="96_gjlku"]
+[ext_resource type="AudioStream" uid="uid://ddxx7x7v17csr" path="res://assets/audio/player/projectile_explode/projectile_explode_004.wav" id="97_mwa7o"]
+[ext_resource type="AudioStream" uid="uid://5tlyovi4gnu7" path="res://assets/audio/player/projectile_explode/projectile_explode_005.wav" id="98_66vgn"]
+[ext_resource type="AudioStream" uid="uid://3hcuhn60pvpn" path="res://assets/audio/player/projectile_explode/projectile_explode_006.wav" id="99_f2wwt"]
+[ext_resource type="AudioStream" uid="uid://hkkqavgpyuxr" path="res://assets/audio/player/projectile_explode/projectile_explode_007.wav" id="100_tsw72"]
+[ext_resource type="AudioStream" uid="uid://vm7la52hoatx" path="res://assets/audio/player/projectile_explode/projectile_explode_008.wav" id="101_aol3e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kymfc"]
 friction = 0.0
@@ -235,6 +262,39 @@ point_count = 2
 _data = [Vector2(0, 0.208791), 0.0, 0.0, 0, 0, Vector2(0.5, 0.703297), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5228j"]
+streams_count = 8
+stream_0/stream = ExtResource("47_t8s7s")
+stream_1/stream = ExtResource("48_s8n5k")
+stream_2/stream = ExtResource("49_oea4r")
+stream_3/stream = ExtResource("50_wpggg")
+stream_4/stream = ExtResource("51_lw8ov")
+stream_5/stream = ExtResource("52_5tt5l")
+stream_6/stream = ExtResource("53_plbaa")
+stream_7/stream = ExtResource("54_i2wl3")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g62sm"]
+streams_count = 8
+stream_0/stream = ExtResource("55_vbpit")
+stream_1/stream = ExtResource("56_335u5")
+stream_2/stream = ExtResource("57_ie84p")
+stream_3/stream = ExtResource("58_j7j6p")
+stream_4/stream = ExtResource("59_571fu")
+stream_5/stream = ExtResource("60_swbs5")
+stream_6/stream = ExtResource("61_8x184")
+stream_7/stream = ExtResource("62_y6mk6")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7nlyv"]
+streams_count = 8
+stream_0/stream = ExtResource("27_ada1s")
+stream_1/stream = ExtResource("28_ypvqo")
+stream_2/stream = ExtResource("29_bnesu")
+stream_3/stream = ExtResource("30_vxpdt")
+stream_4/stream = ExtResource("31_7enkc")
+stream_5/stream = ExtResource("32_3lj78")
+stream_6/stream = ExtResource("33_4yk1i")
+stream_7/stream = ExtResource("34_246nr")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4qape"]
 particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
@@ -291,6 +351,17 @@ stream_4/stream = ExtResource("31_7enkc")
 stream_5/stream = ExtResource("32_3lj78")
 stream_6/stream = ExtResource("33_4yk1i")
 stream_7/stream = ExtResource("34_246nr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x0g2q"]
+streams_count = 8
+stream_0/stream = ExtResource("94_a6607")
+stream_1/stream = ExtResource("95_0htm2")
+stream_2/stream = ExtResource("96_gjlku")
+stream_3/stream = ExtResource("97_mwa7o")
+stream_4/stream = ExtResource("98_66vgn")
+stream_5/stream = ExtResource("99_f2wwt")
+stream_6/stream = ExtResource("100_tsw72")
+stream_7/stream = ExtResource("101_aol3e")
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 2
@@ -376,7 +447,7 @@ target_position = Vector2(1000, 0)
 
 [node name="RopeScanLine" type="Line2D" parent="GrappleController/GrappleRay"]
 points = PackedVector2Array(0, 0, 0, 0)
-width = 20.0
+width = 30.0
 width_curve = SubResource("Curve_0fe4q")
 default_color = Color(1, 0, 0.592157, 1)
 
@@ -391,10 +462,10 @@ wait_time = 0.3
 one_shot = true
 
 [node name="GrappleHitAudio" type="AudioStreamPlayer2D" parent="GrappleController"]
-stream = ExtResource("47_l0abc")
+stream = SubResource("AudioStreamRandomizer_5228j")
 
 [node name="GrappleLaunchAudio" type="AudioStreamPlayer2D" parent="GrappleController"]
-stream = ExtResource("48_ddlb0")
+stream = SubResource("AudioStreamRandomizer_g62sm")
 
 [node name="ShootController" type="Node2D" parent="."]
 script = ExtResource("4_4ta5d")
@@ -402,6 +473,14 @@ script = ExtResource("4_4ta5d")
 [node name="AbilityCooldown" type="Timer" parent="ShootController"]
 wait_time = 0.5
 one_shot = true
+
+[node name="ShootAudioPlayer" type="AudioStreamPlayer2D" parent="ShootController"]
+stream = SubResource("AudioStreamRandomizer_7nlyv")
+
+[node name="DamageController" type="Node" parent="."]
+script = ExtResource("9_c1k7w")
+
+[node name="DeathRestartDelay" type="Timer" parent="DamageController"]
 
 [node name="Particles" type="Node2D" parent="."]
 
@@ -426,20 +505,50 @@ lifetime = 5.0
 one_shot = true
 explosiveness = 1.0
 
-[node name="DamageController" type="Node" parent="."]
-script = ExtResource("9_c1k7w")
+[node name="VfxBile" parent="Particles" instance=ExtResource("73_nu26b")]
+scale = Vector2(10, 10)
 
-[node name="DeathRestartDelay" type="Timer" parent="DamageController"]
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="JumpStreamPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = SubResource("AudioStreamRandomizer_4pt2q")
+
+[node name="LandStreamPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = SubResource("AudioStreamRandomizer_v4n8a")
+
+[node name="ShootStreamPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = SubResource("AudioStreamRandomizer_ch2or")
+
+[node name="MutateStartPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("89_0ot8b")
+
+[node name="MutateLoopPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("90_sn6wv")
+
+[node name="MutateEndPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("91_ht06a")
+
+[node name="WallslidePlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("92_dcv20")
+volume_db = -4.0
+
+[node name="DeathStreamPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = SubResource("AudioStreamRandomizer_x0g2q")
+pitch_scale = 0.8
+
+[node name="MetamorphTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [node name="DebugLabels" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 0
+offset_top = -208.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = -168.0
 
 [node name="LinearVelocity" type="Label" parent="DebugLabels"]
-visible = false
 layout_mode = 0
 offset_top = -159.0
 offset_right = 40.0
@@ -471,19 +580,6 @@ offset_bottom = -96.0
 theme_override_fonts/font = ExtResource("9_nk0xv")
 theme_override_font_sizes/font_size = 41
 
-[node name="JumpStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_4pt2q")
-
-[node name="LandStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_v4n8a")
-
-[node name="ShootStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_ch2or")
-
-[node name="MetamorphTimer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-
 [connection signal="body_entered" from="." to="DamageController" method="_on_player_body_entered"]
 [connection signal="anchor_detached" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_anchor_detector_2d_anchor_detached"]
 [connection signal="anchor_detected" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_anchor_detector_2d_anchor_detected"]
@@ -493,3 +589,4 @@ one_shot = true
 [connection signal="timeout" from="MetamorphTimer" to="." method="_on_metamorph_timer_timeout"]
 
 [editable path="Rig/HopperTransform/Hopper"]
+[editable path="Particles/VfxBile"]

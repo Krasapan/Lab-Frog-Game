@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cke3scfouyi1t"]
+[gd_scene load_steps=6 format=3 uid="uid://cke3scfouyi1t"]
 
 [ext_resource type="Texture2D" uid="uid://co73e0j0vmw30" path="res://assets/backgrounds/BackgroundDarkest.png" id="1_ee84j"]
 [ext_resource type="Theme" uid="uid://cr6vy3buybag8" path="res://assets/menu_ui_theme.tres" id="2_8l10l"]
+[ext_resource type="Script" path="res://levels/utils/level_music_starter.gd" id="3_napng"]
 
 [sub_resource type="Gradient" id="Gradient_o8xck"]
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
@@ -39,3 +40,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+
+[node name="LevelMusicStarter" type="Node" parent="."]
+script = ExtResource("3_napng")

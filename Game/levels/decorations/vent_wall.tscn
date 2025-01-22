@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://p8x7eb73qcsi"]
+
+[ext_resource type="Script" path="res://levels/decorations/vent_wall.gd" id="1_dnwdm"]
+[ext_resource type="Texture2D" uid="uid://dy6icfy3xmt8f" path="res://assets/props2/Pf_VentBackground.png" id="1_gr27c"]
+[ext_resource type="AudioStream" uid="uid://bo6y6yhqoiour" path="res://assets/audio/environment/env_vent_hum_loop_loud.wav" id="2_nww4r"]
+[ext_resource type="Texture2D" uid="uid://bplqfdtw4kfft" path="res://assets/props2/Pf_VentFan.png" id="3_3xqlq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_82c2m"]
+
+[node name="VentWall" type="Node2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_dnwdm")
+
+[node name="Back" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(194.484, 191.453)
+texture = SubResource("CanvasTexture_82c2m")
+
+[node name="FanTransform" type="Node2D" parent="."]
+position = Vector2(0, 4.20448)
+
+[node name="Fan" type="Sprite2D" parent="FanTransform"]
+position = Vector2(0, -9.235)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("3_3xqlq")
+
+[node name="Vent" type="Sprite2D" parent="."]
+texture = ExtResource("1_gr27c")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_nww4r")
+volume_db = 6.0
+autoplay = true

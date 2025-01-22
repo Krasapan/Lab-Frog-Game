@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c65n00jqqtke8"
+path="res://.godot/imported/Track 4 Drum 2.ogg-b1e2341a31e91eb8214226cddfb6c33a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Track 4 Drum 2.ogg"
+dest_files=["res://.godot/imported/Track 4 Drum 2.ogg-b1e2341a31e91eb8214226cddfb6c33a.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

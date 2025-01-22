@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://x4dvn1sxxa72"]
+
+[ext_resource type="Script" path="res://levels/utils/path_revealer.gd" id="1_mk7b2"]
+[ext_resource type="Texture2D" uid="uid://cw0npvphatpce" path="res://assets/ground/texture_ground_fill.png" id="2_i72m0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x626b"]
+size = Vector2(512, 512)
+
+[sub_resource type="Animation" id="Animation_1mjpt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_craow"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1g0rf"]
+_data = {
+"RESET": SubResource("Animation_1mjpt"),
+"fade_out": SubResource("Animation_craow")
+}
+
+[node name="PathRevealer" type="Area2D"]
+script = ExtResource("1_mk7b2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_i72m0")
+region_enabled = true
+region_rect = Rect2(0, 0, 1740, 1740)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x626b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1g0rf")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

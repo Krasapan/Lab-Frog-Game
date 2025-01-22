@@ -1,10 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3pgpp8lccbna"]
+[gd_scene load_steps=18 format=3 uid="uid://b3pgpp8lccbna"]
 
 [ext_resource type="Theme" uid="uid://cr6vy3buybag8" path="res://assets/menu_ui_theme.tres" id="1_2k6hr"]
+[ext_resource type="Script" path="res://menus/main_menu.gd" id="1_eonls"]
+[ext_resource type="Texture2D" uid="uid://uyfla40tcf1f" path="res://assets/ui/buttonsquarepress-2.png" id="2_mh24w"]
+[ext_resource type="Texture2D" uid="uid://bt5rot5nvfg3e" path="res://assets/ui/buttonsquare-1.png" id="3_eml3g"]
+[ext_resource type="AudioStream" uid="uid://hffaufob8o5g" path="res://assets/audio/ui/ui_click/ui_click_001.wav" id="5_b4e8l"]
+[ext_resource type="AudioStream" uid="uid://rg1b1o7e2n44" path="res://assets/audio/ui/ui_click/ui_click_002.wav" id="6_hv64f"]
+[ext_resource type="AudioStream" uid="uid://b82oqcro4rdem" path="res://assets/audio/ui/ui_click/ui_click_003.wav" id="7_h3klj"]
+[ext_resource type="AudioStream" uid="uid://dcb0kyqcvpblx" path="res://assets/audio/ui/ui_click/ui_click_004.wav" id="8_uerq5"]
+[ext_resource type="AudioStream" uid="uid://dx6biemijx04b" path="res://assets/audio/ui/ui_click/ui_click_005.wav" id="9_g1ye7"]
+[ext_resource type="AudioStream" uid="uid://bs23va5bt80mp" path="res://assets/audio/ui/ui_click/ui_click_006.wav" id="10_lumkk"]
+[ext_resource type="AudioStream" uid="uid://cm4t2khxai81o" path="res://assets/audio/ui/ui_click/ui_click_007.wav" id="11_gpobg"]
+[ext_resource type="AudioStream" uid="uid://dkbk385ynsk6x" path="res://assets/audio/ui/ui_click/ui_click_008.wav" id="12_28poy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_354y3"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aan4k"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_johf4"]
+texture = ExtResource("3_eml3g")
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfghx"]
+texture = ExtResource("2_mh24w")
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8tse3"]
+texture = ExtResource("3_eml3g")
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8s4yc"]
+streams_count = 8
+stream_0/stream = ExtResource("5_b4e8l")
+stream_1/stream = ExtResource("6_hv64f")
+stream_2/stream = ExtResource("7_h3klj")
+stream_3/stream = ExtResource("8_uerq5")
+stream_4/stream = ExtResource("9_g1ye7")
+stream_5/stream = ExtResource("10_lumkk")
+stream_6/stream = ExtResource("11_gpobg")
+stream_7/stream = ExtResource("12_28poy")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,6 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eonls")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1344, -640)
@@ -37,16 +79,22 @@ size_flags_vertical = 4
 [node name="StartButton" type="Button" parent="ButtonsMarginContainer/ButtonsVBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_2k6hr")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_354y3")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_aan4k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_johf4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lfghx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8tse3")
 text = "Start   "
 alignment = 0
 
 [node name="CreditsButton" type="Button" parent="ButtonsMarginContainer/ButtonsVBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_2k6hr")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_354y3")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_aan4k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_johf4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lfghx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8tse3")
 text = "Credits   "
 alignment = 0
 
@@ -54,3 +102,10 @@ alignment = 0
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="UiClick" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_8s4yc")
+
+[connection signal="pressed" from="ButtonsMarginContainer/ButtonsVBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ButtonsMarginContainer/ButtonsVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

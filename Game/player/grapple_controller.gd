@@ -16,7 +16,7 @@ var target: Vector2 = Vector2.ZERO
 var pull_speed: float = 200
 var rope_length: float = 0
 var rope_default_length: float = 0
-var rope_max_length: float = 1000
+var rope_max_length: float = 1250
 
 @export var ability_active: bool = false
 

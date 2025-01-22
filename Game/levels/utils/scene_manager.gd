@@ -7,6 +7,7 @@ class_name SceneManager
 @onready var restart_level_delay_timer = $RestartLevelDelay as Timer
 @onready var first_level_delay_timer = $FirstLevelDelay as Timer
 @onready var main_menu_delay_timer = $MainMenuDelay as Timer
+@onready var credits_level_delay_timer = $CreditsLevelDelay as Timer
 @onready var ui_parent = $UserInterface as CanvasLayer
 @onready var main_menu = $UserInterface/MainMenu as Control
 @onready var pause_menu = $UserInterface/PauseMenu as Control
@@ -25,9 +26,11 @@ var levels = [
 	preload("res://levels/level_03.tscn"),
 	preload("res://levels/level_04.tscn"),
 	preload("res://levels/level_05.tscn"),
-	#preload("res://levels/level_06.tscn"),
-	#preload("res://levels/level_07.tscn"),
-	#preload("res://levels/level_final.tscn")
+	preload("res://levels/level_06.tscn"),
+	preload("res://levels/level_07.tscn"),
+	preload("res://levels/level_final.tscn"),
+	#preload("res://levels/end_screen.tscn"),
+	preload("res://levels/level_credits.tscn")
 ]
 
 func _ready() -> void:
@@ -132,3 +135,31 @@ func _on_main_menu_button_pressed() -> void:
 func _on_main_menu_delay_timeout() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+
+
+
+func transition_to_load_credits_level() -> void:
+	pause_menu.unpause_game()
+	pause_menu.process_mode = PROCESS_MODE_DISABLED
+	_screen_fade_in()
+	credits_level_delay_timer.start()
+
+func load_credits_scene():
+	for child in active_game_scenes_parent.get_children():
+		child.queue_free()
+	var credits_level = preload("res://levels/level_credits.tscn")
+	var next_level_instance = credits_level.instantiate()
+	active_game_scenes_parent.add_child(next_level_instance)
+	await get_tree().process_frame
+	pause_menu.process_mode = PROCESS_MODE_ALWAYS
+	_screen_fade_out()
+	main_menu.queue_free()
+	pause_menu.process_mode = PROCESS_MODE_ALWAYS
+	audio_manager.main_menu_track_anim_player.play("fade_out")
+
+func _on_credits_level_delay_timeout() -> void:
+	load_credits_scene()
+
+func _on_credits_button_pressed() -> void:
+	transition_to_load_credits_level()

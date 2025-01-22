@@ -1,0 +1,255 @@
+[gd_scene load_steps=16 format=3 uid="uid://cl6wac7s1bwor"]
+
+[sub_resource type="Gradient" id="Gradient_i8avm"]
+colors = PackedColorArray(1, 1, 1, 0.568627, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0kkkf"]
+gradient = SubResource("Gradient_i8avm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t26k3"]
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+radial_velocity_min = 50.0
+radial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_0kkkf")
+
+[sub_resource type="Gradient" id="Gradient_cgvkl"]
+offsets = PackedFloat32Array(0, 0.694286)
+colors = PackedColorArray(0.368627, 0.372549, 0, 1, 0.232816, 0.207764, 0.0117954, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s7epi"]
+gradient = SubResource("Gradient_cgvkl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.846154, 0.893162)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_coj8a"]
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+radial_velocity_min = 30.0
+radial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_0kkkf")
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vxxi5"]
+gradient = SubResource("Gradient_cgvkl")
+fill = 1
+fill_from = Vector2(0.518349, 0.53211)
+fill_to = Vector2(0.87156, 0.110092)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_obky0"]
+particle_flag_damping_as_friction = true
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 70.0
+initial_velocity_max = 70.0
+radial_velocity_min = 30.0
+radial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.1
+color_ramp = SubResource("GradientTexture1D_0kkkf")
+
+[sub_resource type="Gradient" id="Gradient_4pexc"]
+offsets = PackedFloat32Array(0.383117, 0.681818, 0.876623, 1)
+colors = PackedColorArray(0.44545, 0.715218, 0.48371, 0.752941, 0.72, 0.72, 0.72, 0.501961, 0.49, 0.49, 0.49, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k86lc"]
+gradient = SubResource("Gradient_4pexc")
+fill = 1
+fill_from = Vector2(0.490826, 0.463303)
+fill_to = Vector2(0.820513, 0.132479)
+
+[sub_resource type="Gradient" id="Gradient_wyjne"]
+offsets = PackedFloat32Array(0.025974, 0.253247, 0.74026, 0.805195)
+colors = PackedColorArray(0.997941, 0.995856, 0.885299, 1, 0.990271, 0.970737, 0.559788, 1, 0.116819, 0.117863, 0.0121813, 0.558442, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qns8e"]
+gradient = SubResource("Gradient_wyjne")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.9)
+
+[sub_resource type="Animation" id="Animation_xmyv4"]
+resource_name = "ExplodeBile"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.000999998, 0.249),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.000999998, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D3:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_jasef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D3:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1r87o"]
+_data = {
+"ExplodeBile": SubResource("Animation_xmyv4"),
+"RESET": SubResource("Animation_jasef")
+}
+
+[node name="VfxBile" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_t26k3")
+texture = SubResource("GradientTexture2D_s7epi")
+lifetime = 0.61
+one_shot = true
+speed_scale = 0.88
+explosiveness = 1.0
+randomness = 1.0
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_coj8a")
+texture = SubResource("GradientTexture2D_vxxi5")
+lifetime = 0.61
+one_shot = true
+speed_scale = 0.88
+explosiveness = 0.75
+randomness = 1.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+amount = 120
+process_material = SubResource("ParticleProcessMaterial_obky0")
+texture = SubResource("GradientTexture2D_k86lc")
+lifetime = 0.61
+one_shot = true
+speed_scale = 0.88
+explosiveness = 0.75
+randomness = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_qns8e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1r87o")
+}

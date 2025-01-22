@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://sjd7bbk4wdkl"]
+[gd_scene load_steps=6 format=3 uid="uid://sjd7bbk4wdkl"]
 
 [ext_resource type="Script" path="res://player/bile_bomb.gd" id="1_1xblh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8bbk"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_e0vo7"]
+[sub_resource type="Gradient" id="Gradient_eh6kj"]
+offsets = PackedFloat32Array(0.08, 0.351429, 0.585714, 0.622857)
+colors = PackedColorArray(1, 1, 1, 0.794872, 1, 1, 1, 0.643137, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pk21p"]
+gradient = SubResource("Gradient_eh6kj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_awksf"]
 radius = 400.0
@@ -21,8 +28,9 @@ script = ExtResource("1_1xblh")
 shape = SubResource("CircleShape2D_e8bbk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(45, 45)
-texture = SubResource("CanvasTexture_e0vo7")
+modulate = Color(0.704745, 0.319619, 6.73831e-07, 1)
+scale = Vector2(-0.665463, -0.665463)
+texture = SubResource("GradientTexture2D_pk21p")
 
 [node name="ExplosionArea" type="Area2D" parent="."]
 collision_layer = 4

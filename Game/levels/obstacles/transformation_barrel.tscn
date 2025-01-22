@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxab6lqvc3slj"]
 
-[ext_resource type="Texture2D" uid="uid://61nuvymlyn7q" path="res://assets/props/Barrel.png" id="1_1mtex"]
+[ext_resource type="Texture2D" uid="uid://ca0821obxbnlg" path="res://assets/props/barrel-0.png" id="1_1mtex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3umkq"]
 size = Vector2(232.455, 310.571)

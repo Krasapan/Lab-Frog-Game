@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bud7mic2py67r"]
+[gd_scene load_steps=23 format=3 uid="uid://bud7mic2py67r"]
 
 [ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_um5l3"]
 [ext_resource type="Script" path="res://levels/scripted_sequence_level00.gd" id="1_xbrn4"]
 [ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="2_620cf"]
+[ext_resource type="Texture2D" uid="uid://cw0npvphatpce" path="res://assets/ground/texture_ground_fill.png" id="3_0fqwv"]
 [ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="3_m3xfy"]
+[ext_resource type="Texture2D" uid="uid://bdruhetj4tywd" path="res://assets/ground/texture_ground_fill_fade.png" id="3_q2gsg"]
 [ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="5_ka8f1"]
 [ext_resource type="Texture2D" uid="uid://d4lqpnop3jilb" path="res://assets/props/Pf_ControlUnit_On.png" id="7_083tm"]
 [ext_resource type="PackedScene" uid="uid://crrr0vxmhyyqy" path="res://levels/obstacles/vent.tscn" id="7_2601t"]
@@ -14,14 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://cku8sewgge4c1" path="res://assets/props/Pf_ScreenUnit_On.png" id="11_rndoj"]
 [ext_resource type="Texture2D" uid="uid://i8txkjw7j0ty" path="res://assets/props/Pf_ScreenUnit_Off.png" id="12_pqfab"]
 [ext_resource type="Texture2D" uid="uid://c7lyxo6852x15" path="res://assets/backgrounds/BackgroundLight.png" id="13_cjgw8"]
-
-[sub_resource type="Gradient" id="Gradient_bp6i7"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.262745, 0.298039, 0.309804, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1uaky"]
-gradient = SubResource("Gradient_bp6i7")
+[ext_resource type="PackedScene" uid="uid://p8x7eb73qcsi" path="res://levels/decorations/vent_wall.tscn" id="15_jsfkx"]
+[ext_resource type="Texture2D" uid="uid://dciddfyq5dj6y" path="res://assets/props2/Pf_WirePlugged.png" id="16_7exgi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyhg6"]
 size = Vector2(3584, 1792)
@@ -34,7 +30,7 @@ size = Vector2(2304, 704)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yjjv"]
 
-[node name="Level00" type="Node2D"]
+[node name="Level_00" type="Node2D"]
 
 [node name="ScriptedSequence" type="Node" parent="."]
 script = ExtResource("1_xbrn4")
@@ -58,6 +54,7 @@ polygon = PackedVector2Array(0, 0, 0, -1280, 256, -1280, 256, -1536, 512, -1536,
 
 [node name="Lineart" parent="LevelGround" index="2"]
 points = PackedVector2Array(0, 0, 0, -1280, 256, -1280, 256, -1536, 512, -1536, 512, -1280, 2688, -1280, 2688, -512, 4096, -512, 4096, 0, 4352, 0, 4352, -800, 4352, -2304, -1280, -2304, -1280, 1024, 4352, 1024, 4352, 0, 0, 0)
+texture_mode = 1
 
 [node name="EntryDoorGradient" parent="LevelGround" index="3"]
 visible = false
@@ -66,18 +63,23 @@ visible = false
 visible = false
 
 [node name="ExitDoorGradient" parent="LevelGround" index="5"]
-position = Vector2(2896, -256)
-scale = Vector2(6.5, 13)
+position = Vector2(2880, -192)
 
-[node name="ExitDoorOver" parent="LevelGround" index="6"]
-position = Vector2(3688, -256)
-scale = Vector2(18.25, 13)
+[node name="ExitDoorGradient2" type="Sprite2D" parent="LevelGround"]
+z_index = 1
+position = Vector2(2880, -480)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("3_q2gsg")
+
+[node name="ExitDoorOver" parent="LevelGround" index="7"]
+position = Vector2(3744, -256)
 
 [node name="RoofOver" type="Sprite2D" parent="LevelGround"]
 z_index = 1
-position = Vector2(384, -1412)
-scale = Vector2(4.09448, 4.04661)
-texture = SubResource("GradientTexture2D_1uaky")
+texture_repeat = 2
+position = Vector2(384, -1426.98)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0fqwv")
 
 [node name="Anchor2D" parent="." instance=ExtResource("3_m3xfy")]
 position = Vector2(1344, -640)
@@ -111,21 +113,12 @@ position = Vector2(1344, -640)
 [node name="AnchorCamera2D" parent="Player" index="0"]
 zoom = Vector2(0.6, 0.6)
 
-[node name="RopeScanLine" parent="Player/GrappleController/GrappleRay" index="0"]
-default_color = Color(1, 0, 0.592157, 1)
-
-[node name="Rope" parent="Player/GrappleController" index="1"]
-default_color = Color(1, 0, 0.592157, 1)
-
-[node name="AcidBoil" parent="Player/Particles" index="0"]
-modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
-
-[node name="AcidExplosion" parent="Player/Particles" index="1"]
-modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
-
 [node name="Vent" parent="." instance=ExtResource("7_2601t")]
 position = Vector2(384, -1287.5)
 freeze = true
+
+[node name="Front" parent="Vent" index="2"]
+scale = Vector2(0.643835, 1.14023)
 
 [node name="VentObstacle" type="StaticBody2D" parent="."]
 position = Vector2(257, -1258)
@@ -143,28 +136,42 @@ scale = Vector2(2.34004, 2.34004)
 texture = ExtResource("13_cjgw8")
 
 [node name="ControlUnit_On" type="Sprite2D" parent="Decorations"]
-position = Vector2(2336, -77)
+position = Vector2(1952, -64)
 texture = ExtResource("7_083tm")
 
 [node name="ControlUnit_Off" type="Sprite2D" parent="Decorations"]
-position = Vector2(1176, -77)
+position = Vector2(736, -64)
 texture = ExtResource("8_m3m8j")
 
 [node name="ElecUnit_On" type="Sprite2D" parent="Decorations"]
-position = Vector2(128, -320)
+position = Vector2(1280, -352)
 texture = ExtResource("9_fwucw")
 
 [node name="ElecUnit_Off" type="Sprite2D" parent="Decorations"]
-position = Vector2(1854, -305)
+position = Vector2(1568, -352)
 texture = ExtResource("10_pjq3j")
 
 [node name="ScreenUnit_On" type="Sprite2D" parent="Decorations"]
-position = Vector2(2336, -345)
+position = Vector2(1952, -345)
 texture = ExtResource("11_rndoj")
 
 [node name="ScreenUnit_Off" type="Sprite2D" parent="Decorations"]
-position = Vector2(1172, -341)
+position = Vector2(736, -352)
 texture = ExtResource("12_pqfab")
+
+[node name="VentWall" parent="Decorations" instance=ExtResource("15_jsfkx")]
+position = Vector2(2008.09, -986.661)
+
+[node name="AudioStreamPlayer2D" parent="Decorations/VentWall" index="3"]
+autoplay = false
+
+[node name="VentWall2" parent="Decorations" instance=ExtResource("15_jsfkx")]
+position = Vector2(1811.32, -986.661)
+
+[node name="PfWirePlugged" type="Sprite2D" parent="Decorations"]
+position = Vector2(2438.83, -946.516)
+rotation = -2.12107
+texture = ExtResource("16_7exgi")
 
 [connection signal="timeout" from="ScriptedSequence/StartDelayTimer" to="ScriptedSequence" method="_on_start_delay_timer_timeout"]
 
@@ -174,4 +181,6 @@ texture = ExtResource("12_pqfab")
 [editable path="GuidePop-Up"]
 [editable path="Player"]
 [editable path="Player/Rig/HopperTransform/Hopper"]
+[editable path="Player/Particles/VfxBile"]
 [editable path="Vent"]
+[editable path="Decorations/VentWall"]

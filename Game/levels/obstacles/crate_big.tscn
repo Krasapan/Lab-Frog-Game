@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dkkmxmoef07kh" path="res://assets/props/CrateBig.png" id="1_i1esk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyo1f"]
-size = Vector2(366, 356)
+size = Vector2(364, 354)
 
 [node name="CrateBig" type="RigidBody2D"]
 mass = 30.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://eybqxp4ue6xq"]
+[gd_scene load_steps=56 format=3 uid="uid://eybqxp4ue6xq"]
 
 [ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_bqj32"]
 [ext_resource type="Script" path="res://levels/level_final.gd" id="1_tjlvf"]
 [ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="2_wqeci"]
 [ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="3_eio2y"]
+[ext_resource type="Texture2D" uid="uid://bdruhetj4tywd" path="res://assets/ground/texture_ground_fill_fade.png" id="3_iyxla"]
 [ext_resource type="Texture2D" uid="uid://digi1t3ba45fe" path="res://assets/props/CageDoor.png" id="4_475gc"]
 [ext_resource type="Texture2D" uid="uid://b8x03k53b4v5p" path="res://assets/props/Cage.png" id="5_36yer"]
 [ext_resource type="Texture2D" uid="uid://c7lyxo6852x15" path="res://assets/backgrounds/BackgroundLight.png" id="6_dsf4y"]
@@ -38,10 +39,19 @@
 [ext_resource type="Texture2D" uid="uid://b5mfnr1bkro13" path="res://tbg/small_frog/idle/SmallFrogIdle-28.png" id="36_sx5j0"]
 [ext_resource type="Texture2D" uid="uid://dp67t8ak6l02u" path="res://tbg/small_frog/idle/SmallFrogIdle-29.png" id="37_ak4te"]
 [ext_resource type="Texture2D" uid="uid://deurjv1f6nr0b" path="res://tbg/small_frog/idle/SmallFrogIdle-30.png" id="38_jsam2"]
+[ext_resource type="AudioStream" uid="uid://df2dv2saa8jn1" path="res://assets/audio/mob_frog/frog_croak/mob_frog_croak_001.wav" id="38_ql7qs"]
 [ext_resource type="PackedScene" uid="uid://vqoom2xgq3fh" path="res://levels/utils/guide_pop_up.tscn" id="39_e8etk"]
+[ext_resource type="AudioStream" uid="uid://cp86on62x8qs" path="res://assets/audio/mob_frog/frog_croak/mob_frog_croak_002.wav" id="39_ehjdm"]
+[ext_resource type="AudioStream" uid="uid://rrfcr75wgjbe" path="res://assets/audio/mob_frog/frog_croak/mob_frog_croak_003.wav" id="40_0jqty"]
+[ext_resource type="AudioStream" uid="uid://d33nj1604paok" path="res://assets/audio/mob_frog/frog_croak/mob_frog_croak_004.wav" id="41_ey4jt"]
+[ext_resource type="Script" path="res://levels/utils/level_music_starter.gd" id="41_srclj"]
+[ext_resource type="AudioStream" uid="uid://cu163x1n03us5" path="res://assets/audio/mob_frog/frog_croak/mob_frog_croak_005.wav" id="42_8df17"]
+[ext_resource type="AudioStream" uid="uid://c6ogip7r8cnuo" path="res://assets/audio/mob_frog/frog_croak/mob_frog_croak_006.wav" id="43_117ul"]
+[ext_resource type="AudioStream" uid="uid://pi4gdesoy7k7" path="res://assets/audio/mob_frog/frog_croak/mob_frog_croak_007.wav" id="44_wtnu5"]
+[ext_resource type="AudioStream" uid="uid://dgeg5y7xxhihf" path="res://assets/audio/mob_frog/frog_croak/mob_frog_croak_008.wav" id="45_1swmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgj4m"]
-size = Vector2(1677.34, 512)
+size = Vector2(1440, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch7xk"]
 size = Vector2(3200, 1280)
@@ -147,11 +157,26 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j0f5r"]
+streams_count = 8
+stream_0/stream = ExtResource("38_ql7qs")
+stream_1/stream = ExtResource("39_ehjdm")
+stream_2/stream = ExtResource("40_0jqty")
+stream_3/stream = ExtResource("41_ey4jt")
+stream_4/stream = ExtResource("42_8df17")
+stream_5/stream = ExtResource("43_117ul")
+stream_6/stream = ExtResource("44_wtnu5")
+stream_7/stream = ExtResource("45_1swmp")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_frsvi"]
 size = Vector2(1980.63, 1272.69)
 
 [node name="level_final" type="Node2D"]
 script = ExtResource("1_tjlvf")
+
+[node name="LevelMusicStarter" type="Node" parent="."]
+script = ExtResource("41_srclj")
+level_track_index = 1
 
 [node name="LevelGround" parent="." instance=ExtResource("1_bqj32")]
 
@@ -159,26 +184,34 @@ script = ExtResource("1_tjlvf")
 visible = false
 
 [node name="GroundPolygon" parent="LevelGround" index="1"]
-polygon = PackedVector2Array(-2048, 0, -2048, -512, 0, -512, 0, -1280, 2560, -1280, 2560, -512, 6400, -512, 6400, -3072, -2560, -3072, -2560, 1792, 6400, 1792, 6400, 0, 6400, -512, 3840, -512, 3520, -512, 3520, 0, 2560, 0)
+polygon = PackedVector2Array(-1536, -32, -1536, -512, 0, -512, 0, -1280, 2560, -1280, 2560, -512, 6400, -512, 6400, -3072, -2560, -3072, -2560, 1792, 6400, 1792, 6400, 0, 6400, -512, 3840, -512, 3520, -512, 3520, 0, 2560, 0)
 
 [node name="Lineart" parent="LevelGround" index="2"]
-points = PackedVector2Array(-2048, 0, -2048, -512, 0, -512, 0, -1280, 2560, -1280, 2560, -512, 6400, -512, 6400, -3072, -2560, -3072, -2560, 1792, 6400, 1792, 6400, 0, 6400, -512, 3840, -512, 3520, -512, 3520, 0, 2560, 0, -2048, 0)
+points = PackedVector2Array(-1536, -32, -1536, -512, 0, -512, 0, -1280, 2560, -1280, 2560, -512, 6400, -512, 6400, -3072, -2560, -3072, -2560, 1792, 6400, 1792, 6400, 0, 6400, -512, 3840, -512, 3520, -512, 3520, 0, 2560, 0, -1536, -32)
 
 [node name="EntryDoorGradient" parent="LevelGround" index="3"]
-position = Vector2(-192, -256)
-scale = Vector2(6, 9)
+position = Vector2(-192, -128)
 
 [node name="EntryDoorOver" parent="LevelGround" index="4"]
-position = Vector2(-1232, -256)
-scale = Vector2(26.5, 9)
+position = Vector2(-1056, -256)
 
 [node name="ExitDoorGradient" parent="LevelGround" index="5"]
-position = Vector2(2752, -256)
-scale = Vector2(6, 9)
+position = Vector2(2720, -96)
 
 [node name="ExitDoorOver" parent="LevelGround" index="6"]
-position = Vector2(4400, -256)
-scale = Vector2(45.5, 9)
+position = Vector2(3584, -256)
+
+[node name="EntryDoorGradient2" type="Sprite2D" parent="LevelGround"]
+z_index = 1
+position = Vector2(-192, -416)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_iyxla")
+
+[node name="ExitDoorGradient2" type="Sprite2D" parent="LevelGround"]
+z_index = 1
+position = Vector2(2720, -384)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("3_iyxla")
 
 [node name="LevelGround2" parent="." instance=ExtResource("1_bqj32")]
 position = Vector2(1376, -128)
@@ -208,36 +241,22 @@ visible = false
 position = Vector2(-872.593, -192)
 wallslide_ability_active = true
 start_as_big_frog = true
-
-[node name="Rig" parent="Player" index="3"]
-modulate = Color(1, 0, 0.392157, 1)
+current_ability = "ability3"
 
 [node name="GrappleController" parent="Player" index="5"]
 ability_active = true
 
-[node name="RopeScanLine" parent="Player/GrappleController/GrappleRay" index="0"]
-default_color = Color(1, 0, 0.592157, 1)
-
-[node name="Rope" parent="Player/GrappleController" index="1"]
-default_color = Color(1, 0, 0.592157, 1)
-
 [node name="ShootController" parent="Player" index="6"]
 ability_active = true
 
-[node name="AcidBoil" parent="Player/Particles" index="0"]
-modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
-
-[node name="AcidExplosion" parent="Player/Particles" index="1"]
-modulate = Color(0.296542, 0.934444, 1.15514e-06, 1)
-
 [node name="Anchor2D" parent="." instance=ExtResource("3_eio2y")]
 z_index = 1
-position = Vector2(-1024, -256)
+position = Vector2(-512, -256)
 entered_zoom = 0.7
 exited_zoom = 0.5
 
 [node name="CollisionShape2D" parent="Anchor2D" index="0"]
-position = Vector2(83.4642, 0)
+position = Vector2(-272, 0)
 shape = SubResource("RectangleShape2D_wgj4m")
 
 [node name="Anchor2D2" parent="." instance=ExtResource("3_eio2y")]
@@ -277,6 +296,9 @@ scale = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_lstta")
 animation = &"idle"
 
+[node name="MobFrogCroak001" type="AudioStreamPlayer" parent="Decorations/SmallFrog_01"]
+stream = SubResource("AudioStreamRandomizer_j0f5r")
+
 [node name="Cage" type="StaticBody2D" parent="Decorations"]
 position = Vector2(1376, -308.703)
 scale = Vector2(0.229645, 0.229645)
@@ -301,13 +323,11 @@ position = Vector2(689.153, 252.195)
 shape = SubResource("RectangleShape2D_frsvi")
 
 [node name="Label" parent="GuidePop-Up/CenterContainer" index="0"]
-text = "Thanks you for saving me!
-However, they took our sisters
-and brothers from this cage into
-a different wing of the lab for...
-Experiments...
-I don't know how much time is
-left... You gotta hurry!"
+text = "H-Hopper? Is that you? Oh thank you for saving me!
+But quick, the rest of the family was taken further
+into the facility. You have to save them too!
+Who knows what horrible experiments the humans
+are using them for..."
 
 [connection signal="body_entered" from="OpenCageArea" to="." method="_on_open_cage_area_body_entered"]
 
@@ -315,6 +335,7 @@ left... You gotta hurry!"
 [editable path="LevelGround2"]
 [editable path="Player"]
 [editable path="Player/Rig/HopperTransform/Hopper"]
+[editable path="Player/Particles/VfxBile"]
 [editable path="Anchor2D"]
 [editable path="Anchor2D2"]
 [editable path="TriggerArea"]

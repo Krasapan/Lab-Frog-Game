@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bjymc27e4l5gm"
+path="res://.godot/imported/Track 1 Main menu track loop x 2.ogg-dbdc86b7f7fee80fe80182092ef2c509.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Track 1 Main menu track loop x 2.ogg"
+dest_files=["res://.godot/imported/Track 1 Main menu track loop x 2.ogg-dbdc86b7f7fee80fe80182092ef2c509.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

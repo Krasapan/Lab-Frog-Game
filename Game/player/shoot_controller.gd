@@ -6,6 +6,7 @@ extends Node2D
 var shoot_strength : float = min_shoot_strength
 
 @onready var ability_cooldown := $AbilityCooldown as Timer
+@onready var shoot_audio_player := $ShootAudioPlayer as AudioStreamPlayer2D
 
 var bile_bomb := preload("res://player/bile_bomb.tscn")
 var velocity: Vector2 = Vector2.ZERO
@@ -31,6 +32,7 @@ func _physics_process(delta: float) -> void:
 			_launch_projectile(velocity, global_position)
 			shoot_strength = min_shoot_strength
 			velocity = Vector2.ZERO
+			shoot_audio_player.play()
 		
 
 func _launch_projectile(impulse_vector: Vector2, impulse_position: Vector2):

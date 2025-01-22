@@ -1,0 +1,372 @@
+[gd_scene load_steps=25 format=3 uid="uid://c227nq575fhic"]
+
+[ext_resource type="PackedScene" uid="uid://c76wih3clv6t6" path="res://levels/utils/level_ground.tscn" id="1_7fma4"]
+[ext_resource type="PackedScene" uid="uid://hc1rhymjd066" path="res://levels/obstacles/spike_big.tscn" id="1_gg7le"]
+[ext_resource type="Script" path="res://levels/utils/level_music_starter.gd" id="1_puvfg"]
+[ext_resource type="Texture2D" uid="uid://bdruhetj4tywd" path="res://assets/ground/texture_ground_fill_fade.png" id="2_5lykq"]
+[ext_resource type="PackedScene" uid="uid://cr04cekxsr2ng" path="res://levels/obstacles/crate_big.tscn" id="2_jxxja"]
+[ext_resource type="PackedScene" uid="uid://d4evq12ar6c86" path="res://levels/obstacles/crate_small.tscn" id="3_d8lrg"]
+[ext_resource type="PackedScene" uid="uid://bn0sx0i60j63e" path="res://player/player.tscn" id="4_w6u6e"]
+[ext_resource type="PackedScene" uid="uid://bms21soqnvks" path="res://levels/utils/anchor_2d.tscn" id="5_lwpm1"]
+[ext_resource type="Texture2D" uid="uid://co73e0j0vmw30" path="res://assets/backgrounds/BackgroundDarkest.png" id="6_0a53b"]
+[ext_resource type="PackedScene" uid="uid://crrr0vxmhyyqy" path="res://levels/obstacles/vent.tscn" id="6_uyi85"]
+[ext_resource type="PackedScene" uid="uid://x4dvn1sxxa72" path="res://levels/utils/path_revealer.tscn" id="7_h5ff8"]
+[ext_resource type="PackedScene" uid="uid://br5mu8e8vyusi" path="res://levels/obstacles/platform_long.tscn" id="8_tngcn"]
+[ext_resource type="PackedScene" uid="uid://bjkqs0g35ilhq" path="res://levels/obstacles/platform_medium.tscn" id="9_11yjt"]
+[ext_resource type="PackedScene" uid="uid://dsoo2tut734et" path="res://levels/obstacles/platform_small.tscn" id="10_mitjg"]
+[ext_resource type="Texture2D" uid="uid://bly50ywmvrc2f" path="res://assets/backgrounds/BackgroundDarker.png" id="13_0wrh7"]
+[ext_resource type="PackedScene" uid="uid://p8x7eb73qcsi" path="res://levels/decorations/vent_wall.tscn" id="14_560hp"]
+[ext_resource type="Texture2D" uid="uid://bqnrhdf22mclc" path="res://assets/props2/Pf_PipeTank.png" id="15_d2m1n"]
+[ext_resource type="Texture2D" uid="uid://3yjkmq3cxtu1" path="res://assets/props2/Pf_ChemTank.png" id="16_2t53o"]
+[ext_resource type="Texture2D" uid="uid://bx3btcggsfj56" path="res://assets/props/Pf_ControlUnit_Off.png" id="17_wcoyd"]
+[ext_resource type="Texture2D" uid="uid://i8txkjw7j0ty" path="res://assets/props/Pf_ScreenUnit_Off.png" id="18_n2n7u"]
+[ext_resource type="PackedScene" uid="uid://bwccpor1dg3r8" path="res://levels/utils/trigger_area.tscn" id="19_07d43"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50ho6"]
+size = Vector2(4672, 2048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hkby"]
+size = Vector2(2560, 1024)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fen17"]
+size = Vector2(718, 288)
+
+[node name="level_07" type="Node2D"]
+
+[node name="LevelMusicStarter" type="Node" parent="."]
+script = ExtResource("1_puvfg")
+level_track_index = 5
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="SpikeBig" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(6016, 0)
+
+[node name="SpikeBig2" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(6272, 0)
+
+[node name="SpikeBig3" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(6528, 0)
+
+[node name="SpikeBig4" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(6784, 0)
+
+[node name="SpikeBig5" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(7040, 0)
+
+[node name="SpikeBig6" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(7296, 0)
+
+[node name="SpikeBig7" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(7552, 0)
+
+[node name="SpikeBig8" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(7808, 0)
+
+[node name="SpikeBig9" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(8064, 0)
+
+[node name="SpikeBig10" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(8320, 0)
+
+[node name="SpikeBig11" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(14080, 96.0002)
+rotation = -0.261799
+
+[node name="SpikeBig12" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(13952, 160)
+rotation = -0.261799
+
+[node name="SpikeBig13" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(13824, 224)
+rotation = -0.261799
+
+[node name="SpikeBig14" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(13696, 288)
+rotation = -0.261799
+
+[node name="SpikeBig15" parent="Spikes" instance=ExtResource("1_gg7le")]
+position = Vector2(14176, 32.0002)
+rotation = -0.261799
+
+[node name="LevelGround" parent="." instance=ExtResource("1_7fma4")]
+
+[node name="GroundPolygon" parent="LevelGround" index="1"]
+polygon = PackedVector2Array(-512, 0, 3072, 0, 3072, -256, 4224, -256, 4224, 0, 5632, 0, 5632, -1024, 5888, -1024, 6656, -768, 5888, -768, 5888, 0, 8448, 0, 8448, -512, 8960, -512, 9216, -1280, 9984, -1280, 12032, -640, 12032, -1024, 12288, -1024, 13024, -768, 12288, -768, 12288, -544, 14080, 0, 14080, -1536, 16128, -1536, 16128, -768, 17408, -768, 18688, -768, 18688, 2080, -2560, 2080, -2560, -4352, 18688, -4352, 18688, -1280, 18688, -864, 18432, -864, 18429.3, -1280, 17408, -1280, 17408, -1792, 14080, -1792, 14080, -2816, 9728, -2816, 8960, -2048, 8800, -2048, 8800, -1536, 8704, -1536, 8704, -2048, 4224, -2048, 4224, -1792, 3072, -1792, 3072, -2048, 0, -2048, 0, -512, -512, -512)
+
+[node name="Lineart" parent="LevelGround" index="2"]
+points = PackedVector2Array(-512, 0, 3072, 0, 3072, -256, 4224, -256, 4224, 0, 5632, 0, 5632, -1024, 5888, -1024, 6656, -768, 5888, -768, 5888, 0, 8448, 0, 8448, -512, 8960, -512, 9216, -1280, 9984, -1280, 12032, -640, 12032, -1024, 12288, -1024, 13024, -768, 12288, -768, 12288, -544, 14080, 0, 14080, -1536, 16128, -1536, 16128, -768, 17408, -768, 18688, -768, 18688, 2080, -2560, 2080, -2560, -4352, 18688, -4352, 18688, -1280, 18688, -864, 18432, -864, 18429.3, -1280, 17408, -1280, 17408, -1792, 14080, -1792, 14080, -2816, 9728, -2816, 8960, -2048, 8800, -2048, 8800, -1536, 8704, -1536, 8704, -2048, 4224, -2048, 4224, -1792, 3072, -1792, 3072, -2048, 0, -2048, 0, -512, -512, -512, -512, 0)
+
+[node name="EntryDoorGradient" parent="LevelGround" index="3"]
+position = Vector2(-160, -128)
+
+[node name="EntryDoorOver" parent="LevelGround" index="4"]
+position = Vector2(-1024, -224)
+
+[node name="ExitDoorGradient" parent="LevelGround" index="5"]
+position = Vector2(17568, -1152)
+
+[node name="ExitDoorOver" parent="LevelGround" index="6"]
+position = Vector2(18432, -1024)
+
+[node name="EntryDoorGradient2" type="Sprite2D" parent="LevelGround"]
+z_index = 1
+position = Vector2(-160, -384)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5lykq")
+
+[node name="ExitDoorGradient2" type="Sprite2D" parent="LevelGround"]
+z_index = 1
+position = Vector2(17568, -864)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("2_5lykq")
+
+[node name="Player" parent="." instance=ExtResource("4_w6u6e")]
+position = Vector2(-320, -160)
+wallslide_ability_active = true
+start_as_big_frog = true
+current_ability = "ability3"
+
+[node name="AnchorCamera2D" parent="Player" index="0"]
+zoom = Vector2(0.3, 0.3)
+
+[node name="GrappleController" parent="Player" index="5"]
+ability_active = true
+
+[node name="ShootController" parent="Player" index="6"]
+ability_active = true
+
+[node name="Anchor2D" parent="." instance=ExtResource("5_lwpm1")]
+position = Vector2(2368, -1024)
+entered_zoom = 0.4
+exited_zoom = 0.4
+entered_max_speed = 6000.0
+exited_max_speed = 6000.0
+
+[node name="CollisionShape2D" parent="Anchor2D" index="0"]
+position = Vector2(-512, 0)
+shape = SubResource("RectangleShape2D_50ho6")
+
+[node name="Anchor2D2" parent="." instance=ExtResource("5_lwpm1")]
+position = Vector2(16320, -1280)
+exited_zoom = 0.5
+entered_max_speed = 6000.0
+exited_max_speed = 6000.0
+
+[node name="CollisionShape2D" parent="Anchor2D2" index="0"]
+position = Vector2(320, 0)
+shape = SubResource("RectangleShape2D_2hkby")
+
+[node name="PathRevealer" parent="." instance=ExtResource("7_h5ff8")]
+position = Vector2(14533, -1659)
+
+[node name="Sprite2D" parent="PathRevealer" index="0"]
+position = Vector2(2028, 411)
+scale = Vector2(0.66, 0.66)
+region_rect = Rect2(0, 0, 7464.6, 1740)
+
+[node name="CollisionShape2D" parent="PathRevealer" index="1"]
+position = Vector2(-103, 0)
+shape = SubResource("RectangleShape2D_fen17")
+
+[node name="TriggerArea" parent="." instance=ExtResource("19_07d43")]
+position = Vector2(17984, -1024)
+trigger_function = 1
+
+[node name="Vent" parent="." instance=ExtResource("6_uyi85")]
+position = Vector2(14088, -1664)
+rotation = 1.57079
+sleeping = true
+
+[node name="Vent2" parent="." instance=ExtResource("6_uyi85")]
+position = Vector2(16118, -1664)
+rotation = -1.57081
+sleeping = true
+
+[node name="Crates" type="Node2D" parent="."]
+
+[node name="CrateBig" parent="Crates" instance=ExtResource("2_jxxja")]
+position = Vector2(3456, -448)
+
+[node name="CrateBig3" parent="Crates" instance=ExtResource("2_jxxja")]
+position = Vector2(3456, -832)
+
+[node name="CrateBig4" parent="Crates" instance=ExtResource("2_jxxja")]
+position = Vector2(3456, -1216)
+
+[node name="CrateBig5" parent="Crates" instance=ExtResource("2_jxxja")]
+position = Vector2(3456, -1600)
+
+[node name="CrateBig2" parent="Crates" instance=ExtResource("2_jxxja")]
+position = Vector2(3840, -448)
+
+[node name="CrateBig6" parent="Crates" instance=ExtResource("2_jxxja")]
+position = Vector2(3840, -832)
+
+[node name="CrateBig7" parent="Crates" instance=ExtResource("2_jxxja")]
+position = Vector2(3840, -1216)
+
+[node name="CrateBig8" parent="Crates" instance=ExtResource("2_jxxja")]
+position = Vector2(3840, -1600)
+
+[node name="CrateSmall" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(3168, -352)
+
+[node name="CrateSmall3" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(3168, -544)
+
+[node name="CrateSmall4" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(3168, -736)
+
+[node name="CrateSmall5" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(3168, -928)
+
+[node name="CrateSmall6" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(3168, -1120)
+
+[node name="CrateSmall7" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(3168, -1312)
+
+[node name="CrateSmall8" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(3168, -1504)
+
+[node name="CrateSmall9" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(3168, -1696)
+
+[node name="CrateSmall2" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(4128, -352)
+
+[node name="CrateSmall10" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(4128, -544)
+
+[node name="CrateSmall11" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(4128, -736)
+
+[node name="CrateSmall12" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(4128, -928)
+
+[node name="CrateSmall13" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(4128, -1120)
+
+[node name="CrateSmall14" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(4128, -1312)
+
+[node name="CrateSmall15" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(4128, -1504)
+
+[node name="CrateSmall16" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(4128, -1696)
+
+[node name="CrateSmall17" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(12160, -2272)
+
+[node name="CrateSmall18" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(12160, -2464)
+
+[node name="CrateSmall19" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(12160, -2656)
+
+[node name="CrateSmall20" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(13408, -2240)
+
+[node name="CrateSmall21" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(13408, -2432)
+
+[node name="CrateSmall22" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(13408, -2624)
+
+[node name="CrateSmall23" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(11104, -2240)
+
+[node name="CrateSmall24" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(10912, -2240)
+
+[node name="CrateSmall25" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(11008, -2432)
+
+[node name="CrateSmall26" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(11104, -1696)
+
+[node name="CrateSmall27" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(10912, -1696)
+
+[node name="CrateSmall28" parent="Crates" instance=ExtResource("3_d8lrg")]
+position = Vector2(11008, -1888)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="PlatformLong" parent="Platforms" instance=ExtResource("8_tngcn")]
+position = Vector2(8160, -736)
+
+[node name="PlatformLong2" parent="Platforms" instance=ExtResource("8_tngcn")]
+position = Vector2(11008, -1568)
+
+[node name="PlatformLong3" parent="Platforms" instance=ExtResource("8_tngcn")]
+position = Vector2(11008, -2112)
+
+[node name="PlatformMedium" parent="Platforms" instance=ExtResource("9_11yjt")]
+position = Vector2(7552, -1504)
+
+[node name="PlatformSmall" parent="Platforms" instance=ExtResource("10_mitjg")]
+position = Vector2(5760, -1504)
+
+[node name="PlatformSmall2" parent="Platforms" instance=ExtResource("10_mitjg")]
+position = Vector2(12160, -2112)
+
+[node name="PlatformSmall3" parent="Platforms" instance=ExtResource("10_mitjg")]
+position = Vector2(13408, -2112)
+
+[node name="Decorations" type="Node2D" parent="."]
+z_index = -1
+
+[node name="BackgroundDarkest2" type="Sprite2D" parent="Decorations"]
+modulate = Color(0.489622, 0.489622, 0.489622, 1)
+texture_repeat = 2
+position = Vector2(6315.06, -2100.03)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_0a53b")
+region_enabled = true
+region_rect = Rect2(0, 0, 18690, 7935)
+metadata/_edit_lock_ = true
+
+[node name="BackgroundDarker" type="Sprite2D" parent="Decorations"]
+position = Vector2(18011.3, -1286.81)
+scale = Vector2(2.01091, 2.01091)
+texture = ExtResource("13_0wrh7")
+
+[node name="VentWall" parent="Decorations" instance=ExtResource("14_560hp")]
+position = Vector2(17316, -1702)
+
+[node name="VentWall2" parent="Decorations" instance=ExtResource("14_560hp")]
+position = Vector2(17316, -1530)
+
+[node name="VentWall3" parent="Decorations" instance=ExtResource("14_560hp")]
+position = Vector2(17141, -1702)
+
+[node name="VentWall4" parent="Decorations" instance=ExtResource("14_560hp")]
+position = Vector2(17141, -1530)
+
+[node name="PfPipeTank" type="Sprite2D" parent="Decorations"]
+position = Vector2(16911, -1743)
+texture = ExtResource("15_d2m1n")
+
+[node name="PfChemTank" type="Sprite2D" parent="Decorations"]
+position = Vector2(16265, -948)
+scale = Vector2(1.74694, 1.74694)
+texture = ExtResource("16_2t53o")
+
+[node name="PfControlUnitOff" type="Sprite2D" parent="Decorations"]
+position = Vector2(16666, -849)
+texture = ExtResource("17_wcoyd")
+
+[node name="PfScreenUnitOff" type="Sprite2D" parent="Decorations"]
+position = Vector2(16664, -1114)
+texture = ExtResource("18_n2n7u")
+
+[editable path="LevelGround"]
+[editable path="Player"]
+[editable path="Player/Rig/HopperTransform/Hopper"]
+[editable path="Player/Particles/VfxBile"]
+[editable path="Anchor2D"]
+[editable path="Anchor2D2"]
+[editable path="PathRevealer"]

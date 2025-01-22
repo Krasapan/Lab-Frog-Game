@@ -13,7 +13,8 @@ enum functions {
 	MUTATE_BIG_FROG,
 	MUTATE_ABILITY1,
 	MUTATE_ABILITY2,
-	MUTATE_ABILITY3
+	MUTATE_ABILITY3,
+	RESTART_GAME
 }
 
 func _ready() -> void:
@@ -49,3 +50,5 @@ func _on_body_entered(body: Node2D) -> void:
 			7:
 				body.metamorph_start(3)
 				queue_free()
+			8:
+				scene_manager._on_main_menu_button_pressed()
